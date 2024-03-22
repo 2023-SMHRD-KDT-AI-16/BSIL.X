@@ -38,7 +38,6 @@
 
 	
 	<%
-
 	if (info == null) {
 	%>
 	<a href="<%=apiURL%>"><img height="50"
@@ -50,8 +49,17 @@
 	
 	<%}%>
 	<a href="UpdateMember.jsp">개인정보수정</a>
-	<a href="<%=apiURL%>"><img height="50"
+	
+	<a href="LogoutService"><img height="50"
 		src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
+		
+	<span>  <%=info.getUser_id() %></span>
+	<span>  <%=info.getUser_name() %></span>
+	<span>  <%=info.getUser_email() %></span>
+	<span>  <%=info.getUser_nick() %></span>
+	<span>  <%=info.getUser_phone() %></span>
+	
+	
 	<%}%>
 
 
