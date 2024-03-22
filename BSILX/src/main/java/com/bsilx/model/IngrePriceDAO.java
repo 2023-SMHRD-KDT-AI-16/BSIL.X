@@ -14,12 +14,12 @@ public class IngrePriceDAO {
 
 	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-	public List<IngrePriceDTO> allPrice(){
+	public List<IngrePriceDTO> allPrice(String ingre_name){
 		
 		List<IngrePriceDTO> priceList = null;
 		
 		try {
-			priceList = sqlSession.selectList("SelectPrice");
+			priceList = sqlSession.selectList("SelectPrice", ingre_name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
