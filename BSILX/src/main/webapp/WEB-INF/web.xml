@@ -30,6 +30,12 @@
   	<description></description>
   	<servlet-class>com.bsilx.controller.logoutService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>IngreOnedayPriceChart</servlet-name>
+  	<display-name>IngreOnedayPriceChart</display-name>
+  	<description></description>
+  	<servlet-class>com.bsilx.controller.IngreOnedayPriceChart</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>IngrePriceChart</servlet-name>
@@ -50,6 +56,10 @@
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>IngreOnedayPriceChart</servlet-name>
+  	<url-pattern>/IngreOnedayPriceChart</url-pattern>
   </servlet-mapping>
  
 

@@ -19,15 +19,29 @@ public class IngrePriceDAO {
 		List<IngrePriceDTO> priceList = null;
 		
 		try {
-			priceList = sqlSession.selectList("SelectPrice", ingre_name);
+			priceList = sqlSession.selectList("SelectAllPrice", ingre_name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
-		
-
+	
 	return priceList;
 }
 
+	
+	public List<IngrePriceDTO> onedayPrice(IngrePriceDTO dto){
+		
+		List<IngrePriceDTO> priceList = null;
+		
+		try {
+			priceList = sqlSession.selectList("SelectOnePrice", dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+	
+	return priceList;
+}
 }

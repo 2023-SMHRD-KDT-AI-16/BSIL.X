@@ -19,6 +19,13 @@ public class IngrePriceDTO {
 		this.ingre_day = ingre_day;
 		this.ingre_market = ingre_market;
 	}
+	
+	public IngrePriceDTO(String ingre_name, String ingre_year, String ingre_month, String ingre_day) {
+		this.ingre_name = ingre_name;
+		this.ingre_year = ingre_year;
+		this.ingre_month = ingre_month;
+		this.ingre_day = ingre_day;
+	}
 
 	// getter, setter
 	public String getIngre_name() {
