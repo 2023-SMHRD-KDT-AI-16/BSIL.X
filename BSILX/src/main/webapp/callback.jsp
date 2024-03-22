@@ -1,5 +1,6 @@
 
-	<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+	<%@page import="com.bsilx.model.MemberDTO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.net.URL" %>
 <%@ page import="java.net.HttpURLConnection" %>
@@ -13,6 +14,7 @@
     <title>네이버로그인</title>
   </head>
   <body>
+  
   <%
     String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
     String clientSecret = "AVuQSvaOMQ";//애플리케이션 클라이언트 시크릿값";
@@ -114,19 +116,22 @@
         String user_email=jsonObject.getAsJsonObject("response").get("email").getAsString();
         String user_phone=jsonObject.getAsJsonObject("response").get("mobile").getAsString();
        
+        MemberDTO dto = new MemberDTO();
+        dto.setUser_id(jsonObject.getAsJsonObject("response").get("id").getAsString());
+        dto.setUser_nick(jsonObject.getAsJsonObject("response").get("nickname").getAsString());
+        dto.setUser_name(jsonObject.getAsJsonObject("response").get("name").getAsString());
+        dto.setUser_email(jsonObject.getAsJsonObject("response").get("email").getAsString());
+        dto.setUser_phone(jsonObject.getAsJsonObject("response").get("mobile").getAsString());
+        request.getSession().setAttribute("memberDTO", dto);
+        response.sendRedirect("index.jsp");
+        
         out.print(user_id);
         out.print(user_nick);
         out.print(user_name);
         out.print(user_email);
         out.print(user_phone);
-        
-       /* request.setAttribute("user_id", user_id);
-       request.setAttribute("user_nick", user_nick);
-       request.setAttribute("user_name", user_name);
-       request.setAttribute("user_email", user_email);
-       request.setAttribute("user_phone", user_phone);
-       RequestDispatcher rd=request.getRequestDispatcher("NaverService");
-      rd.forward(request, response); */
+       
+       response.sendRedirect("index.jsp");
               
 
         
@@ -141,6 +146,10 @@
     }
    
   %>
+  
+  
+  
+  
   
   </body>
 </html>
