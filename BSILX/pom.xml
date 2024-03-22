@@ -64,9 +64,6 @@
 
 
 		</dependencies>
-=======
-	</dependencies>
->>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
 	<build>
 		<finalName>BSILX</finalName>
