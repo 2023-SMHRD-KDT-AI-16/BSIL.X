@@ -38,7 +38,7 @@
 
 	
 	<%
-	 out.println(info.getUser_id());
+
 	if (info == null) {
 	%>
 	<a href="<%=apiURL%>"><img height="50"
