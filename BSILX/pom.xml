@@ -21,43 +21,50 @@
 	</properties>
 
 	<dependencies>
-      <dependency>
-         <groupId>junit</groupId>
-         <artifactId>junit</artifactId>
-         <version>4.11</version>
-         <scope>test</scope>
-      </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-      <dependency>
-         <groupId>javax.servlet</groupId>
-         <artifactId>javax.servlet-api</artifactId>
-         <version>4.0.1</version>
-         <scope>provided</scope>
-      </dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
-      <dependency>
-         <groupId>com.oracle.database.jdbc</groupId>
-         <artifactId>ojdbc8</artifactId>
-         <version>23.2.0.0</version>
-      </dependency>
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>23.2.0.0</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-      <dependency>
-         <groupId>org.mybatis</groupId>
-         <artifactId>mybatis</artifactId>
-         <version>3.5.6</version>
-      </dependency>
-      <dependency>
-         <groupId>com.google.code.gson</groupId>
-         <artifactId>gson</artifactId>
-         <version>2.8.7</version>
-      </dependency>
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.13.0</version> <!-- 사용 가능한 최신 버전으로 조정해주세요 -->
-</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.13.0</version> <!-- 사용 가능한 최신 버전으로 조정해주세요 -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<!-- Java Object를 Json 문자열로 변환할 수 있고, Json 문자열을 Java Object로 변환 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.9.0</version>
+		</dependency>
 
-   </dependencies>
+	</dependencies>
 
 	<build>
 		<finalName>BSILX</finalName>
