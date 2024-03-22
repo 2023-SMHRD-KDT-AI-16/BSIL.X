@@ -19,6 +19,14 @@ public class MemberDTO {
 
 	}
 
+	
+	
+	
+	public MemberDTO(String user_id, String user_name) {
+		this.user_id = user_id;
+		this.user_name = user_name;
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}

@@ -13,10 +13,22 @@
   	<servlet-class>com.bsilx.controller.IngrePriceChart</servlet-class>
   </servlet>
   <servlet>
+  	<servlet-name>FrontController</servlet-name>
+  	<display-name>FrontController</display-name>
+  	<description></description>
+  	<servlet-class>frontcontroller.FrontController</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>memberDTO</servlet-name>
   	<display-name>memberDTO</display-name>
   	<description></description>
   	<servlet-class>com.bsilx.model.memberDTO</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>logoutService</servlet-name>
+  	<display-name>logoutService</display-name>
+  	<description></description>
+  	<servlet-class>com.bsilx.controller.logoutService</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -30,6 +42,14 @@
   <servlet-mapping>
   	<servlet-name>memberDTO</servlet-name>
   	<url-pattern>/memberDTO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>logoutService</servlet-name>
+  	<url-pattern>/logoutService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FrontController</servlet-name>
+  	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
  
 
