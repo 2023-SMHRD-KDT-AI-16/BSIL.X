@@ -5,6 +5,7 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
+
   	<servlet-name>IngrePriceChart</servlet-name>
   	<display-name>IngrePriceChart</display-name>
   	<description></description>
@@ -14,4 +15,16 @@
   	<servlet-name>IngrePriceChart</servlet-name>
   	<url-pattern>/IngrePriceChart</url-pattern>
   </servlet-mapping>
+
+  	<servlet-name>memberDTO</servlet-name>
+  	<display-name>memberDTO</display-name>
+  	<description></description>
+  	<servlet-class>com.bsilx.model.memberDTO</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>memberDTO</servlet-name>
+  	<url-pattern>/memberDTO</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>
