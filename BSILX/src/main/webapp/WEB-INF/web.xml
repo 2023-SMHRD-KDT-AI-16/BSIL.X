@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>IngrePriceChart</servlet-name>
+  	<display-name>IngrePriceChart</display-name>
+  	<description></description>
+  	<servlet-class>com.bsilx.controller.IngrePriceChart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>IngrePriceChart</servlet-name>
+  	<url-pattern>/IngrePriceChart</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -5,7 +5,7 @@
 <configuration>
 	<!-- DRO의 별명 지어주기 -->
 	<typeAliases>
-		<typeAlias type="com.bsilx.model.IngrePriceDTO" alias="Ingre"/>
+		<typeAlias type="com.bsilx.model.IngrePriceDTO" alias="IngrePrice"/>
 	</typeAliases>
 
 	<environments default="development">
