@@ -5,7 +5,7 @@
 <configuration>
 	<!-- DRO의 별명 지어주기 -->
 	<typeAliases>
-		<typeAlias type="com.bsil.x.model.IngrePriceDTO" alias="Ingre"/>
+		<typeAlias type="com.bsilx.model.IngrePriceDTO" alias="Ingre"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -24,6 +24,6 @@
 
 	<!-- sql 문장을 연결할 수 있는 mappers -->
 	<mappers>
-		<mapper resource="com/bsil.x/db/IngreMapper.xml" />
+		<mapper resource="com/bsilx/db/IngreMapper.xml" />
 	</mappers>
 </configuration>

@@ -1,4 +1,4 @@
-package com.bsil.x.model;
+package com.bsilx.model;
 
 public class IngrePriceDTO {
 
