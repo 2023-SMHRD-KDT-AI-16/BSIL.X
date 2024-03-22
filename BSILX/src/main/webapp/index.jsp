@@ -42,13 +42,12 @@
 	%>
 	<a href="<%=apiURL%>"><img height="50"
 		src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
-	<%} else {%>
-	<%if (info.getUser_id().equals("admin")) { %>
+		
+		
+	<%} else {
+	out.println("환영합니다, " + info.getUser_name() + "님!");%>
 	
-	<a href="ShowMember.jsp">전체회원정보</a>
-	
-	<%}%>
-	<a href="UpdateMember.jsp">개인정보수정</a>
+	<a href="UpdateMember.jsp">마이페이지</a>
 	
 	<a href="LogoutService"><img height="50"
 		src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>

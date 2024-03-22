@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet {
 		command service = null;
 		String moveURL = null;
 
-		if (result.equals("/LoginService.do")) { // 클라이언트의 입력이 어디로 가려는지 확인하기위해서.
+		if (result.equals("/LogoutService.do")) { // 클라이언트의 입력이 어디로 가려는지 확인하기위해서.
 			service = new LogoutService();
 //		} else if(result.equals("/LogoutService.do")) {
 //			service = new LogoutService();

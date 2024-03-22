@@ -25,10 +25,10 @@
   	<servlet-class>com.bsilx.model.memberDTO</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>logoutService</servlet-name>
-  	<display-name>logoutService</display-name>
+  	<servlet-name>LogoutService</servlet-name>
+  	<display-name>LogoutService</display-name>
   	<description></description>
-  	<servlet-class>com.bsilx.controller.logoutService</servlet-class>
+  	<servlet-class>com.bsilx.controller.LogoutService</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>IngreOnedayPriceChart</servlet-name>
@@ -50,8 +50,8 @@
   	<url-pattern>/memberDTO</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>logoutService</servlet-name>
-  	<url-pattern>/logoutService</url-pattern>
+  	<servlet-name>LogoutService</servlet-name>
+  	<url-pattern>/LogoutService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
