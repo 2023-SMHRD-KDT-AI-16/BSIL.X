@@ -18,18 +18,18 @@
   	<description></description>
   	<servlet-class>frontcontroller.FrontController</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>memberDTO</servlet-name>
-  	<display-name>memberDTO</display-name>
-  	<description></description>
-  	<servlet-class>com.bsilx.model.memberDTO</servlet-class>
-  </servlet>
-  <servlet>
+
+
+
+ <!--  <servlet>
   	<servlet-name>LogoutService</servlet-name>
   	<display-name>LogoutService</display-name>
   	<description></description>
   	<servlet-class>com.bsilx.controller.LogoutService</servlet-class>
-  </servlet>
+  </servlet> -->
+  
+  
+  
   <servlet>
   	<servlet-name>IngreOneDayPriceChart</servlet-name>
   	<display-name>IngreOneDayPriceChart</display-name>
@@ -41,18 +41,21 @@
   	<servlet-name>IngreAllDayPriceChart</servlet-name>
   	<url-pattern>/IngreAllDayPriceChart</url-pattern>
   </servlet-mapping>
-  
-	
-  
-  
-  <servlet-mapping>
-  	<servlet-name>memberDTO</servlet-name>
-  	<url-pattern>/memberDTO</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
+
+
+
+
+
+  <!-- <servlet-mapping>
   	<servlet-name>LogoutService</servlet-name>
   	<url-pattern>/LogoutService</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
+  
+  
+  
+  
+  
+  
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.do</url-pattern>
