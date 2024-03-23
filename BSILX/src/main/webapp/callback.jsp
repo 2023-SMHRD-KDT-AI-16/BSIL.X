@@ -1,13 +1,12 @@
 
-	<%@page import="com.bsilx.model.MemberDTO"%>
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+	<%@page import="com.google.gson.JsonObject"%>
+<%@page import="com.google.gson.Gson"%>
+<%@page import="java.io.InputStreamReader"%>
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.net.HttpURLConnection"%>
+<%@page import="com.bsilx.model.MemberDTO"%>
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.net.URL" %>
-<%@ page import="java.net.HttpURLConnection" %>
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.InputStreamReader" %>
-<%@ page import="com.google.gson.Gson" %>
-<%@ page import="com.google.gson.JsonObject" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>

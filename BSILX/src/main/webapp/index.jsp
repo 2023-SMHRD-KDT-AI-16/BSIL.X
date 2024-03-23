@@ -1,8 +1,7 @@
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.security.SecureRandom"%>
+<%@page import="java.net.URLEncoder"%>
 <%@page import="com.bsilx.model.MemberDTO"%>
-<%@ page import="java.net.URLEncoder"%>
-<%@ page import="java.security.SecureRandom"%>
-<%@ page import="java.math.BigInteger"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html lang="ko">
 <head>
