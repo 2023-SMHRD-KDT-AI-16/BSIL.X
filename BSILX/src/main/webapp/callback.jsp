@@ -1,12 +1,12 @@
 
-	<%@page import="com.google.gson.JsonObject"%>
+<%@page import="com.bsilx.model.MemberDTO"%>
+<%@page import="com.google.gson.JsonObject"%>
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.io.InputStreamReader"%>
 <%@page import="java.io.BufferedReader"%>
+<%@page import="java.net.URL"%>
 <%@page import="java.net.HttpURLConnection"%>
-<%@page import="com.bsilx.model.MemberDTO"%>
-<%@ page import="java.net.URLEncoder" %>
-<%@ page import="java.net.URL" %>
+<%@page import="java.net.URLEncoder"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -121,8 +121,9 @@
         dto.setUser_name(jsonObject.getAsJsonObject("response").get("name").getAsString());
         dto.setUser_email(jsonObject.getAsJsonObject("response").get("email").getAsString());
         dto.setUser_phone(jsonObject.getAsJsonObject("response").get("mobile").getAsString());
+        
+        
         request.getSession().setAttribute("memberDTO", dto);
-        response.sendRedirect("index.jsp");
         
         out.print(user_id);
         out.print(user_nick);
@@ -131,7 +132,7 @@
         out.print(user_phone);
        
        response.sendRedirect("index.jsp");
-              
+
 
         
       } else {
