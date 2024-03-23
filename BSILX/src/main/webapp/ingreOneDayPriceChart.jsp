@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 </head>
@@ -23,12 +24,12 @@
     .then(data => {
         // 대형 카테고리에 해당하는 데이터 필터링
         var largeData = data.filter(item => item.category === '대형');
-        var largeLabels = largeData.map(item => item.day);
+        var largeLabels = largeData.map(item => item.date);
         var largePrices = largeData.map(item => item.price);
 
         // 전통 카테고리에 해당하는 데이터 필터링
         var traditionalData = data.filter(item => item.category === '전통');
-        var traditionalLabels = traditionalData.map(item => item.day);
+        var traditionalLabels = traditionalData.map(item => item.date);
         var traditionalPrices = traditionalData.map(item => item.price);
 
         // 차트 생성

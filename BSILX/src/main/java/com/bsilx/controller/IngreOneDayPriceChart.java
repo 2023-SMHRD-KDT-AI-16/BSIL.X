@@ -53,7 +53,11 @@ public class IngreOneDayPriceChart extends HttpServlet {
 			jsonArray.put(jsonObject);
 
 		}
-	
+		System.out.println(jsonArray);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(jsonArray.toString());
+
 	}
 
 }

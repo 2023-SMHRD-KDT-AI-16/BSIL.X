@@ -25,7 +25,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String ingre_name = "찹쌀";
+		String ingre_name = "쌀";
 
 		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
 
@@ -33,26 +33,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 
 		JSONArray jsonArray = new JSONArray();
 
-		for (int i = 0; i < priceList.size(); i++) {
-			String name = priceList.get(i).getIngre_name();
-			int price = priceList.get(i).getIngre_price();
-			String cate = priceList.get(i).getIngre_market();
-			String year = priceList.get(i).getIngre_year();
-			int month = Integer.parseInt(priceList.get(i).getIngre_month());
-			int day = Integer.parseInt(priceList.get(i).getIngre_day());
-			String date = String.format("%02d-%02d", month, day);
-
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("name", name);
-			jsonObject.put("price", price);
-			jsonObject.put("category", cate);
-			jsonObject.put("year", year);
-			jsonObject.put("date", date);
-
-			// JSON 배열에 JSON 객체 추가
-			jsonArray.put(jsonObject);
-
-		}
+		jsonArray = new IngrePriceDAO().PriceToJson(priceList);
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
