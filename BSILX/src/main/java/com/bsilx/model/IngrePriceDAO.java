@@ -12,9 +12,10 @@ public class IngrePriceDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 
-	SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-	public List<IngrePriceDTO> allPrice(String ingre_name){
+	public List<IngrePriceDTO> allDayPrice(String ingre_name){
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		List<IngrePriceDTO> priceList = null;
 		
@@ -30,7 +31,9 @@ public class IngrePriceDAO {
 }
 
 	
-	public List<IngrePriceDTO> onedayPrice(IngrePriceDTO dto){
+	public List<IngrePriceDTO> oneDayPrice(IngrePriceDTO dto){
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		List<IngrePriceDTO> priceList = null;
 		

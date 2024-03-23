@@ -7,10 +7,10 @@
   <display-name>Archetype Created Web Application</display-name>
   
    <servlet>
-  	<servlet-name>IngrePriceChart</servlet-name>
-  	<display-name>IngrePriceChart</display-name>
+  	<servlet-name>IngreAllDayPriceChart</servlet-name>
+  	<display-name>IngreAllDayPriceChart</display-name>
   	<description></description>
-  	<servlet-class>com.bsilx.controller.IngrePriceChart</servlet-class>
+  	<servlet-class>com.bsilx.controller.IngreAllDayPriceChart</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>FrontController</servlet-name>
@@ -31,15 +31,15 @@
   	<servlet-class>com.bsilx.controller.LogoutService</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>IngreOnedayPriceChart</servlet-name>
-  	<display-name>IngreOnedayPriceChart</display-name>
+  	<servlet-name>IngreOneDayPriceChart</servlet-name>
+  	<display-name>IngreOneDayPriceChart</display-name>
   	<description></description>
-  	<servlet-class>com.bsilx.controller.IngreOnedayPriceChart</servlet-class>
+  	<servlet-class>com.bsilx.controller.IngreOneDayPriceChart</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>IngrePriceChart</servlet-name>
-  	<url-pattern>/IngrePriceChart</url-pattern>
+  	<servlet-name>IngreAllDayPriceChart</servlet-name>
+  	<url-pattern>/IngreAllDayPriceChart</url-pattern>
   </servlet-mapping>
   
 	
@@ -58,8 +58,8 @@
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>IngreOnedayPriceChart</servlet-name>
-  	<url-pattern>/IngreOnedayPriceChart</url-pattern>
+  	<servlet-name>IngreOneDayPriceChart</servlet-name>
+  	<url-pattern>/IngreOneDayPriceChart</url-pattern>
   </servlet-mapping>
  
 

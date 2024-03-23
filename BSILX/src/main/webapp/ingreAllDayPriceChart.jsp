@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<script>
-	fetch('IngrePriceChart') // 서블릿의 URL로 변경
+	fetch('IngreAllDayPriceChart') // 서블릿의 URL로 변경
     .then(response => response.json()) // JSON 형식으로 파싱
     .then(data => {
         // 대형 카테고리에 해당하는 데이터 필터링

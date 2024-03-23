@@ -29,7 +29,7 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		
 		IngrePriceDTO dto = new IngrePriceDTO(ingre_name, ingre_year, ingre_month, ingre_day);
 
-		List<IngrePriceDTO> priceList = new IngrePriceDAO().onedayPrice(dto);
+		List<IngrePriceDTO> priceList = new IngrePriceDAO().oneDayPrice(dto);
 		
 		JSONArray jsonArray = new JSONArray();
 		

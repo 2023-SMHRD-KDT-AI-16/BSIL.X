@@ -27,7 +27,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 
 		String ingre_name = "찹쌀";
 
-		List<IngrePriceDTO> priceList = new IngrePriceDAO().allPrice(ingre_name);
+		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
 
 		System.out.println(priceList.get(0).getIngre_name());
 
