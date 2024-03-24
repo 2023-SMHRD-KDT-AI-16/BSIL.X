@@ -3,7 +3,6 @@ package frontcontroller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,8 +31,9 @@ public class FrontController extends HttpServlet {
 		// subString(start, end) : start부터 end 전까지 문자열 자르기
 
 		String result = requestURI.substring(context.length());
-		System.out.println("요청 : " + result);
-
+		System.out.println("요청 : " + result); 
+		
+		request.setCharacterEncoding("UTF-8");
 		command service = null;
 		String moveURL = null;
 
