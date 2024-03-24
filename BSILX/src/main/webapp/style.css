@@ -40,7 +40,10 @@ header {
     /* 로고의 크기를 조정해주세요 */
     margin-bottom: 10px;
 }
-
+#login_mypage{
+	display: flex;
+	justify-content: end;
+}
 
 
 
@@ -60,7 +63,7 @@ nav {
 }
 
 .header_menu img {
-    width: 50px;
+    width: 100px;
     margin-bottom: 10px;
 }
 
@@ -120,7 +123,7 @@ section>div {
 
 
 #search_img img {
-    width: 100px;
+    width: 270px;
 }
 
 /* 식재료 트렌드 테이블 스타일 */

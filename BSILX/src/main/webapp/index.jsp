@@ -9,16 +9,19 @@
 <meta charset="utf-8">
 <title>네이버로그인</title>
 
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-	charset="utf-8"></script>
+		<script type="text/javascript"
+		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+		charset="utf-8"></script>
 
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+		<script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+		<!-- 소스 다운 -->
+        <script src="https://unpkg.com/@yaireo/tagify"></script>
+        <!-- 폴리필 (구버젼 브라우저 지원) -->
+   		<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    	<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
@@ -35,7 +38,8 @@
 	apiURL += "&state=" + state;
 	session.setAttribute("state", state);
 	%>
-
+	
+	<div id="login_mypage">
 	<%
 	if (info == null) {
 	%>
@@ -49,8 +53,7 @@
 
 	<a href="UpdateMember.jsp">마이페이지</a>
 
-	<a href="LogoutService.do"><img
-		height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
+	<a href="LogoutService.do"><img height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
 
 	<span> <%=info.getUser_id()%></span>
 	<span> <%=info.getUser_name()%></span>
@@ -58,12 +61,141 @@
 	<span> <%=info.getUser_nick()%></span>
 	<span> <%=info.getUser_phone()%></span>
 
-
 	<%
 	}
 	%>
+	</div>
 
 
+
+
+<header>
+        <img src="images/image1.png" id="logo" alt="logo">
+
+        <h1>도시락 레시피 가이드</h1>
+    </header>
+    <nav>
+        <a href="#" class="header_menu">
+            <img src="images/image1.png" alt="메뉴 메인화면 사진">
+            <span>메인화면</span>
+        </a>
+
+        <a href="#" class="header_menu">
+            <img src="images/image1.png" alt="메뉴 전체레시피 사진">
+            <span>전체레시피</span>
+        </a>
+
+        <a href="#" class="header_menu">
+            <img src="images/image1.png" alt="메뉴 마이페이지 사진">
+            <span>마이페이지</span>
+        </a>
+
+    </nav>
+
+    <section>
+        <div id="search">
+            <form action="" method="post">
+
+                <div class="input_div">
+                    <input type="text" name="input" placeholder="(사용자가 가지고 있는 식재료 입력)">
+                </div>
+
+            </form>
+            <div class="search_hashtag">
+                <span>(재료 해시태그가 담기는 구간)</span>
+                <span>(재료 해시태그가 담기는 구간)</span>
+                <span>(재료 해시태그가 담기는 구간)</span>
+
+            </div>
+        </div>
+
+        <div id="search_img">
+            <div>
+                <img src="images/image4.png" alt="검색된 레시피 사진">
+                <span>2800원</span>
+            </div>
+            <div>
+                <img src="images/image4.png" alt="검색된 레시피 사진">
+                <span>2800원</span>
+            </div>
+            <div>
+                <img src="images/image4.png" alt="검색된 레시피 사진">
+                <span>2800원</span>
+            </div>
+            <div>
+                <img src="images/image4.png" alt="검색된 레시피 사진">
+                <span>2800원</span>
+            </div>
+        </div>
+
+
+
+        <div id="Food_ingredient_trends">
+            <div class="Increase">
+                <table class="">
+                    <th>상승 TOP3</th>
+                    <tr>
+                        <td>상승 식재료</td>
+                    </tr>
+                    <tr>
+                        <td>상승 식재료</td>
+                    </tr>
+                    <tr>
+                        <td>상승 식재료</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="degradation">
+                <table>
+                    <th>하락 TOP3</th>
+                    <tr>
+                        <td>하락 식재료</td>
+                    </tr>
+                    <tr>
+                        <td>하락 식재료</td>
+                    </tr>
+                    <tr>
+                        <td>하락 식재료</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+
+        <div class="price_new">
+            <div class="Consumer_price_trends">
+                <h4>소비자 물가 동향</h4>
+                <img src="images/image3.png" alt="소비자물가 동향">
+            </div>
+
+
+            <div class="Price_news">
+                <h4>화제의 뉴스</h4>
+                <span class="new_title">뉴스 기사 거리</span>
+                <span class="new_title">뉴스 기사 거리</span>
+                <span class="new_title">뉴스 기사 거리</span>
+                <span class="new_title">뉴스 기사 거리</span>
+
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+
+
+    <footer>
+
+
+    </footer>
+
+
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
 
 
 
