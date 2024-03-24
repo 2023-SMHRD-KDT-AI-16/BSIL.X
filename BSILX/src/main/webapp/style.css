@@ -1,82 +1,176 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-html{
-    margin: 0 100px;
-}
-#logo{
-    width: 50px;
-    height: 50px;
+* {
+    box-sizing: border-box;
 }
 
-header>h1{
-    font-size: 2rem;
-    text-align: center;
+body,
+h1,
+span,
+th,
+td {
+    margin: 0;
+    padding: 0;
+
 }
-div{
+
+html {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
-nav{
+
+body {
+    display: block;
+    align-items: center;
+    width: 1280px;
+
+}
+
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* 로고 스타일 */
+#logo {
+    width: 100px;
+    /* 로고의 크기를 조정해주세요 */
+    margin-bottom: 10px;
+}
+
+
+
+
+/* 네비게이션 스타일 */
+nav {
     display: flex;
     justify-content: space-around;
-    margin: 100px 0;
+    background-color: #e0e0e0;
+    padding: 20px;
 }
-nav>div.header_menu{
+
+.header_menu {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.header_menu img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+
+
+section {
+    width: 100%;
+}
+
+section>div {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 검색 섹션 스타일 */
+#search {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#search div {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#search .input_div {
+    display: flex;
+    justify-content: center;
+}
+
+
+#search div>input {
+    width: 600px;
+    height: 50px;
+    background-color: #f5f5f5;
+}
+#search tags{
+    text-align: center;
+    width: 600px;
+    height: 60px;
+    background-color: antiquewhite;
+    margin: 20px;
+    font-size: 1.3rem;
+}
+
+
+/* 레시피 이미지 섹션 스타일 */
+#search_img>div {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    text-align: center;
+    padding: 20px 0;
 }
 
-#search input{
-    display: flex;
-    
 
+#search_img img {
+    width: 100px;
 }
-#search_mig{
+
+/* 식재료 트렌드 테이블 스타일 */
+#Food_ingredient_trends {
     display: flex;
+    justify-content: space-around;
+}
+
+.Increase,
+.degradation {
+    display: flex;
+}
+
+#Food_ingredient_trends th {
+    height: 70px;
+}
+
+/* 테이블 스타일 */
+#Food_ingredient_trends th,
+td {
+    width: 350px;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+/* 소비자 물가 동향 및 화제의 뉴스 스타일 */
+.price_new {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.Consumer_price_trends,
+.Price_news {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.Consumer_price_trends img {
+    width: 400px;
+}
+
+
+/* 푸터 스타일 */
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #d0d0d0;
+    padding: 20px;
 }
