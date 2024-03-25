@@ -40,10 +40,11 @@
 	%>
 	
 	<div id="login_mypage">
+	
 	<%
 	if (info == null) {
 	%>
-	<a href="<%=apiURL%>"><img height="50"
+	<a  height="50" href="<%=apiURL%>"><img height="50"
 		src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
 
 	<%
@@ -53,7 +54,7 @@
 
 	<a href="UpdateMember.jsp">마이페이지</a>
 
-	<a href="LogoutService.do"><img height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
+	<a  height="50" href="LogoutService.do"><img height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
 
 	<span> <%=info.getUser_id()%></span>
 	<span> <%=info.getUser_name()%></span>
@@ -63,6 +64,7 @@
 
 	<%
 	}
+	
 	%>
 	</div>
 
@@ -101,31 +103,35 @@
                 </div>
 
             </form>
-            <div class="search_hashtag">
+          <!--   <div class="search_hashtag">
                 <span>(재료 해시태그가 담기는 구간)</span>
                 <span>(재료 해시태그가 담기는 구간)</span>
                 <span>(재료 해시태그가 담기는 구간)</span>
 
-            </div>
+            </div> -->
         </div>
 
         <div id="search_img">
-            <div>
+        
+        
+            <a href="mainRecipePage.jsp">
                 <img src="images/image4.png" alt="검색된 레시피 사진">
                 <span>2800원</span>
-            </div>
-            <div>
+            </a>
+            <a href="">
                 <img src="images/image4.png" alt="검색된 레시피 사진">
                 <span>2800원</span>
-            </div>
-            <div>
+            </a>
+            <a href="">
                 <img src="images/image4.png" alt="검색된 레시피 사진">
                 <span>2800원</span>
-            </div>
-            <div>
+            </a>
+            <a href="">
                 <img src="images/image4.png" alt="검색된 레시피 사진">
                 <span>2800원</span>
-            </div>
+            </a>
+            
+            
         </div>
 
 
