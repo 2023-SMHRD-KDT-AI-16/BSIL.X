@@ -11,7 +11,7 @@ public class LunchBoxDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-	public List<LunchBoxDTO> allDayPrice(List<String> ingre_name) {
+	public List<LunchBoxDTO> selectLbox (List<String> ingre_name) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 

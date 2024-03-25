@@ -28,5 +28,6 @@
 	<!-- sql 문장을 연결할 수 있는 mappers -->
 	<mappers>
 		<mapper resource="com/bsilx/db/IngreMapper.xml" />
+		<mapper resource="com/bsilx/db/LboxMapper.xml" />
 	</mappers>
 </configuration>

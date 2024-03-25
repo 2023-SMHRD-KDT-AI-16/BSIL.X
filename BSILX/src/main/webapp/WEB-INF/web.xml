@@ -33,6 +33,12 @@
 		<description></description>
 		<servlet-class>com.bsilx.controller.IngreOneDayPriceChart</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>LboxPrint</servlet-name>
+		<display-name>LboxPrint</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.LboxPrint</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>IngreAllDayPriceChart</servlet-name>
@@ -53,6 +59,10 @@
 	<servlet-mapping>
 		<servlet-name>FrontController</servlet-name>
 		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LboxPrint</servlet-name>
+		<url-pattern>/LboxPrint</url-pattern>
 	</servlet-mapping>
 
 </web-app>
