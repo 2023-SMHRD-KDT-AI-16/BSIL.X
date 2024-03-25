@@ -1,94 +1,57 @@
-<%@page import="java.math.BigInteger"%>
-<%@page import="java.security.SecureRandom"%>
-<%@page import="java.net.URLEncoder"%>
-<%@page import="com.bsilx.model.MemberDTO"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<html lang="ko">
+<!DOCTYPE html>
+
+
+
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+////여기는 vsc 에서 html 에서 코드 짜고 넘오는 구간의 test 하는 페이지입니다 안쓰는 구간임!!
+
+
+<html lang="kr">
+
 <head>
-
-<meta charset="utf-8">
-<title>네이버로그인</title>
-
-		<script type="text/javascript"
-		src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-		charset="utf-8"></script>
-
-		<script src="https://code.jquery.com/jquery-3.7.1.js"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-		<!-- 소스 다운 -->
+        
+        <!-- 소스 다운 -->
         <script src="https://unpkg.com/@yaireo/tagify"></script>
         <!-- 폴리필 (구버젼 브라우저 지원) -->
-   		<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-    	<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />       
+       
+        
+       
 </head>
+
 <body>
 
-	<%
-	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
-	%>
-
-	<%
-	String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
-	String redirectURI = URLEncoder.encode("http://localhost:8081/BSILX/callback.jsp", "UTF-8");
-	SecureRandom random = new SecureRandom();
-	String state = new BigInteger(130, random).toString();
-	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-	apiURL += "&client_id=" + clientId;
-	apiURL += "&redirect_uri=" + redirectURI;
-	apiURL += "&state=" + state;
-	session.setAttribute("state", state);
-	%>
-	
-	<div id="login_mypage">
-	<%
-	if (info == null) {
-	%>
-	<a href="<%=apiURL%>"><img height="50"
-		src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
-
-	<%
-	} else {
-	out.println("환영합니다, " + info.getUser_name() + "님!");
-	%>
-
-	<a href="UpdateMember.jsp">마이페이지</a>
-
-	<a href="LogoutService.do"><img height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
-
-	<span> <%=info.getUser_id()%></span>
-	<span> <%=info.getUser_name()%></span>
-	<span> <%=info.getUser_email()%></span>
-	<span> <%=info.getUser_nick()%></span>
-	<span> <%=info.getUser_phone()%></span>
-
-	<%
-	}
-	%>
-	</div>
-
-
-
-
-<header>
+    <header>
         <img src="images/image1.png" id="logo" alt="logo">
 
         <h1>도시락 레시피 가이드</h1>
     </header>
     <nav>
-        <a href="#" class="header_menu">
+        <div class="header_menu">
             <img src="images/image1.png" alt="메뉴 메인화면 사진">
             <span>메인화면</span>
-        </a>
+        </div>
 
-        <a href="#" class="header_menu">
+        <div class="header_menu">
             <img src="images/image1.png" alt="메뉴 전체레시피 사진">
             <span>전체레시피</span>
-        </a>
+        </div>
 
-        <a href="#" class="header_menu">
+        <div class="header_menu">
             <img src="images/image1.png" alt="메뉴 마이페이지 사진">
             <span>마이페이지</span>
-        </a>
+        </div>
 
     </nav>
 
@@ -196,9 +159,6 @@
 
 <script src="script.js"></script>
 <link rel="stylesheet" href="style.css">
-
-
-
-
 </body>
+
 </html>

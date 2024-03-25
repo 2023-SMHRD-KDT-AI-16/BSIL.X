@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.bsilx.controller.LogoutService;
 
 public class FrontController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -33,8 +31,9 @@ public class FrontController extends HttpServlet {
 		// subString(start, end) : start부터 end 전까지 문자열 자르기
 
 		String result = requestURI.substring(context.length());
-		System.out.println("요청 : " + result);
-
+		System.out.println("요청 : " + result); 
+		
+		request.setCharacterEncoding("UTF-8");
 		command service = null;
 		String moveURL = null;
 

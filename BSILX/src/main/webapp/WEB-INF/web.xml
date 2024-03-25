@@ -4,64 +4,55 @@
 
 <web-app>
 
-  <display-name>Archetype Created Web Application</display-name>
-  
-   <servlet>
-  	<servlet-name>IngreAllDayPriceChart</servlet-name>
-  	<display-name>IngreAllDayPriceChart</display-name>
-  	<description></description>
-  	<servlet-class>com.bsilx.controller.IngreAllDayPriceChart</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>FrontController</servlet-name>
-  	<display-name>FrontController</display-name>
-  	<description></description>
-  	<servlet-class>frontcontroller.FrontController</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>memberDTO</servlet-name>
-  	<display-name>memberDTO</display-name>
-  	<description></description>
-  	<servlet-class>com.bsilx.model.memberDTO</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>LogoutService</servlet-name>
-  	<display-name>LogoutService</display-name>
-  	<description></description>
-  	<servlet-class>com.bsilx.controller.LogoutService</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>IngreOneDayPriceChart</servlet-name>
-  	<display-name>IngreOneDayPriceChart</display-name>
-  	<description></description>
-  	<servlet-class>com.bsilx.controller.IngreOneDayPriceChart</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>IngreAllDayPriceChart</servlet-name>
-  	<url-pattern>/IngreAllDayPriceChart</url-pattern>
-  </servlet-mapping>
-  
-	
-  
-  
-  <servlet-mapping>
-  	<servlet-name>memberDTO</servlet-name>
-  	<url-pattern>/memberDTO</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>LogoutService</servlet-name>
-  	<url-pattern>/LogoutService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>FrontController</servlet-name>
-  	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>IngreOneDayPriceChart</servlet-name>
-  	<url-pattern>/IngreOneDayPriceChart</url-pattern>
-  </servlet-mapping>
- 
+	<display-name>Archetype Created Web Application</display-name>
 
+	<servlet>
+		<servlet-name>IngreAllDayPriceChart</servlet-name>
+		<display-name>IngreAllDayPriceChart</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.IngreAllDayPriceChart</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FrontController</servlet-name>
+		<display-name>FrontController</display-name>
+		<description></description>
+		<servlet-class>frontcontroller.FrontController</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LogoutService</servlet-name>
+		<display-name>LogoutService</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.LogoutService</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>IngreOneDayPriceChart</servlet-name>
+		<display-name>IngreOneDayPriceChart</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.IngreOneDayPriceChart</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>IngreAllDayPriceChart</servlet-name>
+		<url-pattern>/IngreAllDayPriceChart</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LogoutService</servlet-name>
+		<url-pattern>/LogoutService</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet-mapping>
+		<servlet-name>IngreOneDayPriceChart</servlet-name>
+		<url-pattern>/IngreOneDayPriceChart</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>FrontController</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 
 </web-app>
