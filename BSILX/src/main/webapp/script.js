@@ -10,7 +10,7 @@
     let inputElm = document.querySelector('input[name=input]');
     
     // 화이트 리스트 : 해당 문자만 태그로 추가 가능
-    let whitelist = ["puthon","java","pug","react","vue","c","sass"];
+    let whitelist = ["python","java","pug","react","vue","c","sass"];
 
     // initialize Tagify
     var tagify = new Tagify(inputElm, {
@@ -18,7 +18,7 @@
         whitelist: whitelist // 화이트 리스트 배열. 화이트 리스트를 등록하면 자동으로 드롭다운 메뉴가 생긴다
     })
 
-
+l
     // 만일 모든 태그 지우기 기능 버튼을 구현한다면
     document.querySelector('버튼').addEventListener('click', tagify.removeAllTags.bind(tagify));
 
