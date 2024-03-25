@@ -31,7 +31,7 @@
 		select * 
 		from lunch_box_info a 
 		inner join lunch_box_ingredient b on a.lbox_seq = b.lbox_seq
-		inner join ingre
+		inner join ingredient_info c on b.
 		where a.lbox_name = #{lbox_name}
 	</select>
 
