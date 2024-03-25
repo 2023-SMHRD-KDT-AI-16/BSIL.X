@@ -7,12 +7,13 @@
 		resultType="IngrePrice">
 		select b.ingre_name, a.ingre_price, a.ingre_year,
 		a.ingre_month, a.ingre_day, a.ingre_market
-		from ingredient_price_info a inner join 
-		ingredient_info b on a.ingre_seq = b.ingre_seq 
+		from ingredient_price_info a
+		inner join
+		ingredient_info b on a.ingre_seq = b.ingre_seq
 		where b.ingre_name = #{ingre_name}
 		order by a.price_seq
 	</select>
-	
+
 	<select id="SelectOnePrice" parameterType="IngrePrice"
 		resultType="IngrePrice">
 		select b.ingre_name, a.ingre_price, a.ingre_year,
@@ -24,16 +25,11 @@
 		a.ingre_year = #{ingre_year} and
 		a.ingre_month = #{ingre_month} and
 		a.ingre_day = #{ingre_day}
-		order by a.price_seq
+		order by
+		a.price_seq
 	</select>
+
 	
-	<select id="SelectLbox" parameterType="String" resultType="LunchBox">
-		select * 
-		from lunch_box_info a 
-		inner join lunch_box_ingredient b on a.lbox_seq = b.lbox_seq
-		inner join ingredient_info c on b.
-		where a.lbox_name = #{lbox_name}
-	</select>
 
 
 </mapper>

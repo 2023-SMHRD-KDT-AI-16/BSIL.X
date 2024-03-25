@@ -1,14 +1,15 @@
 package com.bsilx.model;
 
+import java.util.ArrayList;
+
 public class LunchBoxDTO {
 	
-	String lbox_name;
-	String lbox_recipe;
-	String lbox_img;
-	int lbox_price;
+	private String lbox_name;
+	private ArrayList<String> lbox_recipe;
+	private String lbox_img;
+	private int lbox_price;
 	
-	public LunchBoxDTO(String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
-		super();
+	public LunchBoxDTO(String lbox_name, ArrayList<String> lbox_recipe, String lbox_img, int lbox_price) {
 		this.lbox_name = lbox_name;
 		this.lbox_recipe = lbox_recipe;
 		this.lbox_img = lbox_img;
@@ -21,10 +22,10 @@ public class LunchBoxDTO {
 	public void setLbox_name(String lbox_name) {
 		this.lbox_name = lbox_name;
 	}
-	public String getLbox_recipe() {
+	public ArrayList<String> getLbox_recipe() {
 		return lbox_recipe;
 	}
-	public void setLbox_recipe(String lbox_recipe) {
+	public void setLbox_recipe(ArrayList<String> lbox_recipe) {
 		this.lbox_recipe = lbox_recipe;
 	}
 	public String getLbox_img() {
