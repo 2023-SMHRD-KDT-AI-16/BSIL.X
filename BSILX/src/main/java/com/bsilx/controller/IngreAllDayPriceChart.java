@@ -25,7 +25,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String ingre_name = "쌀";
+		String ingre_name = "망고";
 
 		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
 
@@ -33,7 +33,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 
 		JSONArray jsonArray = new JSONArray();
 
-		jsonArray = new IngrePriceDAO().PriceToJson(priceList);
+		jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

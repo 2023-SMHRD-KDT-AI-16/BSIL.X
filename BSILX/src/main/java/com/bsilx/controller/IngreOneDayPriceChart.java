@@ -33,9 +33,8 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		
 		JSONArray jsonArray = new JSONArray();
 		
-		jsonArray = new IngrePriceDAO().PriceToJson(priceList);
+		jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);
 		
-		System.out.println(jsonArray);
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(jsonArray.toString());
