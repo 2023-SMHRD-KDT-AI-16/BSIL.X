@@ -100,6 +100,7 @@
 
                 <div class="input_div">
                     <input type="text" name="input" placeholder="(사용자가 가지고 있는 식재료 입력)">
+                <button id="submitIngredients">식재료 전송</button>
                 </div>
 
             </form>
