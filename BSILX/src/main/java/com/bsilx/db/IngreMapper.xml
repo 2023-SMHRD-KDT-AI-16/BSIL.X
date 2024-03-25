@@ -26,6 +26,14 @@
 		a.ingre_day = #{ingre_day}
 		order by a.price_seq
 	</select>
+	
+	<select id="SelectLbox" parameterType="String" resultType="LunchBox">
+		select * 
+		from lunch_box_info a 
+		inner join lunch_box_ingredient b on a.lbox_seq = b.lbox_seq
+		inner join ingre
+		where a.lbox_name = #{lbox_name}
+	</select>
 
 
 </mapper>

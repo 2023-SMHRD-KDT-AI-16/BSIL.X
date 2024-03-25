@@ -6,6 +6,7 @@
 	<!-- DRO의 별명 지어주기 -->
 	<typeAliases>
 		<typeAlias type="com.bsilx.model.IngrePriceDTO" alias="IngrePrice"/>
+		<typeAlias type="com.bsilx.model.LunchBoxDTO" alias="LunchBox"></typeAlias>
 	</typeAliases>
 	
 	

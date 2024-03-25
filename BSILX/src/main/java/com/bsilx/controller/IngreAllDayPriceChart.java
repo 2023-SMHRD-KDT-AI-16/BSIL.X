@@ -25,7 +25,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		String ingre_name = "망고";
+		String ingre_name = "";
 
 		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
 
