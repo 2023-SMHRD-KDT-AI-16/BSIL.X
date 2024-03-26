@@ -122,20 +122,25 @@
 				if (session != null) {
 					List<LunchBoxDTO> LunchBoxList = (List<LunchBoxDTO>) session.getAttribute("hashtag");
 					if (LunchBoxList != null && !LunchBoxList.isEmpty()) {
-						for (LunchBoxDTO lbox : LunchBoxList) {
-					out.println("<div class='recipe'>");
-					out.println("<h3>" + lbox.getLbox_name() + "</h3>");
-					out.println("<img src='" + lbox.getLbox_img() + "' alt='레시피 이미지'>");
-					out.println("<p>" + lbox.getLbox_recipe() + "</p>");
-					out.println("<p>가격: " + lbox.getLbox_price() + "</p>");
-					out.println("</div>");
+						for (LunchBoxDTO lbox : LunchBoxList) {%>
+
+
+				<a class='recipe'>
+					<h3><%= lbox.getLbox_name()%></h3> <img
+					src="<%= lbox.getLbox_img()%>" alt='레시피 이미지'>
+					<p><%= lbox.getLbox_recipe()%></p>
+					<p>
+						가격:
+						<%= lbox.getLbox_price()%></p>
+				</a>
+
+				<%
 						}
 					} else {
 						out.println("<p>검색 결과가 없습니다.</p>");
 					}
-				}
-				%>
-			</div>
+					}%>
+				</div>
 
 
 
