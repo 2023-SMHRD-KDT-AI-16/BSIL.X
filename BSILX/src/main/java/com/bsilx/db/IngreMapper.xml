@@ -25,8 +25,7 @@
 		a.ingre_year = #{ingre_year} and
 		a.ingre_month = #{ingre_month} and
 		a.ingre_day = #{ingre_day}
-		order by
-		a.price_seq
+		order by a.price_seq
 	</select>
 
 	
