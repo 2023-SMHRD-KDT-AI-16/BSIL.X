@@ -23,47 +23,62 @@ public class LboxPrint extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-
 		response.setContentType("application/json; charset=UTF-8");
+		
+		
+		PrintWriter out = response.getWriter();
+
 		String ingreNameString = request.getParameter("ingre_name");
+		
+		System.out.println("ingreNameString : " +ingreNameString);  //index.jsp에서 쌀 보내면 쌀 받아짐
+
 		List<String> ingreNameList = Arrays.asList(ingreNameString.split(","));
+		// 데이터베이스에서 태그 리스트에 해당하는 레시피 검색 
+		LunchBoxDAO dao = new LunchBoxDAO();
 
-		// 데이터베이스에서 태그 리스트에 해당하는 레시피 검색
-		List<LunchBoxDTO> lunchBoxList = getLunchBoxes(ingreNameList);
+		System.out.println("ingreNameList :"+ingreNameList);  //index.jsp에서 쌀 보내면 쌀 받아짐
+		
+		
+		
 
-		// 검색된 레시피 리스트를 JSON으로 변환하여 응답
-		PrintWriter out;
-
-		out = response.getWriter();
-		out.print(new Gson().toJson(lunchBoxList));
-		out.flush();
-
+		
+		
+		
+		
 		List<String> ingre_name = new ArrayList<>();
 
 		ingre_name.add("깻잎");
 		ingre_name.add("쌀");
 
-		List<LunchBoxDTO> LunchBoxList = new LunchBoxDAO().selectLbox(ingre_name);
+		List<LunchBoxDTO> LunchBoxList = new LunchBoxDAO().selectLbox(ingreNameList);
 
-		
-		
 		System.out.println(LunchBoxList.get(0).getLbox_name());
+		System.out.println(LunchBoxList.get(0).getLbox_price());
+		System.out.println(LunchBoxList.get(0).getLbox_img());
+		
+		System.out.println(LunchBoxList.get(1).getLbox_name());
+		System.out.println(LunchBoxList.get(1).getLbox_price());
+		System.out.println(LunchBoxList.get(1).getLbox_img());
+		
+		
 
 		if (LunchBoxList != null) {
 			System.out.println("해시태그 결과 리스트 담기 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute("hashtag", LunchBoxList);
+			
+			
+			System.out.println("LunchBoxList :"+LunchBoxList);
+			
+			
+			
+			
+			out.print(new Gson().toJson(LunchBoxList));
+			out.flush();
 		} else {
 			System.out.println("해시태그 결과 리스트 담기 실패");
 		}
 		response.sendRedirect("index.jsp");
 
-	}
-
-	private List<LunchBoxDTO> getLunchBoxes(List<String> ingreNameList) {
-		// 여기에 DB에서 레시피를 검색하는 코드를 작성
-		// 예를 들어, LunchBoxDAO 클래스를 사용하여 DB에서 레시피를 조회할 수 있음
-		LunchBoxDAO dao = new LunchBoxDAO();
-		return dao.selectLbox(ingreNameList);
 	}
 }

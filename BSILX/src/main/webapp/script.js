@@ -22,7 +22,8 @@ tagify.on('add', function() {
 		success: function(data) {
 			// 성공적으로 데이터를 받으면 페이지에 렌더링
 			renderRecipes(data);
-			console.log("해시 데이터간다");
+			console.log(ingre_name);
+			
 		},
 		error: function(xhr, status, error) {
 			// 에러 처리
