@@ -1,3 +1,5 @@
+<%@page import="com.bsilx.model.LunchBoxDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="java.math.BigInteger"%>
 <%@page import="java.security.SecureRandom"%>
 <%@page import="java.net.URLEncoder"%>
@@ -54,7 +56,16 @@
 
 	<a href="UpdateMember.jsp">마이페이지</a>
 
+
 	<a  height="50" href="LogoutService.do"><img height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
+
+		<a href="UpdateMember.jsp">마이페이지</a> <a height="50"
+			href="LogoutService.do"><img height="50"
+			src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
+			<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
+			<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
+
+
 
 	<span> <%=info.getUser_id()%></span>
 	<span> <%=info.getUser_name()%></span>
@@ -92,7 +103,13 @@
             <span>마이페이지</span>
         </a>
 
+<<<<<<< HEAD
     </nav>
+=======
+				<div class="input_div">
+					<input type="text" name="input" placeholder="(사용자가 가지고 있는 식재료 입력)">
+				</div>
+>>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
     <section>
         <div id="search">
@@ -135,7 +152,51 @@
             
         </div>
 
+<<<<<<< HEAD
+=======
 
+			<div id="recipe-container">
+				<%
+				HttpSession session2 = request.getSession(false);
+				if (session != null) {
+					List<LunchBoxDTO> LunchBoxList = (List<LunchBoxDTO>) session.getAttribute("hashtag");
+					if (LunchBoxList != null && !LunchBoxList.isEmpty()) {
+						for (LunchBoxDTO lbox : LunchBoxList) {
+					out.println("<div class='recipe'>");
+					out.println("<h3>" + lbox.getLbox_name() + "</h3>");
+					out.println("<img src='" + lbox.getLbox_img() + "' alt='레시피 이미지'>");
+					out.println("<p>" + lbox.getLbox_recipe() + "</p>");
+					out.println("<p>가격: " + lbox.getLbox_price() + "</p>");
+					out.println("</div>");
+						}
+					} else {
+						out.println("<p>검색 결과가 없습니다.</p>");
+					}
+				}
+				%>
+			</div>
+
+
+
+			<a href="mainRecipePage.jsp"> <img src="images/image4.png"
+				alt="검색된 레시피 사진"> <span>2800원</span>
+			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
+				<span>2800원</span>
+			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
+				<span>2800원</span>
+			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
+				<span>2800원</span>
+			</a>
+>>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
+
+<<<<<<< HEAD
+=======
+
+
+
+
+		</div>
+>>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
         <div id="Food_ingredient_trends">
             <div class="Increase">
@@ -168,6 +229,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
 
 
 
@@ -176,6 +238,13 @@
                 <h4>소비자 물가 동향</h4>
                 <img src="images/image3.png" alt="소비자물가 동향">
             </div>
+=======
+		<div class="price_new">
+			<div class="Consumer_price_trends">
+				<h4>소비자 물가 동향</h4>
+				<img src="images/image3.png" alt="소비자물가 동향">
+			</div>
+>>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
 
             <div class="Price_news">
@@ -205,7 +274,33 @@
 <link rel="stylesheet" href="style.css">
 
 
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(
+				function() {
+					$('.input_div input').on(
+							'input',
+							function() {
+								var ingredients = $(this).val();
+								$.ajax({
+									type : "POST",
+									url : "LboxPrint", // 서블릿 URL
+									data : {
+										ingredients : ingredients
+									},
+									success : function(response) {
+										$('#result_span').empty(); // 이전 결과 비우기
+										response.forEach(function(item) {
+											$('#result_span').append(
+													'<div>' + item.lbox_name
+															+ '</div>'); // 레시피 이름을 표시
+										});
+									},
+									dataType : 'json'
+								});
+							});
+				});
+	</script>
 
 </body>
 </html>

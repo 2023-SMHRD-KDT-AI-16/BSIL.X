@@ -16,27 +16,27 @@ var tagify = new Tagify(inputElm, {
 	enforceWhitelist: false, // 화이트리스트에서 허용된 태그만 사용
 })
 
+
 tagify.on('add', function() {
 	console.log(tagify.value); // 입력된 태그 정보 객체
-
-	var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
-
+	//var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
+	var tags = $(this).val(); // 입력된 태그 값
 	console.log(tagify); // 입력된 태그 정보 객체
+
 	$.ajax({
 		type: "POST",
-		url: "index.jsp", // 수정된 JSP 파일명
-		data: { tags: tags }, // JSON.stringify 사용 제거
-		success: function(response) {
-		//	console.log("성공:", response);
-		  document.getElementById("result_span") = tags;
-
-		
+		url: "LboxPrint", // 'LboxPrint'는 서블릿의 URL 매핑을 가리킵니다.
+		data: { ingre_name: tags }, // 서블릿에 보낼 데이터
+		dataType: "json", // 응답을 JSON 형식으로 받습니다.
+		success: function(data) {
+			// 성공적으로 데이터를 받으면 페이지에 렌더링
+			renderRecipes(data);
 		},
 		error: function(xhr, status, error) {
-		//	console.error("에러:", error);
+			// 에러 처리
+			console.error("Error: " + error);
 		}
 	});
-
 })
 
 // 만일 모든 태그 지우기 기능 버튼을 구현한다면
@@ -60,6 +60,21 @@ tagify.on('add', onAddTag) // 태그가 추가되면
 
 // tagify 전용 이벤트 리스너 제거 할떄
 tagify.off('add', onAddTag);
+
+function renderRecipes(recipes) {
+	var container = $('#recipe-container');
+	container.empty(); // 컨테이너를 비우고
+
+	recipes.forEach(function(recipe) { // 각 레시피 정보를 동적으로 생성
+		var html = '<div class="recipe">' +
+			'<h3>' + recipe.lboxName + '</h3>' +
+			'<img src="' + recipe.lboxImg + '" alt="레시피 이미지">' +
+			'<p>' + recipe.lboxRecipe + '</p>' +
+			'<p>가격: ' + recipe.lboxPrice + '</p>' +
+			'</div>';
+		container.append(html); // 생성된 HTML을 컨테이너에 추가
+	});
+}
 
 
 // 이벤트 리스너 콜백 메소드

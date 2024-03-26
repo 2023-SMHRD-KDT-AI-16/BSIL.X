@@ -38,7 +38,7 @@ public class LboxPrint extends HttpServlet {
 		}else {
 			System.out.println("해시태그 결과 리스트 담기 실패");
 		}
-		response.sendRedirect("Main.jsp");
+		response.sendRedirect("index.jsp");
 		
 
 	}
