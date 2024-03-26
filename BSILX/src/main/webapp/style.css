@@ -131,7 +131,7 @@ section>div {
 
 /* 레시피 이미지 섹션 스타일 */
 #search_img>a{
-    display: flex;
+/*    display: flex;*/
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
