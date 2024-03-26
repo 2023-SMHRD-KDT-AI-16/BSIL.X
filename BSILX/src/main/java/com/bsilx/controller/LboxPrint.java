@@ -1,6 +1,7 @@
 package com.bsilx.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,10 @@ public class LboxPrint extends HttpServlet {
 		List<LunchBoxDTO> LunchBoxList  = new LunchBoxDAO().selectLbox(ingre_name);
 		
 		System.out.println(LunchBoxList.get(0).getLbox_name());
+		
+		PrintWriter out = response.getWriter();
+		
+		out.print(LunchBoxList.get(0).getLbox_name());
 	}
 
 
