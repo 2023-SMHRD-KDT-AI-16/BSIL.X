@@ -16,6 +16,12 @@ public class LunchBoxDTO {
 		this.lbox_price = lbox_price;
 	}
 	
+	public LunchBoxDTO(String lbox_name, String lbox_img, int lbox_price) {
+		this.lbox_name = lbox_name;
+		this.lbox_img = lbox_img;
+		this.lbox_price = lbox_price;
+	}
+	
 	public String getLbox_name() {
 		return lbox_name;
 	}
