@@ -24,16 +24,14 @@ public class IngreAllDayPriceChart extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-
+		
 		String ingre_name = "감자";
 
 		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
-
-		System.out.println(priceList.get(0).getIngre_name());
-
 		JSONArray jsonArray = new JSONArray();
 
-		jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
+			jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
+			
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

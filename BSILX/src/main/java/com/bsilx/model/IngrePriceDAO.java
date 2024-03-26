@@ -47,6 +47,7 @@ public class IngrePriceDAO {
 			System.out.println("값 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("값 담기 실패");
 		} finally {
 			sqlSession.close();
 		}
@@ -58,19 +59,21 @@ public class IngrePriceDAO {
 
 		JSONArray jsonArray = new JSONArray();
 
-		for (IngrePriceDTO price : priceList) {
-			JSONObject jsonObject = new JSONObject();
-			int year = Integer.parseInt(price.getIngre_year());
-			int month = Integer.parseInt(price.getIngre_month());
-			String week = String.format("%02d/%02d", year, month).substring(2);
+		if (priceList != null) {
+			for (IngrePriceDTO price : priceList) {
+				JSONObject jsonObject = new JSONObject();
+				int year = Integer.parseInt(price.getIngre_year());
+				int month = Integer.parseInt(price.getIngre_month());
+				String week = String.format("%02d/%02d", year, month).substring(2);
 
-			jsonObject.put("name", price.getIngre_name());
-			jsonObject.put("price", price.getIngre_price());
-			jsonObject.put("category", price.getIngre_market());
-			jsonObject.put("week", week);
+				jsonObject.put("name", price.getIngre_name());
+				jsonObject.put("price", price.getIngre_price());
+				jsonObject.put("category", price.getIngre_market());
+				jsonObject.put("week", week);
 
-			jsonArray.put(jsonObject);
-			System.out.println("json 변환 성공");
+				jsonArray.put(jsonObject);
+				System.out.println("json 변환 성공");
+			}
 		}
 		return jsonArray;
 	}
@@ -78,9 +81,9 @@ public class IngrePriceDAO {
 	public JSONArray oneDayPriceToJson(List<IngrePriceDTO> priceList) {
 
 		JSONArray jsonArray = new JSONArray();
-		
-		if(priceList != null) {
-			
+
+		if (priceList != null) {
+
 			for (IngrePriceDTO price : priceList) {
 				JSONObject jsonObject = new JSONObject();
 				int month = Integer.parseInt(price.getIngre_month());
@@ -98,8 +101,6 @@ public class IngrePriceDAO {
 			}
 		}
 
-		
-		
 		return jsonArray;
 	}
 

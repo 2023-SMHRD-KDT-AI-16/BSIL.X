@@ -6,19 +6,32 @@
 	<select id="SelectLbox" parameterType="java.lang.String"
 		resultType="LunchBox">
 		select a.lbox_name, a.lbox_recipe, a.lbox_img, a.lbox_price
-		from lunch_box_info a
-		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
+		from
+		lunch_box_info a
+		inner join lunch_box_ingredient_info b on a.lbox_seq =
+		b.lbox_seq
 		inner join ingredient_info c on b.ingre_seq = c.ingre_seq
 		where c.ingre_name in
-		<foreach collection="list" item="item" open="(" separator="," close=")">
+		<foreach collection="list" item="item" open="(" separator=","
+			close=")">
 			#{item}
 		</foreach>
 	</select>
 
+	<select id="SelectOneLbox" parameterType="String"
+		resultType="LunchBox">
+		select *
+		from lunch_box_info
+		where lbox_name = #{lbox_name}
+	</select>
 
-
-
-
+	<select id="SelectOneLboxIngre" parameterType="String" resultType="String">
+		select c.ingre_name
+		from lunch_box_info a
+		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
+		inner join ingredient_info c on b.ingre_seq = c.ingre_seq
+		where a.lbox_name = #{lbox_name}
+	</select>
 
 
 
