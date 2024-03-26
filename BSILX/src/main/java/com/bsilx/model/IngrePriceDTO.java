@@ -27,6 +27,9 @@ public class IngrePriceDTO {
 		this.ingre_day = ingre_day;
 	}
 
+	public IngrePriceDTO(String ingre_name) {
+		this.ingre_name = ingre_name;
+	}
 	
 	// getter, setter
 	public String getIngre_name() {

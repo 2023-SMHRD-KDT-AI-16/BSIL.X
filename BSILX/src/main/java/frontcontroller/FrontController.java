@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bsilx.controller.LboxPrint;
 import com.bsilx.controller.LogoutService;
 
 public class FrontController extends HttpServlet {
@@ -39,8 +40,8 @@ public class FrontController extends HttpServlet {
 
 		if (result.equals("/LogoutService.do")) { // 클라이언트의 입력이 어디로 가려는지 확인하기위해서.
 			service = new LogoutService();
-//		} else if(result.equals("/LogoutService.do")) {
-//			service = new LogoutService();
+//		} else if(result.equals("/LboxPrint.do")) {
+//			service = new LboxPrint();
 //		}else if(result.equals("/DeleteService.do")) {
 //			service = new DeleteService();
 //		}else if(result.equals("/DelMessageAllService.do")) {

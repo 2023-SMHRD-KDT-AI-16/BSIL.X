@@ -18,24 +18,18 @@
 		</foreach>
 	</select>
 
-
-	<select id="SelectOneLbox" parameterType="String"
-		resultType="LunchBox">
-		select *
-		from lunch_box_info
-		where lbox_name = #{lbox_name}
+	<select id="SelectOneLbox" parameterType="String" resultType="LunchBox">
+		select lbox_name, lbox_recipe, lbox_img, lbox_price
+		from lunch_box_info where lbox_name = #{lbox_name}
 	</select>
 
-	<select id="SelectOneLboxIngre" parameterType="String" resultType="String">
+	<select id="SelectOneLboxIngre" parameterType="String" resultType="IngrePrice">
 		select c.ingre_name
 		from lunch_box_info a
 		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
 		inner join ingredient_info c on b.ingre_seq = c.ingre_seq
 		where a.lbox_name = #{lbox_name}
 	</select>
-
-
-
 
 
 </mapper>

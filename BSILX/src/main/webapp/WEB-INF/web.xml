@@ -45,6 +45,12 @@
 		<description></description>
 		<servlet-class>com.bsilx.controller.JoinService</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Test</servlet-name>
+		<display-name>Test</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.Test</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>IngreAllDayPriceChart</servlet-name>
@@ -73,6 +79,10 @@
 	<servlet-mapping>
 		<servlet-name>JoinService</servlet-name>
 		<url-pattern>/JoinService</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Test</servlet-name>
+		<url-pattern>/Test</url-pattern>
 	</servlet-mapping>
 
 </web-app>

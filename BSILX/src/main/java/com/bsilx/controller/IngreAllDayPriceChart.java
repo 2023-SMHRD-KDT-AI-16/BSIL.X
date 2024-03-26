@@ -28,9 +28,10 @@ public class IngreAllDayPriceChart extends HttpServlet {
 		String ingre_name = "감자";
 
 		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
+		
 		JSONArray jsonArray = new JSONArray();
 
-			jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
+		jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
 			
 		
 		response.setContentType("application/json");
