@@ -27,21 +27,21 @@
 
         <h1>도시락 레시피 가이드</h1>
         <nav>
-        <a href="#" class="header_menu">
-            <img src="images/image1.png" alt="메뉴 메인화면 사진" height = "100" width = "100">
-            <span>메인화면</span>
-        </a>
-
-        <a href="#" class="header_menu">
-            <img src="images/image1.png" alt="메뉴 전체레시피 사진" height = "100" width = "100">
-            <span>전체레시피</span>
-        </a>
-
-        <a href="#" class="header_menu">
-            <img src="images/image1.png" alt="메뉴 마이페이지 사진" height = "100" width = "100">
-            <span>마이페이지</span>
-        </a>
-
+		    <a href="#" class="header_menu" >
+		        <img src="images/image1.png" alt="메뉴 메인화면 사진" height = "100" width = "100">
+		        <span>메인화면</span>
+		    </a>
+	
+	        <a href="#" class="header_menu">
+	            <img src="images/image1.png" alt="메뉴 전체레시피 사진" height = "100" width = "100">
+	            <span>전체레시피</span>
+	        </a>
+	
+	        <a href="#" class="header_menu">
+	            <img src="images/image1.png" alt="메뉴 마이페이지 사진" height = "100" width = "100">
+	            <span>마이페이지</span>
+	        </a>
+		
     </nav>
 	</header>
 	
@@ -89,6 +89,7 @@
 	<div class="chart">
 		<p>식재료 가격 동향</p>
 	</div>
+	<link rel="stylesheet" href="style.css">
 </body>
 </html>
 
