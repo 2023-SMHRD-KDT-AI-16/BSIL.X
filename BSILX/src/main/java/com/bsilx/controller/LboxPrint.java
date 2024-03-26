@@ -45,6 +45,8 @@ public class LboxPrint extends HttpServlet {
 
 		List<LunchBoxDTO> LunchBoxList = new LunchBoxDAO().selectLbox(ingre_name);
 
+		
+		
 		System.out.println(LunchBoxList.get(0).getLbox_name());
 
 		if (LunchBoxList != null) {
