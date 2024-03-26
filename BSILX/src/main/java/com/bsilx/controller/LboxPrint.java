@@ -39,8 +39,9 @@ public class LboxPrint extends HttpServlet {
 		System.out.println("ingreNameList :"+ingreNameList);  //index.jsp에서 쌀 보내면 쌀 받아짐
 		
 		
-		
 
+		
+		
 		
 		
 		
