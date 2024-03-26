@@ -23,9 +23,72 @@
 	rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<span>현재 페이지를 제작중 입니다 확인해 주세요. </span>
-	
+	<header>
 
+        <h1>도시락 레시피 가이드</h1>
+        <nav>
+        <a href="#" class="header_menu">
+            <img src="images/image1.png" alt="메뉴 메인화면 사진" height = "100" width = "100">
+            <span>메인화면</span>
+        </a>
+
+        <a href="#" class="header_menu">
+            <img src="images/image1.png" alt="메뉴 전체레시피 사진" height = "100" width = "100">
+            <span>전체레시피</span>
+        </a>
+
+        <a href="#" class="header_menu">
+            <img src="images/image1.png" alt="메뉴 마이페이지 사진" height = "100" width = "100">
+            <span>마이페이지</span>
+        </a>
+
+    </nav>
+	</header>
+	
+	<section>
+	 <div id="food">
+            <img src="images/image1.png" alt="레시피 사진">
+          	<a href="#" id=bookmark>
+          		즐겨찾기 추가
+          	</a>
+          	<% %>
+          	<p>메뉴명(db연동)</p>
+          	<p>메뉴 가격(db)</p>
+          	<div id="printIngre">
+          		<p>재료</p>
+          		<span> 깻잎 </span>
+          		<span> 쌀 </span>
+          	</div>
+          	
+          	<table>
+          		<tr>
+          			<th>메뉴명(db연동)</th>
+          		</tr>
+          		<tr>
+          			<th>메뉴 가격(db)</th>
+          		</tr>
+          		<tr>
+          			<td>재료</td>
+          		</tr>
+          	</table>
+      
+        </div>
+	<div id="recipe">
+		<p> 조리 순서 </p>
+	</div>
+	</section>
+	
+	<div class="chart">
+		<p>도시락 vs 외식비</p>
+	</div>
+
+	<div class="chart">
+		<p>시장 vs 대형마트</p>
+	</div>
+	
+	<div class="chart">
+		<p>식재료 가격 동향</p>
+	</div>
 </body>
 </html>
 

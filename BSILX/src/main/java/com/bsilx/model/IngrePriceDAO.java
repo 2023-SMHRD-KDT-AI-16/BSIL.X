@@ -44,6 +44,7 @@ public class IngrePriceDAO {
 
 		try {
 			priceList = sqlSession.selectList("SelectOnePrice", dto);
+			System.out.println("값 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -69,6 +70,7 @@ public class IngrePriceDAO {
 			jsonObject.put("week", week);
 
 			jsonArray.put(jsonObject);
+			System.out.println("json 변환 성공");
 		}
 		return jsonArray;
 	}
@@ -90,6 +92,7 @@ public class IngrePriceDAO {
 			jsonObject.put("date", date);
 
 			jsonArray.put(jsonObject);
+			System.out.println("json 변환 성공");
 		}
 		return jsonArray;
 	}
