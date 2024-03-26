@@ -1,3 +1,4 @@
+<%@page import="com.bsilx.model.LunchBoxDAO"%>
 <%@page import="com.bsilx.model.LunchBoxDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.math.BigInteger"%>
@@ -44,37 +45,37 @@
 	session.setAttribute("state", state);
 	%>
 
-	<div id="login_mypage">
-
-		<%
-		if (info == null) {
-		%>
-		<a height="50" href="<%=apiURL%>"><img height="50"
-			src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
-
-		<%
-		} else {
-		out.println("환영합니다, " + info.getUser_name() + "님!");
-		%>
-
-		<a href="UpdateMember.jsp">마이페이지</a> <a height="50"
-			href="LogoutService.do"><img height="50"
-			src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
-			<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
-			<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
-
-
-		<%
-		}
-		%>
-	</div>
-
 
 
 
 	<header>
-		<img src="images/image1.png" id="logo" alt="logo">
-
+		<div id="header_div">
+			<a href="index.jsp">
+			<img src="images/image1.png" id="logo" alt="logo">
+			</a>
+			<div id="login_mypage">
+	
+				<%
+				if (info == null) {
+				%>
+				<a height="50" href="<%=apiURL%>"><img height="50"
+					src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
+	
+				<%
+				} else {
+				out.println("환영합니다, " + info.getUser_name() + "님!");
+				%>
+	
+				<a href="UpdateMember.jsp">마이페이지</a> <a height="50"
+					href="LogoutService.do"><img height="50"
+					src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
+					<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
+					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
+				<%
+				}
+				%>
+			</div>
+		</div>
 		<h1>도시락 레시피 가이드</h1>
 	</header>
 	<nav>
@@ -95,42 +96,32 @@
 				<div class="input_div">
 					<input type="text" name="input" placeholder="(사용자가 가지고 있는 식재료 입력)">
 				</div>
-				<button onclick="getData()">레시피 검색</button>
+				<!-- 	<button onclick="getData()">레시피 검색</button> -->
 			</form>
 
 			<span id="result_span"></span>
-			<%
-			// 입력된 태그 데이터 추출
-			String tags = request.getParameter("tags");
-			// 태그 데이터를 처리하는 로직 구현
-			out.println(tags); // 단순히 출력하는 예시
-			%>
-			<!--   <div class="search_hashtag">
-                <span>(재료 해시태그가 담기는 구간)</span>
-                <span>(재료 해시태그가 담기는 구간)</span>
-                <span>(재료 해시태그가 담기는 구간)</span>
 
-            </div> -->
 		</div>
 
 		<div id="search_img">
-			<table border="1">
+
+			<a href="mainRecipePage.jsp">
+			<img src="images/image4.png" alt="검색된 레시피 사진">
+			<span>2800원</span>
+			</a> 
 			
+			<a href="">
+			<img src="images/image4.png" alt="검색된 레시피 사진">
+			<span>2800원</span>
+			</a> 
 				
-
-			</table>
-
-
-
-
-			<a href="mainRecipePage.jsp"> <img src="images/image4.png"
-				alt="검색된 레시피 사진"> <span>2800원</span>
-			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
-				<span>2800원</span>
-			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
-				<span>2800원</span>
-			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
-				<span>2800원</span>
+			<a href="">
+			<img src="images/image4.png" alt="검색된 레시피 사진">
+			<span>2800원</span>
+			</a>
+			<a href="">
+			<img src="images/image4.png" alt="검색된 레시피 사진">
+			<span>2800원</span>
 			</a>
 
 
@@ -189,46 +180,15 @@
 		</div>
 
 
-
-
-
 	</section>
 
-
 	<footer> </footer>
-
 
 	<script src="script.js"></script>
 	<link rel="stylesheet" href="style.css">
 
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(
-				function() {
-					$('.input_div input').on(
-							'input',
-							function() {
-								var ingredients = $(this).val();
-								$.ajax({
-									type : "POST",
-									url : "LboxPrint", // 서블릿 URL
-									data : {
-										ingredients : ingredients
-									},
-									success : function(response) {
-										$('#result_span').empty(); // 이전 결과 비우기
-										response.forEach(function(item) {
-											$('#result_span').append(
-													'<div>' + item.lbox_name
-															+ '</div>'); // 레시피 이름을 표시
-										});
-									},
-									dataType : 'json'
-								});
-							});
-				});
-	</script>
 
 </body>
 </html>
