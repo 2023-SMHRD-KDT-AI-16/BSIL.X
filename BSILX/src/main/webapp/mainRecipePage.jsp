@@ -21,6 +21,7 @@
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<header>
@@ -47,12 +48,20 @@
 	
 	<section>
 	 <div id="food">
-            <img src="images/image1.png" alt="레시피 사진">
+            <img src="images/image1.png" alt="레시피 사진" height="500" width="500">
           	<a href="#" id=bookmark>
-          		즐겨찾기 추가
+          		<div id="favorites">즐겨찾기 추가</div>
+          		<!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
           	</a>
           	<% %>
-          	<p>메뉴명(db연동)</p>
+          	<table>
+          		<tr>
+          			<th>메뉴명(db연동)</th>
+          		</tr>
+          		<tr>
+          			<td>test 메뉴명</td>
+          		</tr>
+          	</table>
           	<p>메뉴 가격(db)</p>
           	<div id="printIngre">
           		<p>재료</p>
@@ -68,28 +77,50 @@
           			<th>메뉴 가격(db)</th>
           		</tr>
           		<tr>
-          			<td>재료</td>
+          			<td>
+          				<ul>
+          					<li>재료 예시</li>
+          				</ul>
+          			</td>
           		</tr>
           	</table>
       
         </div>
 	<div id="recipe">
-		<p> 조리 순서 </p>
+		<table>
+			<tr>
+				<th><p> 조리 순서 </p></th>
+			</tr>
+				<tr>
+					<td style="width: 1500px"> 
+						<!-- 조리방법 스크립트 추가 --> 
+					</td>
+				</tr>
+		</table>
 	</div>
 	</section>
 	
 	<div class="chart">
 		<p>도시락 vs 외식비</p>
+			<div class="chart"> 
+			<!-- 도시락과 외식비 비용 막대 그래프 추가 -->
+			</div>
 	</div>
 
 	<div class="chart">
 		<p>시장 vs 대형마트</p>
+			<div class="chart">
+			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
+			</div>
 	</div>
 	
 	<div class="chart">
 		<p>식재료 가격 동향</p>
+		<div class="chart">
+		<!-- 식재료 가격 동향 그래프 점선 그래프 추가 -->
+		</div>
 	</div>
-	<link rel="stylesheet" href="style.css">
+	
 </body>
 </html>
 
