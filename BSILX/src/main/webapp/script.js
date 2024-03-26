@@ -10,16 +10,33 @@
 let inputElm = document.querySelector('input[name=input]');
 
 // 화이트 리스트 : 해당 문자만 태그로 추가 가능
-let whitelist = ["python", "java", "pug", "react", "vue", "c", "sass"];
 
 // initialize Tagify
 var tagify = new Tagify(inputElm, {
 	enforceWhitelist: false, // 화이트리스트에서 허용된 태그만 사용
-	whitelist: whitelist // 화이트 리스트 배열. 화이트 리스트를 등록하면 자동으로 드롭다운 메뉴가 생긴다
 })
 
 tagify.on('add', function() {
 	console.log(tagify.value); // 입력된 태그 정보 객체
+
+	var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
+
+	console.log(tagify); // 입력된 태그 정보 객체
+	$.ajax({
+		type: "POST",
+		url: "index.jsp", // 수정된 JSP 파일명
+		data: { tags: tags }, // JSON.stringify 사용 제거
+		success: function(response) {
+		//	console.log("성공:", response);
+		  document.getElementById("result_span") = tags;
+
+		
+		},
+		error: function(xhr, status, error) {
+		//	console.error("에러:", error);
+		}
+	});
+
 })
 
 // 만일 모든 태그 지우기 기능 버튼을 구현한다면

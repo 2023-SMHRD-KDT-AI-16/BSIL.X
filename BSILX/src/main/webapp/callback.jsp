@@ -115,6 +115,11 @@
         String user_email=jsonObject.getAsJsonObject("response").get("email").getAsString();
         String user_phone=jsonObject.getAsJsonObject("response").get("mobile").getAsString();
        
+        
+        
+        
+        
+        
         MemberDTO dto = new MemberDTO();
         dto.setUser_id(jsonObject.getAsJsonObject("response").get("id").getAsString());
         dto.setUser_nick(jsonObject.getAsJsonObject("response").get("nickname").getAsString());
