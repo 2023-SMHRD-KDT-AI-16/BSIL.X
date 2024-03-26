@@ -6,7 +6,8 @@
 	<!-- DRO의 별명 지어주기 -->
 	<typeAliases>
 		<typeAlias type="com.bsilx.model.IngrePriceDTO" alias="IngrePrice"/>
-		<typeAlias type="com.bsilx.model.LunchBoxDTO" alias="LunchBox"></typeAlias>
+		<typeAlias type="com.bsilx.model.LunchBoxDTO" alias="LunchBox"/>
+		<typeAlias type="com.bsilx.model.MemberDTO" alias="Member"/>
 	</typeAliases>
 	
 	
@@ -29,5 +30,6 @@
 	<mappers>
 		<mapper resource="com/bsilx/db/IngreMapper.xml" />
 		<mapper resource="com/bsilx/db/LboxMapper.xml" />
+		<mapper resource="com/bsilx/db/MemberMapper.xml" />
 	</mappers>
 </configuration>

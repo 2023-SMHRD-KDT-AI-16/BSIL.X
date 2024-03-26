@@ -39,6 +39,12 @@
 		<description></description>
 		<servlet-class>com.bsilx.controller.LboxPrint</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>JoinService</servlet-name>
+		<display-name>JoinService</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.JoinService</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>IngreAllDayPriceChart</servlet-name>
@@ -63,6 +69,10 @@
 	<servlet-mapping>
 		<servlet-name>LboxPrint</servlet-name>
 		<url-pattern>/LboxPrint</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JoinService</servlet-name>
+		<url-pattern>/JoinService</url-pattern>
 	</servlet-mapping>
 
 </web-app>

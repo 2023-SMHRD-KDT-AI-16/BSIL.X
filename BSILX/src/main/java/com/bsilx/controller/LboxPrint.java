@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bsilx.model.LunchBoxDAO;
 import com.bsilx.model.LunchBoxDTO;
@@ -30,9 +31,16 @@ public class LboxPrint extends HttpServlet {
 		
 		System.out.println(LunchBoxList.get(0).getLbox_name());
 		
-		PrintWriter out = response.getWriter();
+		if(LunchBoxList != null) {
+			System.out.println("해시태그 결과 리스트 담기 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("hashtag", LunchBoxList);
+		}else {
+			System.out.println("해시태그 결과 리스트 담기 실패");
+		}
+		response.sendRedirect("Main.jsp");
 		
-		out.print(LunchBoxList.get(0).getLbox_name());
+
 	}
 
 
