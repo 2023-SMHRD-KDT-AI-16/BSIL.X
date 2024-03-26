@@ -56,17 +56,13 @@
           	<% %>
           	<table>
           		<tr>
-          			<th>메뉴명(db연동)</th>
-          		</tr>
-          		<tr>
           			<td>test 메뉴명</td>
           		</tr>
           	</table>
           	<p>메뉴 가격(db)</p>
           	<div id="printIngre">
           		<p>재료</p>
-          		<span> 깻잎 </span>
-          		<span> 쌀 </span>
+          		
           	</div>
           	
           	<table>
@@ -78,9 +74,11 @@
           		</tr>
           		<tr>
           			<td>
-          				<ul>
-          					<li>재료 예시</li>
-          				</ul>
+          				<ol>
+          					<!-- 재료들 리스트 -->
+          					<li>깻잎</li>
+          					<!-- 확인해주고 고칠 부분 말씀 해 주세요 -->
+          				</ol>
           			</td>
           		</tr>
           	</table>
