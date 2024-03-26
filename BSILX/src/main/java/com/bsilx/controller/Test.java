@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.bsilx.model.IngrePriceDAO;
 import com.bsilx.model.IngrePriceDTO;
@@ -21,7 +22,12 @@ public class Test extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
+		// request.setCharacterEncoding("UTF-8");
+		// response.setContentType("text/html;charset=UTF-8");
+		
+	    request.setCharacterEncoding("UTF-8");
+	    response.setContentType("application/json; charset=UTF-8");
+		
 		
 		String lbox_name = "깻잎쌈밥";
 		
@@ -29,26 +35,20 @@ public class Test extends HttpServlet {
 	
 		System.out.println(lbox.getLbox_name());
 		
-		
 		List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
 		
-		JSONArray jsonArray = new JSONArray();
-		
-		for(int i=0; i < lboxIngreList.size(); i++) {
-			String ingre_name = lboxIngreList.get(i).getIngre_name();
-			System.out.println(ingre_name);
-			List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
-			JSONArray jsonArrayresult = new IngrePriceDAO().allDayPriceToJson(priceList);
-			jsonArray.put(jsonArrayresult);
+		for(IngrePriceDTO x: lboxIngreList) {
+		System.out.println(x.getIngre_name());
 		}
 		
-		PrintWriter out = response.getWriter();
-		out.print(jsonArray);
-//		response.setContentType("application/json");
-//		response.setCharacterEncoding("UTF-8");
-//		response.getWriter().write(jsonArray.toString());
-		request.setAttribute("jsonData", jsonArray.toString());
-		request.getRequestDispatcher("ingreAllDayPriceChart.jsp").forward(request, response);
+		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson(lbox_name);
+		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(jsonArray.toString());
+		
+//		request.setAttribute("jsonData", jsonArray.toString());
+//		request.getRequestDispatcher("ingreAllDayPriceChart.jsp").forward(request, response);
 	}
 
 }

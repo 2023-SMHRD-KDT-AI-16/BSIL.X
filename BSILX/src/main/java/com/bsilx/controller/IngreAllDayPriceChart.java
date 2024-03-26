@@ -31,7 +31,7 @@ public class IngreAllDayPriceChart extends HttpServlet {
 		
 		JSONArray jsonArray = new JSONArray();
 
-		jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
+		// jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
 			
 		
 		response.setContentType("application/json");
