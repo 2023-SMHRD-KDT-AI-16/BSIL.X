@@ -25,7 +25,7 @@ public class LboxPrint extends HttpServlet {
 		List<String> ingre_name = new ArrayList<>();
 		
 		ingre_name.add("깻잎");
-		ingre_name.add("쌀");		
+		
 		
 		List<LunchBoxDTO> LunchBoxList  = new LunchBoxDAO().selectLbox(ingre_name);
 		
