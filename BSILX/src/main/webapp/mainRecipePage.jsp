@@ -1,5 +1,4 @@
-<%@page import="com.google.gson.JsonObject"%>
-<%@page import="com.google.gson.JsonParser"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,8 +20,12 @@
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="style.css">
+
 </head>
+
+
+
+
 <body>
 	<header>
 
@@ -105,7 +108,7 @@
 			<!-- 식재료 가격 동향 그래프 점선 그래프 추가 -->
 		</div>
 	</div>
-
+<link rel="stylesheet" href="style.css">
 </body>
 </html>
 
