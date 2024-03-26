@@ -1,3 +1,4 @@
+<%@page import="com.bsilx.model.IngrePriceDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,17 +25,16 @@
 	</div>
 	<script src="./jquery-3.7.1.min.js"></script>
 	<script>
-	
 	$.ajax({
-	    url: 'IngreAllDayPriceChart', // 서블릿의 URL
+	    url: 'Test', // 서블릿의 URL
 	    dataType: 'json', // 데이터 형식은 JSON
 	    success: function(data) {
 	        // 대형 카테고리에 해당하는 데이터 필터링
-	        var largeData = data.filter(item => item.category === '대형');
+	        var largeData = data.filter(item => item.category === '대형' && item.name === '깻잎');
 	        var largeLabels = largeData.map(item => item.week);
 
 	        // 전통 카테고리에 해당하는 데이터 필터링
-	        var traditionalData = data.filter(item => item.category === '전통');
+	        var traditionalData = data.filter(item => item.category === '전통'&& item.name === '깻잎');
 	        var traditionalLabels = traditionalData.map(item => item.week);
 
 	        console.log(traditionalData);
