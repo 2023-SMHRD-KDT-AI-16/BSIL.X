@@ -48,50 +48,46 @@
 	
 	<section>
 	 <div id="food">
-            <img src="images/image1.png" alt="레시피 사진" height="500" width="500">
-          	<a href="#" id=bookmark>
-          		<div id="favorites">즐겨찾기 추가</div>
+            <img src="https://2bob.co.kr/data/recipe/20220804142632-D1Q5R.jpg" alt="레시피 사진" height="500" width="500" >
+          	<table>
+          		<tr>
+          			<th>
+          				<a href="#" id=bookmark>
+          					즐겨찾기 추가
           		<!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
-          	</a>
+          				</a>
+          			</th>
+          		</tr>
           	<% %>
-          	<table>
-          		<tr>
-          			<td>test 메뉴명</td>
-          		</tr>
-          	</table>
-          	<p>메뉴 가격(db)</p>
-          	<div id="printIngre">
-          		<p>재료</p>
-          		
-          	</div>
           	
-          	<table>
           		<tr>
-          			<th>메뉴명(db연동)</th>
+          			<td>test 메뉴명 (DB)</td>
+          			<!-- DB에서 꺼내요기 -->
           		</tr>
           		<tr>
-          			<th>메뉴 가격(db)</th>
+          			<td>test 메뉴 가격 (DB)</td>
+          			<!-- DB에서 꺼내요기 -->
           		</tr>
           		<tr>
-          			<td>
-          				<ol>
-          					<!-- 재료들 리스트 -->
-          					<li>깻잎</li>
-          					<!-- 확인해주고 고칠 부분 말씀 해 주세요 -->
-          				</ol>
-          			</td>
+          			<td>test 재료</td>
+          			<!-- DB에서 꺼내요기 -->
           		</tr>
+          		
           	</table>
-      
-        </div>
+ 	</div>
 	<div id="recipe">
 		<table>
 			<tr>
 				<th><p> 조리 순서 </p></th>
 			</tr>
 				<tr>
-					<td style="width: 1500px"> 
-						<!-- 조리방법 스크립트 추가 --> 
+					<td style="width: 1500px">
+						test 레시피 메뉴 출력
+						대파는 세로로 반 갈라 송송 썰고,<br>명란젓은 5~6등분하고,<br>
+						그릇에 밥을 담고 가운데 부분을숟가락으로 가볍게 누르고, <br>
+						누른 부분에 달걀을 깨 넣고꼬치로 노른자를 2~3번 찌르고, <br>
+						대파와 명란젓을 둘러 담은 뒤랩을 씌워 전자레인지에 30초씩 2번 돌리고, <br>
+						버터(0.5)를 올리고간장(0.5)을 뿌려 마무리. 
 					</td>
 				</tr>
 		</table>
