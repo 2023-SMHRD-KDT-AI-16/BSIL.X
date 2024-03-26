@@ -103,13 +103,10 @@
             <span>마이페이지</span>
         </a>
 
-<<<<<<< HEAD
     </nav>
-=======
 				<div class="input_div">
 					<input type="text" name="input" placeholder="(사용자가 가지고 있는 식재료 입력)">
 				</div>
->>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
     <section>
         <div id="search">
@@ -152,8 +149,6 @@
             
         </div>
 
-<<<<<<< HEAD
-=======
 
 			<div id="recipe-container">
 				<%
@@ -187,16 +182,11 @@
 			</a> <a href=""> <img src="images/image4.png" alt="검색된 레시피 사진">
 				<span>2800원</span>
 			</a>
->>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
-
-<<<<<<< HEAD
-=======
 
 
 
 
 		</div>
->>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
         <div id="Food_ingredient_trends">
             <div class="Increase">
@@ -229,7 +219,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
 
 
 
@@ -238,13 +227,11 @@
                 <h4>소비자 물가 동향</h4>
                 <img src="images/image3.png" alt="소비자물가 동향">
             </div>
-=======
 		<div class="price_new">
 			<div class="Consumer_price_trends">
 				<h4>소비자 물가 동향</h4>
 				<img src="images/image3.png" alt="소비자물가 동향">
 			</div>
->>>>>>> branch 'main' of https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X.git
 
 
             <div class="Price_news">
