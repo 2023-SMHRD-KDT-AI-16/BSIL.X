@@ -123,8 +123,6 @@
 			<span>2800원</span>
 			</a>
 
-
-
 		</div>
 
 		<div id="Food_ingredient_trends">
