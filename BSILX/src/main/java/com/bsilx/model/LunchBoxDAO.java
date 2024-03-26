@@ -35,9 +35,7 @@ public class LunchBoxDAO {
 	public LunchBoxDTO selectOneLbox (String lbox_name) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-
 		LunchBoxDTO lbox = null;
-		
 		try {
 			lbox = sqlSession.selectOne("SelectOneLbox", lbox_name);
 			System.out.println("클릭한 메뉴 db 연결 성공");
