@@ -3,32 +3,50 @@
 <mapper namespace="com.bsilx.db.LboxMapper">
 
 
-	<select id="SelectLbox" parameterType="java.lang.String"
-		resultType="LunchBox">
-		select distinct a.lbox_name, a.lbox_img, a.lbox_price
+	<select id="SelectLboxName" parameterType="String"
+		resultType="String">
+		select distinct a.lbox_name
 		from
 		lunch_box_info a
-		inner join lunch_box_ingredient_info b on a.lbox_seq =
+		inner join
+		lunch_box_ingredient_info b on a.lbox_seq =
 		b.lbox_seq
+		inner join
+		ingredient_info c on b.ingre_seq = c.ingre_seq
+		where c.ingre_name =
+		#{item}
+	</select>
+
+	<select id="SelectLbox" parameterType="java.lang.String" resultType="LunchBox">
+		select distinct a.lbox_name, a.lbox_img, a.lbox_price
+		from lunch_box_info a
+		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
 		inner join ingredient_info c on b.ingre_seq = c.ingre_seq
-		where c.ingre_name in
+		where a.lbox_name in
 		<foreach collection="list" item="item" open="(" separator=","
 			close=")">
 			#{item}
 		</foreach>
 	</select>
 
-	<select id="SelectOneLbox" parameterType="String" resultType="LunchBox">
+
+	<select id="SelectOneLbox" parameterType="String"
+		resultType="LunchBox">
 		select lbox_name, lbox_recipe, lbox_img, lbox_price
-		from lunch_box_info where lbox_name = #{lbox_name}
+		from
+		lunch_box_info where lbox_name = #{lbox_name}
 	</select>
 
-	<select id="SelectOneLboxIngre" parameterType="String" resultType="IngrePrice">
+	<select id="SelectOneLboxIngre" parameterType="String"
+		resultType="IngrePrice">
 		select c.ingre_name
 		from lunch_box_info a
-		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
-		inner join ingredient_info c on b.ingre_seq = c.ingre_seq
-		where a.lbox_name = #{lbox_name}
+		inner join
+		lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
+		inner join
+		ingredient_info c on b.ingre_seq = c.ingre_seq
+		where a.lbox_name =
+		#{lbox_name}
 	</select>
 
 
