@@ -103,8 +103,7 @@
 		</div>
 
 		<div id="search_img">
-
-			<a href="mainRecipePage.jsp">
+			<!-- <a href="mainRecipePage.jsp">
 			<img src="images/image4.png" alt="검색된 레시피 사진">
 			<span>2800원</span>
 			</a> 
@@ -121,7 +120,7 @@
 			<a href="">
 			<img src="images/image4.png" alt="검색된 레시피 사진">
 			<span>2800원</span>
-			</a>
+			</a> -->
 
 		</div>
 
