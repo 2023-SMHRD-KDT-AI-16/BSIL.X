@@ -20,6 +20,7 @@
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -65,13 +66,15 @@
 		<div id="recipe">
 			<table>
 				<tr>
-					<th><p>조리 순서</p></th>
+					<th>조리 순서</th>
 				</tr>
 				<tr>
-					<td style="width: 1500px">test 레시피 메뉴 출력 대파는 세로로 반 갈라 송송 썰고,<br>명란젓은
-						5~6등분하고,<br> 그릇에 밥을 담고 가운데 부분을숟가락으로 가볍게 누르고, <br> 누른 부분에
-						달걀을 깨 넣고꼬치로 노른자를 2~3번 찌르고, <br> 대파와 명란젓을 둘러 담은 뒤랩을 씌워 전자레인지에
-						30초씩 2번 돌리고, <br> 버터(0.5)를 올리고간장(0.5)을 뿌려 마무리.
+					<td>test 레시피 메뉴 출력 대파는 세로로 반 갈라 송송 썰고,<br>
+						명란젓은 5~6등분하고,<br>
+						그릇에 밥을 담고 가운데 부분을숟가락으로 가볍게 누르고, <br> 
+						누른 부분에 달걀을 깨 넣고꼬치로 노른자를 2~3번 찌르고, <br> 
+						대파와 명란젓을 둘러 담은 뒤랩을 씌워 전자레인지에 30초씩 2번 돌리고, <br> 
+						버터(0.5)를 올리고간장(0.5)을 뿌려 마무리.
 					</td>
 				</tr>
 			</table>
@@ -98,7 +101,6 @@
 			<!-- 식재료 가격 동향 그래프 점선 그래프 추가 -->
 		</div>
 	</div>
-<link rel="stylesheet" href="style.css">
 </body>
 </html>
 
