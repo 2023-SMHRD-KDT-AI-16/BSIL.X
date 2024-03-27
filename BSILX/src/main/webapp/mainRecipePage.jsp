@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,31 +46,21 @@
 	<section>
 
 		<div id="food">
-			<img src="https://2bob.co.kr/data/recipe/20220804142632-D1Q5R.jpg"
-				alt="레시피 사진" height="500" width="500">
-			<table>
-				<tr>
-					<th><a href="#" id=bookmark> 즐겨찾기 추가 <!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
-					</a></th>
-				</tr>
-				<%
+			<div>
+				<img src="https://2bob.co.kr/data/recipe/20220804142632-D1Q5R.jpg"
+					alt="레시피 사진">
+			</div>
 
-				%>
-
-				<tr>
-					<td>test 메뉴명 (DB)</td>
-					<!-- DB에서 꺼내요기 -->
-				</tr>
-				<tr>
-					<td>test 메뉴 가격 (DB)</td>
-					<!-- DB에서 꺼내요기 -->
-				</tr>
-				<tr>
-					<td>test 재료</td>
-					<!-- DB에서 꺼내요기 -->
-				</tr>
-
-			</table>
+			<div id="food_right">
+					<div id=bookmark><a href="#" > 즐겨찾기 추가 <!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
+					</a>
+					</div>
+					
+					<div class="food_right_div"><span>test 메뉴명 (DB)</span></div>
+					<div class="food_right_div"><span>test 메뉴 가격 (DB)</span></div>
+					<div class="food_right_div"><span>test 재료</span></div>
+				
+			</div>
 		</div>
 		<div id="recipe">
 			<table>

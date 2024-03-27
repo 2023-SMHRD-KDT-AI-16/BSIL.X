@@ -202,26 +202,33 @@ footer {
 	display: flex;
 	
 }
-#food > img{
+#food img{
 
 	border-radius: 10%;
 	margin-top: 10px;
 	margin-left: 10px;
+	width: 400px;
 
 }
-
-
-#food>table{
-	width: 500px;
-	height: 500px;
-	text-align: center;
+#food_right{
+	display: flex;
+    flex-direction: column;
+	justify-content: space-evenly;
+}
+#food_right>div{
+    text-align: center;
+    line-height: 110px;
+	height: 110px;
+    background-color: #ECF2FE;
+    border-radius: 45px;
+    width: 300px;
+}
+#food_right>div>a{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-#food>table td{
-	height: 50px;
-	background-color: #ECF2FE;
-	
-}
 
 #bookmark { /* 즐겨찾기 테이블 효과 */
     border-radius: 10px; /* 즐겨찾기 링크의 모서리를 둥글게 만듭니다 */
@@ -230,6 +237,8 @@ footer {
     color: black;
     text-decoration: none;
     transition: background-color 0.3s;
+    height: 50px !important;
+    line-height: 50px !important;
 }
 
 

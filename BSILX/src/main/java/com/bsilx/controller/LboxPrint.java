@@ -38,14 +38,6 @@ public class LboxPrint extends HttpServlet {
 
 		System.out.println("ingreNameList :"+ingreNameList);  //index.jsp에서 쌀 보내면 쌀 받아짐
 		
-		
-
-		
-		
-		
-		
-		
-		
 		List<String> ingre_name = new ArrayList<>();
 
 		ingre_name.add("깻잎");
@@ -68,11 +60,7 @@ public class LboxPrint extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("hashtag", LunchBoxList);
 			
-			
 			System.out.println("LunchBoxList :"+LunchBoxList);
-			
-			
-			
 			
 			out.print(new Gson().toJson(LunchBoxList));
 			out.flush();
