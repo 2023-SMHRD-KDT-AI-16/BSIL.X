@@ -27,7 +27,12 @@
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 
@@ -85,12 +90,15 @@
 		<h1>도시락 레시피 가이드</h1>
 	</header>
 	<nav>
-		<a href="#" class="header_menu"> <img src="images/image1.png"
-			alt="메뉴 메인화면 사진"> <span>메인화면</span>
-		</a> <a href="#" class="header_menu"> <img src="images/image1.png"
-			alt="메뉴 전체레시피 사진"> <span>전체레시피</span>
-		</a> <a href="#" class="header_menu"> <img src="images/image1.png"
-			alt="메뉴 마이페이지 사진"> <span>마이페이지</span>
+		<a href="#" class="header_menu">
+			<span class="material-symbols-outlined">bento
+			</span>메인페이지
+		</a> <a href="#" class="header_menu">
+		<span class="material-symbols-outlined">cooking
+			</span>전체레시피
+		</a> <a href="#" class="header_menu">
+			<span class="material-symbols-outlined">taunt
+			</span>마이페이지
 		</a>
 	</nav>
 
