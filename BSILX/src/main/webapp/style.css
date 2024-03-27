@@ -288,6 +288,8 @@ footer {
 
 
 .header_menu:hover{
+	box-shadow: 0 4px 8px transparent;
+	transition: box-shadow 0.3s ease;
 	background-color: #aaa;
 }
 
