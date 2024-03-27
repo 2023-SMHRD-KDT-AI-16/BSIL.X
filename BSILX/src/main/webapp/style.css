@@ -130,6 +130,17 @@ section>div {
 }
 
 
+#search_img{
+	display: flex;
+	justify-content: space-evenly;
+	width: 1200px;
+	height: 400px;
+	background-color: beige;
+}
+#search_img img{
+	vertical-align: middle;
+	width: 270px;
+}
 /* 레시피 이미지 섹션 스타일 */
 #search_img>a{
 /*    display: flex;*/

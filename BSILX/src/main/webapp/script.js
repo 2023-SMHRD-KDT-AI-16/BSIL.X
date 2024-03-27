@@ -5,39 +5,17 @@ let table = document.querySelector('#search_img');
 // initialize Tagify
 
 
-
 var tagify = new Tagify(inputElm, {
 	enforceWhitelist: false, // 화이트리스트에서 허용된 태그만 사용
 })
 
+	
 
 tagify.on('add', function() {
-	for (let i = 0; i < 4; i++) {
-		
-		let newa = document.createElement('a'); // 각 반복마다 새로운 행 생성
-
-		// 'rank' 클래스를 가진 새로운 셀 생성
-		let newImg = document.createElement('img');
-		newImgRank.className = 'hash_img';
-		newa.appendChild(newImg);
-
-
-		let newspan = document.createElement('span');
-		newspan.className = 'hash_span';
-		newa.appendChild(newspan);
-
-
-		table.appendChild(newa); // 완성된 행을 테이블에 추가
-
-	}
-	console.log(tagify.value); // 입력된 태그 정보 객체
 	//var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
+	console.log("tagifyValue"+tagify.value); // 입력된 태그 정보 객체
 	var tags = tagify.value.map(tag => tag.value);
-	console.log(tagify); // 입력된 태그 정보 객체
-
-
-
-
+	console.log("tags"+tags); // 입력된 태그 정보 객체
 
 	$.ajax({
 		type: "POST",
@@ -45,10 +23,10 @@ tagify.on('add', function() {
 		data: { ingre_name: tags.join(',') }, // 서블릿에 보낼 데이터
 		dataType: "json", // 응답을 JSON 형식으로 받습니다.
 		success: function(data) {
+			alert("통신성공");
 			// 성공적으로 데이터를 받으면 페이지에 렌더링
+			console.log("data : "+ data);
 			renderRecipes(data);
-			console.log(ingre_name);
-
 		},
 		error: function(xhr, status, error) {
 			// 에러 처리
@@ -79,61 +57,15 @@ tagify.on('add', onAddTag) // 태그가 추가되면
 // tagify 전용 이벤트 리스너 제거 할떄
 tagify.off('add', onAddTag);
 
-
-
-	$.ajax({
-		//1. 어디랑 통신 할껀지 정의 ->url
-		url: "LboxPrint",
-		// http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml
-		//2. 전송방식
-		type: "GET",
-
-		//3. 성공시 실행할 callback함수
-		success: function(res) {
-			alert("통신성공");
-			console.log(res);
-			const movieList = res.boxOfficeResult.dailyBoxOfficeList
-
-			let reslut_rank = [];
-			let reslut_Nm = [];
-			let reslut_Dt = [];
-
-			for (let i = 0; i < movieList.length; i++) {
-				reslut_rank[i] = movieList[i].rank;
-				reslut_Nm[i] = movieList[i].movieNm;
-				reslut_Dt[i] = movieList[i].openDt;
-				console.log(reslut_Nm[i])
-			}
-
-			for (let i = 0; i < movieList.length; i++) {
-				$(".rank")[i].textContent = reslut_rank[i]
-				$(".name")[i].textContent = reslut_Nm[i]
-				$(".open")[i].textContent = reslut_Dt[i]
-				console.log($(".rank")[i])
-			}
-
-
-		},
-
-		//4. 실패시 실행할 callback함수
-		error: function() {
-			alert("통신실패");
-		}
-
-
-	})
-
-
 function renderRecipes(recipes) {
-	var container = $('#recipe-container');
+	var container = $('#search_img');
 	container.empty(); // 컨테이너를 비우고
 
 	recipes.forEach(function(recipe) { // 각 레시피 정보를 동적으로 생성
 		var html = '<div class="recipe">' +
-			'<h3>' + recipe.lboxName + '</h3>' +
-			'<img src="' + recipe.lboxImg + '" alt="레시피 이미지">' +
-			'<p>' + recipe.lboxRecipe + '</p>' +
-			'<p>가격: ' + recipe.lboxPrice + '</p>' +
+			'<img src="' + recipe.lbox_img  + '" alt="레시피 이미지">' +
+			'<h3>' + recipe.lbox_name  + '</h3>' +
+			'<p>가격: ' + recipe.lbox_price  + '</p>' +
 			'</div>';
 		container.append(html); // 생성된 HTML을 컨테이너에 추가
 	});

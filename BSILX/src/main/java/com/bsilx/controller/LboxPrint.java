@@ -45,13 +45,15 @@ public class LboxPrint extends HttpServlet {
 
 		List<LunchBoxDTO> LunchBoxList = new LunchBoxDAO().selectLbox(ingreNameList);
 
-		System.out.println(LunchBoxList.get(0).getLbox_name());
-		System.out.println(LunchBoxList.get(0).getLbox_price());
-		System.out.println(LunchBoxList.get(0).getLbox_img());
-		
-		System.out.println(LunchBoxList.get(1).getLbox_name());
-		System.out.println(LunchBoxList.get(1).getLbox_price());
-		System.out.println(LunchBoxList.get(1).getLbox_img());
+		/*
+		 * System.out.println(LunchBoxList.get(0).getLbox_name());
+		 * System.out.println(LunchBoxList.get(0).getLbox_price());
+		 * System.out.println(LunchBoxList.get(0).getLbox_img());
+		 * 
+		 * System.out.println(LunchBoxList.get(1).getLbox_name());
+		 * System.out.println(LunchBoxList.get(1).getLbox_price());
+		 * System.out.println(LunchBoxList.get(1).getLbox_img());
+		 */
 		
 		
 
@@ -60,14 +62,19 @@ public class LboxPrint extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("hashtag", LunchBoxList);
 			
-			System.out.println("LunchBoxList :"+LunchBoxList);
+			/*
+			 * out.print(new Gson().toJson(LunchBoxList));
+			 * System.out.println("LunchBoxList :"+LunchBoxList); out.flush();
+			 */
 			
-			out.print(new Gson().toJson(LunchBoxList));
-			System.out.println("LunchBoxList :"+LunchBoxList);
-			out.flush();
-		} else {
-		}
-		response.sendRedirect("index.jsp");
+			
+			Gson gson = new Gson();
+	        String json = gson.toJson(LunchBoxList);
+	        out.print(json);
+	        System.out.println("여기는 json"+json);
+	        out.flush();
+			
+		} 
 
 	}
 }
