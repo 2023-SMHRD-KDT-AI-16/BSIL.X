@@ -6,8 +6,6 @@ let table = document.querySelector('#search_img');
 
 
 
-
-
 var tagify = new Tagify(inputElm, {
 	enforceWhitelist: false, // 화이트리스트에서 허용된 태그만 사용
 })
