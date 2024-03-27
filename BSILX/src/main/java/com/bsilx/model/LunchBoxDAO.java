@@ -49,7 +49,7 @@ public class LunchBoxDAO {
 		return lbox;
 	}
 	
-	// 레시피 재료 가져오는 메소드
+	// 클릭한 레시피 재료 가져오는 메소드
 	public List<IngrePriceDTO> selectLboxIngre (String lbox_name) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
