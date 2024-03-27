@@ -153,7 +153,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 		<div class="price_new">
 			<div class="Consumer_price_trends">
-				<h4>소비자 물가 동향</h4>
+				<h4>소비자 물가 지수</h4>
 				<canvas id="cpiChart"></canvas>
 			</div>
 		</div>

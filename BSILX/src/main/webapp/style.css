@@ -57,6 +57,8 @@ header>h1{
 	display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 50px;
+    margin-bottom: 25px;
     /*border-bottom: 5px dashed rgb(104, 202, 255);*/
 }
 
@@ -74,8 +76,9 @@ nav {
     display: flex;
     justify-content: space-around;
     background-color: #ECF2FE;
-    padding: 20px;
+    padding: 10px;
     border-radius: 20px;
+    margin-bottom: 30px;
 }
 
 .header_menu {
@@ -204,11 +207,12 @@ section>div {
 
 
 
-.Consumer_price_trends,
-.Price_news {
+.Consumer_price_trends {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    text-align: center;
+    margin-top: 25px;
 }
 
 .Consumer_price_trends img {
@@ -308,7 +312,7 @@ footer {
 }
 
 #cpiChart{
-	width: 1280px;
+	width: 1140px;
 }
 
 /*===================== 아이콘 시작 ====================*/
@@ -338,5 +342,7 @@ footer {
 }
 
 .material-symbols-outlined {
-	font-size: 90px !important;
+	font-size: 35px !important;
 }
+
+
