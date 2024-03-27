@@ -29,10 +29,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
-Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
-Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 
 
@@ -61,8 +58,9 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<header>
 		<div id="header_div">
-			<a href="index.jsp"> <img src="images/image1.png" id="logo"
-				alt="logo">
+			<a href="index.jsp"> <img src="https://img.freepik.com/premium-vector/
+			set-of-different-bento-japanese-lunch-boxes-collection-funny-cartoon-food-
+			isometric-colorful-vector-illustration_198278-6911.jpg" id="logo" alt="logo">
 			</a>
 			<div id="login_mypage">
 
@@ -91,13 +89,13 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	</header>
 	<nav>
 		<a href="#" class="header_menu">
-			<span class="material-symbols-outlined">bento
+			<span class="material-symbols-outlined">widgets
 			</span>메인페이지
 		</a> <a href="#" class="header_menu">
-		<span class="material-symbols-outlined">cooking
+		<span class="material-symbols-outlined">stockpot
 			</span>전체레시피
 		</a> <a href="#" class="header_menu">
-			<span class="material-symbols-outlined">taunt
+			<span class="material-symbols-outlined">assignment_ind
 			</span>마이페이지
 		</a>
 	</nav>
@@ -111,8 +109,10 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			</div>
 
 			<div id="food_right">
-					<div id=bookmark><a href="#" > 즐겨찾기 추가 <!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
-					</a>
+					<div id=bookmark>
+						<a href="#" >즐겨찾기 추가
+						 <!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
+						</a>
 					</div>
 					
 					<div class="food_right_div"><span>test 메뉴명 (DB)</span></div>

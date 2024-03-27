@@ -66,6 +66,7 @@ header>h1{
 /* 로고 스타일 */
 #logo {
     width: 50px;
+    border-radius: 10px;
     /* 로고의 크기를 조정해주세요 */
 }
 
@@ -264,7 +265,7 @@ footer {
 }
 
 
-#bookmark { /* 즐겨찾기 테이블 효과 */
+#bookmark{ /* 즐겨찾기 테이블 효과 */
     border-radius: 10px; /* 즐겨찾기 링크의 모서리를 둥글게 만듭니다 */
     text-align: center;
     background-color: #ECF2FE;
@@ -326,23 +327,13 @@ footer {
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 100,
-  'GRAD' -25,
-  'opsz' 48
+	font-size: 50px !important;
+	border: 1px solid transparent;
+	border-radius: 10px;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 100,
-  'GRAD' -25,
-  'opsz' 48
+.header_menu{
+	border: 1px solid transparent;
+	border-radius: 10px;
 }
-
-.material-symbols-outlined {
-	font-size: 35px !important;
-}
-
 

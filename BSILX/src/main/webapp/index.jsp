@@ -31,10 +31,6 @@
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
-Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
-Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 <body>
@@ -60,8 +56,9 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<header>
 		<div id="header_div">
-			<a href="index.jsp"> <img src="images/image1.png" id="logo"
-				alt="logo">
+			<a href="index.jsp"> <img src="https://img.freepik.com/premium-vector/
+			set-of-different-bento-japanese-lunch-boxes-collection-funny-cartoon-food-
+			isometric-colorful-vector-illustration_198278-6911.jpg" id="logo" alt="logo">
 			</a>
 			<div id="login_mypage">
 
@@ -90,13 +87,13 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	</header>
 	<nav>
 		<a href="#" class="header_menu">
-			<span class="material-symbols-outlined">bento
+			<span class="material-symbols-outlined">widgets
 			</span>메인페이지
 		</a> <a href="#" class="header_menu">
-		<span class="material-symbols-outlined">cooking
+		<span class="material-symbols-outlined">stockpot
 			</span>전체레시피
 		</a> <a href="#" class="header_menu">
-			<span class="material-symbols-outlined">taunt
+			<span class="material-symbols-outlined">assignment_ind
 			</span>마이페이지
 		</a>
 	</nav>
