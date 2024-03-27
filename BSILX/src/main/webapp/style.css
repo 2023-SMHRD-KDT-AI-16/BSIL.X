@@ -47,10 +47,11 @@ header {
     border-radius: 10px;
 }
 header>h1{
-	color: 5A88D5;  
+	color: #5A88D5;  
 	display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 5px ridge rgb(104, 202, 255);
 }
 
 
