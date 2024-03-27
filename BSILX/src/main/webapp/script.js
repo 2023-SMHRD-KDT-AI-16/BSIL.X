@@ -5,17 +5,20 @@ let table = document.querySelector('#search_img');
 // initialize Tagify
 
 
+
+
+
 var tagify = new Tagify(inputElm, {
 	enforceWhitelist: false, // 화이트리스트에서 허용된 태그만 사용
 })
 
-	
+
 
 tagify.on('add', function() {
 	//var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
-	console.log("tagifyValue"+tagify.value); // 입력된 태그 정보 객체
+	console.log("tagifyValue" + tagify.value); // 입력된 태그 정보 객체
 	var tags = tagify.value.map(tag => tag.value);
-	console.log("tags"+tags); // 입력된 태그 정보 객체
+	console.log("tags" + tags); // 입력된 태그 정보 객체
 
 	$.ajax({
 		type: "POST",
@@ -25,7 +28,7 @@ tagify.on('add', function() {
 		success: function(data) {
 			alert("통신성공");
 			// 성공적으로 데이터를 받으면 페이지에 렌더링
-			console.log("data : "+ data);
+			console.log("data : " + data);
 			renderRecipes(data);
 		},
 		error: function(xhr, status, error) {
@@ -63,9 +66,9 @@ function renderRecipes(recipes) {
 
 	recipes.forEach(function(recipe) { // 각 레시피 정보를 동적으로 생성
 		var html = '<div class="recipe">' +
-			'<img src="' + recipe.lbox_img  + '" alt="레시피 이미지">' +
-			'<h3>' + recipe.lbox_name  + '</h3>' +
-			'<p>가격: ' + recipe.lbox_price  + '</p>' +
+			'<img src="' + recipe.lbox_img + '" alt="레시피 이미지">' +
+			'<h3>' + recipe.lbox_name + '</h3>' +
+			'<p>가격: ' + recipe.lbox_price + '</p>' +
 			'</div>';
 		container.append(html); // 생성된 HTML을 컨테이너에 추가
 	});
@@ -115,3 +118,5 @@ function onInput(e) {
 	tagify.dropdown.show(e.detail.value); // 드롭다운 메뉴 보여주기
 	tagify.dropdown.hide(); // // 드롭다운 제거
 }
+
+
