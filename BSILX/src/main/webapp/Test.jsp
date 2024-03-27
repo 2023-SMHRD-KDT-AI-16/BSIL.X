@@ -26,86 +26,98 @@
 	<script src="./jquery-3.7.1.min.js"></script>
 
 	<script>
-	
-	$(document).ready(function(){
-		$.ajax({
-			type : 'GET',
-			url : 'Test',
-			dataType : 'json',
-			success : function(response){
-				var data = response;
-				console.log(data)
-				
-				const name = data.map(function(index){
-					return index.name;
-				})
-				console.log(name);
-				
-				const price = data.map(function(index){
-					return index.price;
-				});
-				console.log(price);
-				
-				const labelsweek = data.map(function(index){
-					return index.week;
-				});
-				console.log(labelsweek);
-				
-				var ctx = document.getElementById('myChart').getContext('2d');
-				
-				const Data = {
-						labels : labelsweek,
-						datasets : [{
-							label : name,
-							data : price,
-							backgroundColor : [getRandomColor(),getRandomColor()],
-						borderWidth : 2,
-						fill : false
-						}]
-				};
-				
-				var myChart = new Chart(ctx,{
-					type : 'line',
-					data : Data,
-					options : {
-						scale : {
-							y:{
-								beginAtZero : false
+		$(document).ready(
+				function() {
+					$.ajax({
+						type : 'GET',
+						url : 'Test',
+						dataType : 'json',
+						success : function(response) {
+							var data = response;
+							console.log(data)
+
+							var uniqueNames = {};
+							var labels = [];
+							for (var i = 0; i < data.length; i++) {
+								var name = data[i].name;
+								if (!(name in uniqueNames)) {
+									labels.push(name);
+									uniqueNames[name] = true;
+								}
 							}
-						},
-						elements :{
-							point : {
-								radius : 0
+							console.log(uniqueNames);
+
+							var uniqueWeek = [];
+							var labels1 = [];
+							for (var i = 0; i < data.length; i++) {
+							    var week = data[i].week;
+							    if (!uniqueWeek.includes(week)) { // 중복되지 않는 값인 경우에만 추가
+							        labels1.push(week);
+							        uniqueWeek.push(week); // 중복 여부를 확인하기 위해 사용될 배열에도 추가
+							    }
 							}
+							console.log(labels1);
+
+
+							var ctx = document.getElementById('myChart')
+									.getContext('2d');
+
+							var datasets = [];
+							for(var i=0; i<labels.length; i++){
+								var name = labels[i];
+								var Data = [];
+								for(var j=0; j<data.length; j++){
+									if(data[i].name === name){
+										Data.push(data[j].price);
+									}
+								}
+								datasets.push({
+									label : name,
+									data : Data,
+									backgroundColor : getRandomColor(),
+									borderWidth : 2
+								});
+							}
+							
+							
+							
+							
+							var myChart = new Chart(ctx, {
+								type : 'line',
+								data : {
+									labels : uniqueWeek,
+									datasets : datasets
+								},
+								options : {
+									scale : {
+										x : {
+											 type: 'category'
+										},
+										y : {
+											beginAtZero : false
+										}
+									},
+									elements : {
+										point : {
+											radius : 0
+										}
+									},
+									legend : {
+										display : true,
+										position : 'right'
+									}
+								}
+							})
 						},
-						legend : {
-							display : true,
-							position : 'right'
+						error : function(xhr, status, error) {
+							console.error('Error fetching JSON data:', error);
 						}
-					}
+					})
 				})
-			},
-			error : function(xhr, status, error){
-				console.error('Error fetching JSON data:', error);
-			}
-		})
-	})
-	
-	function getRandomColor() {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-}
 
-    
-    
-    
-    
-    
-    
-    
-function getRandomColor() {
-    return '#' + Math.floor(Math.random()*16777215).toString(16);
-}
-
+		function getRandomColor() {
+			return '#' + Math.floor(Math.random() * 16777215).toString(16);
+		}
 
 	</script>
 
