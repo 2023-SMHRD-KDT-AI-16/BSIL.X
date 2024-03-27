@@ -28,24 +28,16 @@ public class Test extends HttpServlet {
 	    request.setCharacterEncoding("UTF-8");
 	    response.setContentType("application/json; charset=UTF-8");
 		
-		
 		String lbox_name = "깻잎쌈밥";
-		
-		LunchBoxDTO lbox = new LunchBoxDAO().selectOneLbox(lbox_name);
-	
-		System.out.println(lbox.getLbox_name());
 		
 		List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
 		
-		for(IngrePriceDTO x: lboxIngreList) {
-		System.out.println(x.getIngre_name());
-		}
-		
 		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson(lbox_name);
 		
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(jsonArray.toString());
+		PrintWriter out = response.getWriter();
+		out.print(jsonArray);
+		
+		out.flush();
 		
 //		request.setAttribute("jsonData", jsonArray.toString());
 //		request.getRequestDispatcher("ingreAllDayPriceChart.jsp").forward(request, response);

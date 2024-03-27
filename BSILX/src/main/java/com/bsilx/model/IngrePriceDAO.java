@@ -49,8 +49,8 @@ public class IngrePriceDAO {
 			
 			List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
 			
+			JSONObject jsonObject = new JSONObject();
 			for (IngrePriceDTO price : priceList) {
-				JSONObject jsonObject = new JSONObject();
 				int year = Integer.parseInt(price.getIngre_year());
 				int month = Integer.parseInt(price.getIngre_month());
 				String week = String.format("%02d/%02d", year, month).substring(2);
