@@ -22,9 +22,6 @@ public class Test extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// request.setCharacterEncoding("UTF-8");
-		// response.setContentType("text/html;charset=UTF-8");
-		
 	    request.setCharacterEncoding("UTF-8");
 	    response.setContentType("application/json; charset=UTF-8");
 		
@@ -35,6 +32,7 @@ public class Test extends HttpServlet {
 		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson(lbox_name);
 		
 		PrintWriter out = response.getWriter();
+		
 		out.print(jsonArray);
 		
 		out.flush();
