@@ -1,4 +1,10 @@
-
+<%@page import="com.bsilx.model.LunchBoxDAO"%>
+<%@page import="com.bsilx.model.LunchBoxDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.security.SecureRandom"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="com.bsilx.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
@@ -28,21 +34,65 @@
 
 
 <body>
+
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
+	%>
+
+	<%
+	String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
+	String redirectURI = URLEncoder.encode("http://localhost:8081/BSILX/callback.jsp", "UTF-8");
+	SecureRandom random = new SecureRandom();
+	String state = new BigInteger(130, random).toString();
+	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+	apiURL += "&client_id=" + clientId;
+	apiURL += "&redirect_uri=" + redirectURI;
+	apiURL += "&state=" + state;
+	session.setAttribute("state", state);
+	%>
+
+
+
+
 	<header>
-
-		<h1>도시락 레시피 가이드</h1>
-
-		<nav>
-			<a href="#" class="header_menu"> <img src="images/image1.png"
-				alt="메뉴 메인화면 사진" height="100" width="100"> <span>메인화면</span>
-			</a> <a href="#" class="header_menu"> <img src="images/image1.png"
-				alt="메뉴 전체레시피 사진" height="100" width="100"> <span>전체레시피</span>
-			</a> <a href="#" class="header_menu"> <img src="images/image1.png"
-				alt="메뉴 마이페이지 사진" height="100" width="100"> <span>마이페이지</span>
+		<div id="header_div">
+			<a href="index.jsp"> <img src="images/image1.png" id="logo"
+				alt="logo">
 			</a>
+			<div id="login_mypage">
 
-		</nav>
+				<%
+				if (info == null) {
+				%>
+				<a height="50" href="<%=apiURL%>"><img height="50"
+					src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
+
+				<%
+				} else {
+				out.println("환영합니다, " + info.getUser_name() + "님!");
+				%>
+
+				<a href="UpdateMember.jsp">마이페이지</a> <a height="50"
+					href="LogoutService.do"><img height="50"
+					src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
+					<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
+					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
+				<%
+				}
+				%>
+			</div>
+		</div>
+		<h1>도시락 레시피 가이드</h1>
 	</header>
+	<nav>
+		<a href="#" class="header_menu"> <img src="images/image1.png"
+			alt="메뉴 메인화면 사진"> <span>메인화면</span>
+		</a> <a href="#" class="header_menu"> <img src="images/image1.png"
+			alt="메뉴 전체레시피 사진"> <span>전체레시피</span>
+		</a> <a href="#" class="header_menu"> <img src="images/image1.png"
+			alt="메뉴 마이페이지 사진"> <span>마이페이지</span>
+		</a>
+	</nav>
 
 	<section>
 
