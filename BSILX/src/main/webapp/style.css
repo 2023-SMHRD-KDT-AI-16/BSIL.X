@@ -138,8 +138,10 @@ section>div {
 	background-color: beige;
 }
 #search_img img{
-	vertical-align: middle;
-	width: 270px;
+	margin-top: 10px;
+	 width: 270px;
+  	height: 300px;
+  	object-fit: cover;
 }
 /* 레시피 이미지 섹션 스타일 */
 #search_img>a{
