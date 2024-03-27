@@ -8,9 +8,11 @@
 </head>
 <body>
 	<canvas id="cpiChart"></canvas>
+	
+	
+	
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 	<script src="./jquery-3.7.1.min.js"></script>
-
     <script>
     	var ctx = document.getElementById('cpiChart').getContext('2d');
     	var cpiChart = new Chart (ctx, {
