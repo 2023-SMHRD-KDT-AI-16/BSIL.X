@@ -23,9 +23,19 @@
 <script src="https://unpkg.com/@yaireo/tagify"></script>
 <!-- 폴리필 (구버젼 브라우저 지원) -->
 <script
+	src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+<script
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 <body>
 
@@ -50,22 +60,22 @@
 
 	<header>
 		<div id="header_div">
-			<a href="index.jsp">
-			<img src="images/image1.png" id="logo" alt="logo">
+			<a href="index.jsp"> <img src="images/image1.png" id="logo"
+				alt="logo">
 			</a>
 			<div id="login_mypage">
-	
+
 				<%
 				if (info == null) {
 				%>
 				<a height="50" href="<%=apiURL%>"><img height="50"
 					src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
-	
+
 				<%
 				} else {
 				out.println("환영합니다, " + info.getUser_name() + "님!");
 				%>
-	
+
 				<a href="UpdateMember.jsp">마이페이지</a> <a height="50"
 					href="LogoutService.do"><img height="50"
 					src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
@@ -79,12 +89,15 @@
 		<h1>도시락 레시피 가이드</h1>
 	</header>
 	<nav>
-		<a href="#" class="header_menu"> <img src="images/image1.png"
-			alt="메뉴 메인화면 사진"> <span>메인화면</span>
-		</a> <a href="#" class="header_menu"> <img src="images/image1.png"
-			alt="메뉴 전체레시피 사진"> <span>전체레시피</span>
-		</a> <a href="#" class="header_menu"> <img src="images/image1.png"
-			alt="메뉴 마이페이지 사진"> <span>마이페이지</span>
+		<a href="#" class="header_menu">
+			<span class="material-symbols-outlined">bento
+			</span>메인페이지
+		</a> <a href="#" class="header_menu">
+		<span class="material-symbols-outlined">cooking
+			</span>전체레시피
+		</a> <a href="#" class="header_menu">
+			<span class="material-symbols-outlined">taunt
+			</span>마이페이지
 		</a>
 	</nav>
 
@@ -103,24 +116,7 @@
 		</div>
 
 		<div id="search_img">
-			<!-- <a href="mainRecipePage.jsp">
-			<img src="images/image4.png" alt="검색된 레시피 사진">
-			<span>2800원</span>
-			</a> 
-			
-			<a href="">
-			<img src="images/image4.png" alt="검색된 레시피 사진">
-			<span>2800원</span>
-			</a> 
-				
-			<a href="">
-			<img src="images/image4.png" alt="검색된 레시피 사진">
-			<span>2800원</span>
-			</a>
-			<a href="">
-			<img src="images/image4.png" alt="검색된 레시피 사진">
-			<span>2800원</span>
-			</a> -->
+			<!--  감섹힌 레시피 나오는 부분 -->
 
 		</div>
 
@@ -157,17 +153,8 @@
 
 		<div class="price_new">
 			<div class="Consumer_price_trends">
-				<h4>소비자 물가 동향</h4>
-				<img src="images/image3.png" alt="소비자물가 동향">
-			</div>
-
-
-			<div class="Price_news">
-				<h4>화제의 뉴스</h4>
-				<span class="new_title">뉴스 기사 거리</span> <span class="new_title">뉴스
-					기사 거리</span> <span class="new_title">뉴스 기사 거리</span> <span
-					class="new_title">뉴스 기사 거리</span>
-
+				<h4>소비자 물가 지수</h4>
+				<canvas id="cpiChart"></canvas>
 			</div>
 		</div>
 
@@ -176,11 +163,38 @@
 
 	<footer> </footer>
 
-	<script src="script.js"></script>
+
 	<link rel="stylesheet" href="style.css">
-
-
+	<script src="script.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script>
+		var ctx = document.getElementById('cpiChart').getContext('2d');
+		var cpiChart = new Chart(ctx, {
+			type : 'bar',
+			data : {
+				labels : [ '23.02', '23.03', '23.04', '23.05', '23.06',
+						'23.07', '23.08', '23.09', '23.10', '23.11', '23.12',
+						'24.01', '24.02' ],
+				datasets : [ {
+					label : '소비자 물가 동향',
+					data : [ '110.33', '110.52', '110.77', '111.13', '111.16',
+							'111.29', '112.28', '112.83', '113.26', '112.67',
+							'112.71', '113.15', '113.77' ],
+					backgroundColor : 'rgba(54, 162, 235, 0.5)',
+					borderWidth : 1
+				} ]
+			},
+			options : {
+				scales : {
+					y : {
+						beginAtZero : false
+					}
+				}
+			}
+
+		})
+	</script>
 
 </body>
 </html>
