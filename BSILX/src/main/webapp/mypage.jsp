@@ -95,6 +95,8 @@ body {
 	border-radius: 10px;
 	overflow: hidden;
 	position: relative;
+	overflow: hidden;
+	text-align: center;
 }
 
 .food_photo_box {
@@ -198,181 +200,169 @@ body {
 	cursor: pointer;
 }
 
-.food_photo > span{
+.food_photo>span {
 	text-align: justify;
 }
 
-
 /* ===========================체크박스 기능========================= */
-    ul {
-        list-style-type: none;
-    }
+ul {
+	list-style-type: none;
+	border-radius: 10px;
+	padding-inline-start: 0px;
+	width: 98%
+}
 
-    li {
-        display: inline-block;
-    }
-    input[type="checkbox"][id^="myCheckbox"] {
-        display: none;
-    }
+li {
+	display: inline-block;
+}
 
-    label {
-        border: 1px solid #fff;
-        padding: 10px;
-        display: block;
-        position: relative;
-        margin: 10px;
-        cursor: pointer;
-        width: 120px;
-        height: 120px;
-    }
+input[type="checkbox"][id^="myCheckbox"] {
+	display: none;
+}
 
-    label:before {
-        background-color: white;
-        color: white;
-        content: " ";
-        display: block;
-        border-radius: 50%;
-        border: 1px solid grey;
-        position: absolute;
-        top: -5px;
-        left: -5px;
-        width: 25px;
-        height: 25px;
-        text-align: center;
-        line-height: 28px;
-        transition-duration: 0.4s;
-        transform: scale(0);
-    }
+label {
+	/*border: 1px solid #fff;*/
+	display: block;
+	position: relative;
+	margin: 10px;
+	cursor: pointer;
+	width: 200px;
+	height: 240px;
+	text-align: center;
 
-    label img {
-        height: 100px;
-        width: 100px;
-        transition-duration: 0.2s;
-        transform-origin: 50% 50%;
-    }
+}
 
-    :checked+label {
-        border-color: #ddd;
-    }
+label:hover {
+	background-color: rgb(186, 202, 214);
+	box-shadow: 0 4px 8px rgb(87, 87, 87);
+	transition: box-shadow 0.3s ease;
+}
 
-    :checked+label:before {
-        content: "✓";
-        background-color: grey;
-        transform: scale(1);
-    }
+label:before {
+	background-color: white;
+	color: white;
+	content: " ";
+	display: block;
+	border-radius: 50%;
+	border: 1px solid grey;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 28px;
+	transition-duration: 0.4s;
+	transform: scale(0);
+}
 
-    :checked+label img {
-        transform: scale(0.9);
-        /* box-shadow: 0 0 5px #333; */
-        z-index: -1;
-    }
+label img {
+	display: inline-block;
+	height: 170px;
+	width: 170px;
+	transition-duration: 0.2s;
+	transform-origin: 50% 50%;
+	margin-top: 10px;
+	margin-left: 6.2px;
+}
+
+:checked+label {
+	border-color: #ddd;
+}
+
+:checked+label:before {
+	content: "✓";
+	background-color: grey;
+	transform: scale(1);
+}
+
+:checked+label img {
+	transform: scale(0.9);
+	/* box-shadow: 0 0 5px #333; */
+	z-index: -1;
+}
 </style>
 </head>
 <body>
 	<header>
-	<h1>나만의 레시피</h1>
+		<h1>나만의 레시피</h1>
 	</header>
-	<div class="all-box">
-		<div class="centerbar">
-			<nav>
-				<a href="index.jsp" class="header_menu"> <span
-					class="material-symbols-outlined">widgets </span>메인페이지
-				</a> <a href="allRecipePage.jsp" class="header_menu"> <span
-					class="material-symbols-outlined">stockpot </span>전체레시피
-				</a> <a href="mypage.jsp" class="header_menu"> <span
-					class="material-symbols-outlined">assignment_ind </span>마이페이지
-				</a>
-			</nav>
-			<div class="center_center">
-				<div class="food_photo_box_main">
-					<div class="food_photo_box ">
-					<ul>
-						<li>
-		                <div class="food_photo">
-			                <input type="checkbox" id="myCheckbox1"/>
-			                <label for="myCheckbox1">
-			                	<img src="https://picsum.photos/id/236/1000/500" alt="">
-			                </label>
-		                </div>
-		                </li>
-		            </ul>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-					</div>
-				</div>
-				<button id="submitBtn">Submit</button>
+	<nav>
+		<a href="index.jsp" class="header_menu"> 
+		<span class="material-symbols-outlined">widgets </span>
+		메인페이지
+		</a> 
+		<a href="allRecipePage.jsp" class="header_menu"> 
+		<span class="material-symbols-outlined">stockpot </span>
+		전체레시피
+		</a> <a href="mypage.jsp" class="header_menu"> 
+		<span class="material-symbols-outlined">assignment_ind </span>
+		마이페이지
+		</a>
+	</nav>
+	<div class="center_center">
+		<div class="food_photo_box_main">
+			<div class="food_photo_box ">
+				<ul>
+				
+				
+					<li>
+						<input type="checkbox" id="myCheckbox1" /> 
+						<label for="myCheckbox1">
+							<img src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label>
+					</li>
+					<li>
+						<input type="checkbox" id="myCheckbox2" /> 
+						<label for="myCheckbox2"> 
+							<img src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label>
+					</li>
+					<li>
+						<input type="checkbox" id="myCheckbox3" /> 
+						<label for="myCheckbox3"> 
+							<img src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label>
+					</li>
+					<li>
+						<input type="checkbox" id="myCheckbox4" /> 
+						<label for="myCheckbox4"> 
+							<img src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label>
+					</li>
+					<li>
+						<input type="checkbox" id="myCheckbox5" /> 
+						<label for="myCheckbox5"> 
+							<img src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label>
+					</li>
+
+				</ul>
+
+				<button id="submitBtn">삭제</button>
 			</div>
 		</div>
 	</div>
 
 </body>
-    <script>
-        // Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
-        document.getElementById("submitBtn").addEventListener("click", function() {
-            var selectedPhotos = document.querySelectorAll(".food_photo input[type='checkbox']:checked");
-            var selectedPhotoUrls = [];
-            selectedPhotos.forEach(function(photo) {
-                var imgUrl = photo.previousElementSibling.getAttribute("src");
-                selectedPhotoUrls.push(imgUrl);
-            });
-            console.log("Selected photo URLs:", selectedPhotoUrls);
-            // 여기서 선택된 이미지들의 URL을 서버로 전송할 수 있습니다.
-        });
-    </script>
+<script>
+	// Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
+	document
+			.getElementById("submitBtn")
+			.addEventListener(
+					"click",
+					function() {
+						var selectedPhotos = document
+								.querySelectorAll(".food_photo input[type='checkbox']:checked");
+						var selectedPhotoUrls = [];
+						selectedPhotos.forEach(function(photo) {
+							var imgUrl = photo.previousElementSibling
+									.getAttribute("src");
+							selectedPhotoUrls.push(imgUrl);
+						});
+						console.log("Selected photo URLs:", selectedPhotoUrls);
+						// 여기서 선택된 이미지들의 URL을 서버로 전송할 수 있습니다.
+					});
+</script>
 
 </html>
