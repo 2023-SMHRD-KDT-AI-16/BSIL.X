@@ -282,7 +282,7 @@ footer {
 
 
 #bookmark:hover { /* 즐겨찾기 호버기능 */ 
-    background-color: #aaa;	
+    background-color: rgb(186, 202, 214);	
     box-shadow: 0 4px 8px rgb(87, 87, 87);
 	transition: box-shadow 0.3s ease;
 }
@@ -296,7 +296,7 @@ footer {
 .header_menu:hover{
 	box-shadow: 0 4px 8px rgb(87, 87, 87);
 	transition: box-shadow 0.3s ease;
-	background-color: rgb(155, 155, 155);
+	background-color: rgb(186, 202, 214);
 }
 
 #recipe th, td{
