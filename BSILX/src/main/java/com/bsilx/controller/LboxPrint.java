@@ -45,18 +45,6 @@ public class LboxPrint extends HttpServlet {
 
 		List<LunchBoxDTO> LunchBoxList = new LunchBoxDAO().selectLbox(ingreNameList);
 
-		/*
-		 * System.out.println(LunchBoxList.get(0).getLbox_name());
-		 * System.out.println(LunchBoxList.get(0).getLbox_price());
-		 * System.out.println(LunchBoxList.get(0).getLbox_img());
-		 * 
-		 * System.out.println(LunchBoxList.get(1).getLbox_name());
-		 * System.out.println(LunchBoxList.get(1).getLbox_price());
-		 * System.out.println(LunchBoxList.get(1).getLbox_img());
-		 */
-		
-		
-
 		if (LunchBoxList != null) {
 			System.out.println("해시태그 결과 리스트 담기 성공");
 			HttpSession session = request.getSession();

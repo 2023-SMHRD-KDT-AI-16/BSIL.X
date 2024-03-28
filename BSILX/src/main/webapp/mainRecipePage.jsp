@@ -43,9 +43,19 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
 	response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
 
 	%>
+	
+<%
+    // 세션에서 사용자 정보 가져오기
+    String userId = (String) session.getAttribute("userId");
+    String userName = (String) session.getAttribute("userName");
+    String userEmail = (String) session.getAttribute("userEmail");
+    String userNick = (String) session.getAttribute("userNick");
+    String userPhone = (String) session.getAttribute("userPhone");
+%>
 
 	<%
 	String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
@@ -58,7 +68,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	apiURL += "&state=" + state;
 	session.setAttribute("state", state);
 	%>
-
 
 
 
@@ -110,15 +119,27 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 		<div id="food">
 
+
+
+
+
+
+<!-- 사용자 정보 표시 -->
+<%-- <h1>User Information</h1>
+<p>User ID: <%=userId%></p>
+<p>User Name: <%=userName%></p>
+<p>User Email: <%=userEmail%></p>
+<p>User Nickname: <%=userNick%></p>
+<p>User Phone: <%=userPhone%></p> --%>
+
 			<%
 			String lbox_name = request.getParameter("lbox_name");
 			String lboxImg = request.getParameter("lbox_img");
 			String lboxPrice = request.getParameter("lbox_price");
 			//메인페이시에서 받아오는 값   
-
-			System.out.println(lbox_name);
 			session.setAttribute("lbox_seq", 1);
-			String user_id = "Pab4FgvWCHg5h2ch7F0z0mhpbiIal7s1odVolZiUQ7Q";
+			
+			String user_id = userId;
 			session.setAttribute("user_id", user_id);
 			LunchBoxDTO lbox_info = new LunchBoxDAO().selectOneLbox(lbox_name);
 			%>
@@ -134,8 +155,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					<a href="#" id="favoritebtn"> 즐겨찾기 추가 </a>
 				</div>
 				<%
-				// String user_id = (String) session.getAttribute("user_id");
-				//String lbox_name = (String)session.getAttribute("lbox_name");
+				String session_user_id = (String) session.getAttribute("user_id");
+				String session_lbox_name = (String)session.getAttribute("lbox_name");
 				%>
 
 				<div class="food_right_div">
@@ -170,7 +191,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 							  
 						  <%
 						String lbox_recipe = lbox_info.getLbox_recipe();
-						List<String> recipeList = Arrays.asList(lbox_recipe.split("\\."));
+						List<String> recipeList = Arrays.asList(lbox_recipe.split(","));
 						for (String recipe : recipeList) {
 						%> 
 						<%=recipe%><br>

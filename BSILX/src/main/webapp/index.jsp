@@ -29,7 +29,8 @@
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
@@ -37,6 +38,9 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
+	response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
 	%>
 
 	<%
@@ -55,9 +59,11 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 	<header>
 		<div id="header_div">
-			<a href="index.jsp"> <img src="https://img.freepik.com/premium-vector/
+			<a href="index.jsp"> <img
+				src="https://img.freepik.com/premium-vector/
 			set-of-different-bento-japanese-lunch-boxes-collection-funny-cartoon-food-
-			isometric-colorful-vector-illustration_198278-6911.jpg" id="logo" alt="logo">
+			isometric-colorful-vector-illustration_198278-6911.jpg"
+				id="logo" alt="logo">
 			</a>
 			<div id="login_mypage">
 
@@ -77,26 +83,46 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
 					<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
 					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
+					
+		
+				
 				<%
 				}
 				%>
+				
+<%
+    // info 객체가 null이 아닐 때만 세션에 사용자 정보 설정
+    if (info != null) {
+        session.setAttribute("userId", info.getUser_id());
+        session.setAttribute("userName", info.getUser_name());
+        session.setAttribute("userEmail", info.getUser_email());
+        session.setAttribute("userNick", info.getUser_nick());
+        session.setAttribute("userPhone", info.getUser_phone());
+    } else {
+        // info가 null일 때의 처리
+        // 예: 사용자에게 로그인 페이지로 리다이렉트 하거나, 에러 메시지 표시
+        // response.sendRedirect("loginPage.jsp");
+        // 또는
+        // out.println("<p>사용자 정보를 불러오는데 실패했습니다.</p>");
+    }
+%>			<!--  mainRecipePage.jsp로 데이터 보내는 법-->
+				
+				
+
 			</div>
 		</div>
 		<h1>도시락 레시피 가이드</h1>
 	</header>
 	<nav>
-	
-		<a href="#" class="header_menu">
-			<span class="material-symbols-outlined">widgets
-			</span>메인페이지
-		</a> <a href="#" class="header_menu">
-		<span class="material-symbols-outlined">stockpot
-			</span>전체레시피
-		</a> <a href="#" class="header_menu">
-			<span class="material-symbols-outlined">assignment_ind
-			</span>마이페이지
+
+		<a href="#" class="header_menu"> <span
+			class="material-symbols-outlined">widgets </span>메인페이지
+		</a> <a href="#" class="header_menu"> <span
+			class="material-symbols-outlined">stockpot </span>전체레시피
+		</a> <a href="#" class="header_menu"> <span
+			class="material-symbols-outlined">assignment_ind </span>마이페이지
 		</a>
-		
+
 	</nav>
 
 	<section>
@@ -115,7 +141,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 		<div id="search_img">
 			<!--  감섹힌 레시피 나오는 부분 -->
-
 		</div>
 
 		<div id="Food_ingredient_trends">
