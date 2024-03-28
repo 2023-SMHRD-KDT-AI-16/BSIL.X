@@ -31,13 +31,7 @@
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-size: 12px;
-        }
         .all-box {
-            background-color: #ECF2FE;
             width: 1500px;
             height: 2100px;
             display: flex;
@@ -61,9 +55,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             display: flex;
             justify-content: space-around;
         }
-        .top_left_box,
-        .top_center_box,
-        .top_right_box{
+
+        .top_center_box{
             width: 250px;
             height: 120px;
             /* background: rgb(200, 255, 168) ; */
@@ -206,7 +199,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
        
         .center_bottom{
             width: 880px;
-            height: 300px;
+            height: 100px;
             /* background: rgb(255, 255, 255); */
             /* border: 1px solid red;  */
         }
@@ -254,12 +247,10 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         }
         .center_bottom{
             width: 880px;
-            height: 600px; 
-            background: rgb(255, 255, 255);
+            height: 100px; 
             /* border: 1px solid red; */
         }
-       
-
+        
         /* 오른쪽 사이드 */
         .sidebar_right{
             width: 360px;
@@ -292,8 +283,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 <body>
-    <div class="all-box">  
-        <div class="sidebar_left"></div>
+    <div class="all-box">
             <div class="centerbar">
                 	<nav>
 						<a href="index.jsp" class="header_menu">
@@ -668,11 +658,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
                 </div>
 
             </div>
-        <div class="sidebar_right">
-            <div class="side_right_radius_box">
-                <input type="button" class="high" value="">
-            </div>
-        </div>
     </div>
 
 
