@@ -29,12 +29,13 @@
 	</select>
 
 	<select id="SelectBigMartPrice" parameterType = "String" resultType="IngrePrice">
-		select b.ingre_name, a.ingre_price, a.ingre_year,
+		 select b.ingre_name, a.ingre_price, a.ingre_year,
 		a.ingre_month, a.ingre_day, a.ingre_market
 		from ingredient_price_info a
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
 		where b.ingre_name = #{ingre_name} and a.ingre_market = '대형'
-		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc;
+		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
+		
 	</select>
 	
 	<select id="SelectSmallMartPrice" parameterType = "String" resultType="IngrePrice">
@@ -43,7 +44,7 @@
 		from ingredient_price_info a
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
 		where b.ingre_name = #{ingre_name} and a.ingre_market = '전통'
-		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc;
+		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
 	</select>
 	
 	

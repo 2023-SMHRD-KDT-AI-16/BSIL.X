@@ -74,14 +74,14 @@ public class IngrePriceDAO {
 	}
 
 	// 하나의 식재료의 현재 대형 마트 가격 가져오는 메소드
-	public IngrePriceDTO oneDayBigMartPrice(String ingre_name) {
+	public List<IngrePriceDTO> oneDayBigMartPrice(String ingre_name) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		IngrePriceDTO priceList = null;
+		List<IngrePriceDTO> priceList = null;
 
 		try {
-			priceList = sqlSession.selectOne("SelectBigMartPrice", ingre_name);
+			priceList = sqlSession.selectList("SelectBigMartPrice", ingre_name);
 			System.out.println("식재료 하나 최근 대형 마트 가격 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -93,14 +93,14 @@ public class IngrePriceDAO {
 	}
 
 	// 하나의 식재료의 현재 대형 마트 가격 가져오는 메소드
-	public IngrePriceDTO oneDaySmallMartPrice(String ingre_name) {
+	public List<IngrePriceDTO> oneDaySmallMartPrice(String ingre_name) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		IngrePriceDTO priceList = null;
+		List<IngrePriceDTO> priceList = null;
 
 		try {
-			priceList = sqlSession.selectOne("SelectSmallMartPrice", ingre_name);
+			priceList = sqlSession.selectList("SelectSmallMartPrice", ingre_name);
 			System.out.println("식재료 하나 최근 대형 마트 가격 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();

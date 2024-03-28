@@ -19,17 +19,18 @@
 	</div>
 
 	<script>
-	fetch('IngreOneDayPriceChart') // 서블릿의 URL로 변경
-    .then(response => response.json()) // JSON 형식으로 파싱
+	fetch('IngreOneDayPriceChart') 
+    .then(response => response.json()) 
     .then(data => {
-        // 대형 카테고리에 해당하는 데이터 필터링
+    	
+        // 대형마트 카테고리에 해당하는 데이터 필터링
         var largeData = data.filter(item => item.category === '대형');
-        var largeLabels = largeData.map(item => item.date);
+        var largeLabels = largeData.map(item => item.name);
         var largePrices = largeData.map(item => item.price);
 
-        // 전통 카테고리에 해당하는 데이터 필터링
+        // 전통시장 카테고리에 해당하는 데이터 필터링
         var traditionalData = data.filter(item => item.category === '전통');
-        var traditionalLabels = traditionalData.map(item => item.date);
+        var traditionalLabels = traditionalData.map(item => item.name);
         var traditionalPrices = traditionalData.map(item => item.price);
 
         // 차트 생성
@@ -39,12 +40,12 @@
             data: {
                 labels: largeLabels, // 대형 카테고리의 레이블 사용
                 datasets: [{
-                    label: 'Price (Large)',
+                    label: '대형마트',
                     data: largePrices, // 대형 카테고리의 가격 데이터
                     backgroundColor: 'rgba(255, 99, 132, 0.5)', // 대형 카테고리 색상 설정
                     borderWidth: 1
                 }, {
-                    label: 'Price (Traditional)',
+                    label: '전통시장',
                     data: traditionalPrices, // 전통 카테고리의 가격 데이터
                     backgroundColor: 'rgba(54, 162, 235, 0.5)', // 전통 카테고리 색상 설정
                     borderWidth: 1
