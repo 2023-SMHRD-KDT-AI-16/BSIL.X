@@ -58,10 +58,16 @@
 		<servlet-class>com.bsilx.controller.LboxPrintTest</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Bookmark</servlet-name>
-		<display-name>Bookmark</display-name>
+		<servlet-name>CheckFavorites</servlet-name>
+		<display-name>CheckFavorites</display-name>
 		<description></description>
-		<servlet-class>com.bsilx.controller.Bookmark</servlet-class>
+		<servlet-class>com.bsilx.controller.CheckFavorites</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddFavorite</servlet-name>
+		<display-name>AddFavorite</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.AddFavorite</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -101,8 +107,12 @@
 		<url-pattern>/LboxPrintTest</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Bookmark</servlet-name>
-		<url-pattern>/Bookmark</url-pattern>
+		<servlet-name>CheckFavorites</servlet-name>
+		<url-pattern>/CheckFavorites</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddFavorite</servlet-name>
+		<url-pattern>/AddFavorite</url-pattern>
 	</servlet-mapping>
 
 </web-app>
