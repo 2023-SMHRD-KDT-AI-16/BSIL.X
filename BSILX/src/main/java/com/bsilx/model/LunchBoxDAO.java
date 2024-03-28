@@ -126,7 +126,7 @@ public class LunchBoxDAO {
 		int lbox_seq = 0;
 		
 		try {
-			lbox_seq = sqlSession.selectOne("SelectLboxName", lbox_name);
+			lbox_seq = sqlSession.selectOne("SelectLboxSeq", lbox_name);
 			System.out.println("클릭한 레시피 식재료 출력 성공");
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -49,7 +49,7 @@
 		#{lbox_name}
 	</select>
 	
-	<select id="SelectLboxName" parameterType="String" resultType="int">
+	<select id="SelectLboxSeq" parameterType="String" resultType="int">
 		select lbox_seq from lunch_box_info where lbox_name = #{lbox_name}
 	</select>
 

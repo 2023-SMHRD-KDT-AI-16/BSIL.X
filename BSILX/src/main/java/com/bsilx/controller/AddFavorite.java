@@ -26,6 +26,7 @@ public class AddFavorite extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 
+		System.out.println(user_id);
 		// 로그인 X
 		if (user_id == null) {
 			response.getWriter().write("loginFirst");
