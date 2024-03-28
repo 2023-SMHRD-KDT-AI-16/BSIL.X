@@ -22,16 +22,20 @@ public class JoinService extends HttpServlet {
 		
 		// 회원 정보에 없을때만 join되도록
 		
-		MemberDTO dto = (MemberDTO) session.getAttribute("memberDTO");
-		if (dto != null) {
-			System.out.println(dto.getUser_name());
-			String id = dto.getUser_id();
-			MemberDTO selectResult = new MemberDAO().selectMember(id);
+		String userId = (String)session.getAttribute("userId");
+		
+		MemberDTO dto = (MemberDTO)session.getAttribute("memberDTO");
+		
+		if (userId != null) {
+			
+			System.out.println(userId);
+			
+			MemberDTO selectResult = new MemberDAO().selectMember(userId);
 			// db에서 id 동일한 회원있으면 출력
 			if (selectResult == null) {
 				int result = new MemberDAO().join(dto);
-			} else if (selectResult.getUser_id().equals(id)) {
-				System.out.println("이미 가입된 회원");
+			} else if (selectResult.getUser_id().equals(userId)) {
+				System.out.println("이미 가입된 회원입니다");
 			}
 		}else {
 			System.out.println("세션 전달 실패");
