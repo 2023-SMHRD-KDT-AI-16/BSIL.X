@@ -2,19 +2,19 @@ package com.bsilx.model;
 
 public class BookmarkDTO {
 
-	private String lbox_seq;
+	private int lbox_seq;
 	private String user_id;
 	
-	public BookmarkDTO(String lbox_seq, String user_id) {
+	public BookmarkDTO(int lbox_seq, String user_id) {
 		this.lbox_seq = lbox_seq;
 		this.user_id = user_id;
 	}
 
-	public String getLbox_seq() {
+	public int getLbox_seq() {
 		return lbox_seq;
 	}
 
-	public void setLbox_seq(String lbox_seq) {
+	public void setLbox_seq(int lbox_seq) {
 		this.lbox_seq = lbox_seq;
 	}
 
