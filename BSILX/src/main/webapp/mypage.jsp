@@ -128,9 +128,8 @@ body {
 }
 
 .food_photo img {
-	max-width: 100%;
-	max-height: 100%;
-	border-radius: 1rem;
+	width: 100px;
+	height: 100px;
 	z-index: 1000;
 	object-fit: cover;
 }
@@ -202,6 +201,71 @@ body {
 .food_photo > span{
 	text-align: justify;
 }
+
+
+/* ===========================체크박스 기능========================= */
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+    input[type="checkbox"][id^="myCheckbox"] {
+        display: none;
+    }
+
+    label {
+        border: 1px solid #fff;
+        padding: 10px;
+        display: block;
+        position: relative;
+        margin: 10px;
+        cursor: pointer;
+        width: 120px;
+        height: 120px;
+    }
+
+    label:before {
+        background-color: white;
+        color: white;
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 1px solid grey;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 28px;
+        transition-duration: 0.4s;
+        transform: scale(0);
+    }
+
+    label img {
+        height: 100px;
+        width: 100px;
+        transition-duration: 0.2s;
+        transform-origin: 50% 50%;
+    }
+
+    :checked+label {
+        border-color: #ddd;
+    }
+
+    :checked+label:before {
+        content: "✓";
+        background-color: grey;
+        transform: scale(1);
+    }
+
+    :checked+label img {
+        transform: scale(0.9);
+        /* box-shadow: 0 0 5px #333; */
+        z-index: -1;
+    }
 </style>
 </head>
 <body>
@@ -222,12 +286,18 @@ body {
 			<div class="center_center">
 				<div class="food_photo_box_main">
 					<div class="food_photo_box ">
+					<ul>
+						<li>
 		                <div class="food_photo">
-		                    <img src="https://picsum.photos/id/236/1000/500" alt="">
-		                    <input type="checkbox">
+			                <input type="checkbox" id="myCheckbox1"/>
+			                <label for="myCheckbox1">
+			                	<img src="https://picsum.photos/id/236/1000/500" alt="">
+			                </label>
 		                </div>
+		                </li>
+		            </ul>
 						<div class="food_photo">
-<!-- 							<img src="https://picsum.photos/id/236/1000/500" alt=""> -->
+							<img src="https://picsum.photos/id/236/1000/500" alt="">
 						</div>
 						<div class="food_photo">
 							<img src="https://picsum.photos/id/236/1000/500" alt="">
