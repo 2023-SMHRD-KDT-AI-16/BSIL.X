@@ -53,7 +53,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
 
-
 	<header>
 		<div id="header_div">
 			<a href="index.jsp"> <img src="https://img.freepik.com/premium-vector/
