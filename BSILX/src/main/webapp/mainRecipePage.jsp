@@ -137,7 +137,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			String lboxImg = request.getParameter("lbox_img");
 			String lboxPrice = request.getParameter("lbox_price");
 			//메인페이시에서 받아오는 값   
-			session.setAttribute("lbox_seq", 1);
+			int lbox_seq = new LunchBoxDAO().getLbox_seq(lbox_name);
+			session.setAttribute("lbox_seq", lbox_seq);
 			
 			String user_id = userId;
 			session.setAttribute("user_id", user_id);

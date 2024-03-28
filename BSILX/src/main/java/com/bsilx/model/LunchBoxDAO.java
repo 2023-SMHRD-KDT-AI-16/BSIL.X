@@ -118,4 +118,24 @@ public class LunchBoxDAO {
 		return lboxIngreList;
 	}
 
+	
+	public int getLbox_seq (String lbox_name) {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		int lbox_seq = 0;
+		
+		try {
+			lbox_seq = sqlSession.selectOne("SelectLboxName", lbox_name);
+			System.out.println("클릭한 레시피 식재료 출력 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("클릭한 레시피 식재료 출력 실패");
+		} finally {
+			sqlSession.close();
+		}
+		
+		return lbox_seq;
+	}
+	
 }
