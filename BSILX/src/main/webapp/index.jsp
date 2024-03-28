@@ -5,7 +5,7 @@
 <%@page import="java.security.SecureRandom"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.bsilx.model.MemberDTO"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@page contentType="text/html;charset=UTF-8" language="java"%>
 <html lang="ko">
 <head>
 
@@ -63,7 +63,7 @@
 				if (info == null) {
 				%>
 				<a height="50" href="<%=apiURL%>"><img height="50"
-					src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
+					src="https://e7.pngegg.com/pngimages/420/4/png-clipart-login-computer-icons-login-button-miscellaneous-angle.png" /></a>
 
 				<%
 				} else {

@@ -30,13 +30,13 @@ public class LboxPrint extends HttpServlet {
 
 		String ingreNameString = request.getParameter("ingre_name");
 		
-		System.out.println("ingreNameString : " +ingreNameString);  //index.jsp에서 쌀 보내면 쌀 받아짐
+//		System.out.println("ingreNameString : " +ingreNameString);  //index.jsp에서 쌀 보내면 쌀 받아짐
 
 		List<String> ingreNameList = Arrays.asList(ingreNameString.split(","));
 		// 데이터베이스에서 태그 리스트에 해당하는 레시피 검색 
 		LunchBoxDAO dao = new LunchBoxDAO();
 
-		System.out.println("ingreNameList :"+ingreNameList);  //index.jsp에서 쌀 보내면 쌀 받아짐
+//		System.out.println("ingreNameList :"+ingreNameList);  //index.jsp에서 쌀 보내면 쌀 받아짐
 		
 		List<String> ingre_name = new ArrayList<>();
 
@@ -71,7 +71,6 @@ public class LboxPrint extends HttpServlet {
 			Gson gson = new Gson();
 	        String json = gson.toJson(LunchBoxList);
 	        out.print(json);
-	        System.out.println("여기는 json"+json);
 	        out.flush();
 			
 		} 
