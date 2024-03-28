@@ -23,21 +23,19 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String ingre_name = "찹쌀";
-		String ingre_year = "2023";
-		String ingre_month = "6";
-		String ingre_day = "15";
-		
-		IngrePriceDTO dto = new IngrePriceDTO(ingre_name, ingre_year, ingre_month, ingre_day);
 
-		List<IngrePriceDTO> priceList = new IngrePriceDAO().oneDayPrice(dto);
+		IngrePriceDTO BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_name);
+		IngrePriceDTO SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_name);
 		
-		JSONArray jsonArray = new JSONArray();
+		//List<IngrePriceDTO> priceList = ;
 		
-		jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);
+//		JSONArray jsonArray = new JSONArray();
+//		
+//		jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);
 		
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(jsonArray.toString());
+//		response.setContentType("application/json");
+//		response.setCharacterEncoding("UTF-8");
+//		response.getWriter().write(jsonArray.toString());
 
 	}
 

@@ -9,6 +9,7 @@ public class MemberDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 
 	public int join(MemberDTO dto) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 		int result = sqlSession.insert("Join", dto);
