@@ -127,6 +127,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					%>
 					
 					<% 
+					String lboxName = request.getParameter("lbox_name");
 						String lbox_name = "깻잎쌈밥";
 						String user_id = "Pab4FgvWCHg5h2ch7F0z0mhpbiIal7s1odVolZiUQ7Q";
 					%>

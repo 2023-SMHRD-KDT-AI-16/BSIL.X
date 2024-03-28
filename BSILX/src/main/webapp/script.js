@@ -17,31 +17,6 @@ tagify.on('add', function() {
 	var tags = tagify.value.map(tag => tag.value);
 	console.log("tags" + tags); // 입력된 태그 정보 객체
 
-		$.ajax({
-			type: "POST",
-			url: "LboxPrint", // 'LboxPrint'는 서블릿의 URL 매핑을 가리킵니다.
-			data: { ingre_name: tags.join(',') }, // 서블릿에 보낼 데이터
-			dataType: "json", // 응답을 JSON 형식으로 받습니다.
-			success: function(data) {
-				// 성공적으로 데이터를 받으면 페이지에 렌더링
-				console.log("data : " + data);
-				renderRecipes(data);
-			},
-			error: function(xhr, status, error) {
-				// 에러 처리
-				console.error("Error: " + error);
-			}
-		});
-	
-
-})
-
-tagify.on('remove', function(e) {
-	//var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
-	var tags = tagify.value.map(tag => tag.value);
-	if (tags.length === 0) {
-        clearData(); // 모든 태그가 제거되었을 때, 데이터를 지우는 함수 호출
-    } else{
 	$.ajax({
 		type: "POST",
 		url: "LboxPrint", // 'LboxPrint'는 서블릿의 URL 매핑을 가리킵니다.
@@ -49,16 +24,41 @@ tagify.on('remove', function(e) {
 		dataType: "json", // 응답을 JSON 형식으로 받습니다.
 		success: function(data) {
 			// 성공적으로 데이터를 받으면 페이지에 렌더링
-			console.log("Updated data based on remaining tags: ", data);
-			renderRecipes(data); // 받은 데이터로 페이지 내용 업데이트
+			console.log("data : " + data);
+			renderRecipes(data);
 		},
 		error: function(xhr, status, error) {
-			
 			// 에러 처리
 			console.error("Error: " + error);
 		}
-
 	});
+
+
+})
+
+tagify.on('remove', function(e) {
+	//var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
+	var tags = tagify.value.map(tag => tag.value);
+	if (tags.length === 0) {
+		clearData(); // 모든 태그가 제거되었을 때, 데이터를 지우는 함수 호출
+	} else {
+		$.ajax({
+			type: "POST",
+			url: "LboxPrint", // 'LboxPrint'는 서블릿의 URL 매핑을 가리킵니다.
+			data: { ingre_name: tags.join(',') }, // 서블릿에 보낼 데이터
+			dataType: "json", // 응답을 JSON 형식으로 받습니다.
+			success: function(data) {
+				// 성공적으로 데이터를 받으면 페이지에 렌더링
+				console.log("Updated data based on remaining tags: ", data);
+				renderRecipes(data); // 받은 데이터로 페이지 내용 업데이트
+			},
+			error: function(xhr, status, error) {
+
+				// 에러 처리
+				console.error("Error: " + error);
+			}
+
+		});
 	}
 })
 
@@ -84,12 +84,11 @@ tagify.on('add', onAddTag) // 태그가 추가되면
 tagify.off('add', onAddTag);
 
 function clearData() {
-    var container = $('#search_img');
-    container.empty(); // 컨테이너의 모든 내용을 비우기
-}
-
-function renderRecipes(recipes) {
 	var container = $('#search_img');
+	container.empty(); // 컨테이너의 모든 내용을 비우기
+}
+function renderRecipes(recipes) {
+	/*var container = $('#search_img');
 	container.empty(); // 컨테이너를 비우고
 
 	recipes.forEach(function(recipe) { // 각 레시피 정보를 동적으로 생성
@@ -99,9 +98,38 @@ function renderRecipes(recipes) {
 			'<p>가격: ' + recipe.lbox_price + '</p>' +
 			'</div>';
 		container.append(html); // 생성된 HTML을 컨테이너에 추가
-	});
-}
+	});*/
+	var container = $('#search_img');
+	container.empty(); // 컨테이너를 비우고
 
+	recipes.forEach(function(recipe, index) {
+		// 폼을 동적으로 생성합니다.
+		var formHtml = `<form id="recipeForm${index}" action="mainRecipePage.jsp" method="post" style="display:none;">
+                            <input type="hidden" name="lbox_img" value="${recipe.lbox_img}">
+                            <input type="hidden" name="lbox_name" value="${recipe.lbox_name}">
+                            <input type="hidden" name="lbox_price" value="${recipe.lbox_price}">
+                        </form>`;
+
+		// 레시피 정보를 표시하는 HTML을 생성합니다.
+		var recipeHtml = `<div class="recipe" onclick="submitRecipeForm(${index});">
+                              <img src="${recipe.lbox_img}" alt="레시피 이미지">
+                              <h3>${recipe.lbox_name}</h3>
+                              <p>가격: ${recipe.lbox_price}</p>
+                           </div>`;
+
+		container.append(formHtml + recipeHtml); // 생성된 폼과 HTML을 컨테이너에 추가합니다.
+	});
+
+
+
+
+
+
+
+}
+function submitRecipeForm(index) {
+	document.getElementById(`recipeForm${index}`).submit();
+}
 
 // 이벤트 리스너 콜백 메소드
 function onAddTag(e) {
