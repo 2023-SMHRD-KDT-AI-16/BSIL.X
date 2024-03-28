@@ -37,13 +37,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             display: flex;
             margin: 0 auto;
         }
-
-        /* 왼쪽 사이드 */
-        .sidebar_left{
-            width: 360px;    
-            background: pink;
-        }
-
+        
         .centerbar{
             width: 1240px;
         }
@@ -327,6 +321,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					%>
 		</div>
 	</div>
+	<h1>전체 레시피</h1>
 </header>
     <div class="all-box">
             <div class="centerbar">
