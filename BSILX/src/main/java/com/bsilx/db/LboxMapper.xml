@@ -32,9 +32,7 @@
 
 	<select id="SelectOneLbox" parameterType="String"
 		resultType="LunchBox">
-		select lbox_name, lbox_recipe, lbox_img, lbox_price
-		from
-		lunch_box_info where lbox_name = #{lbox_name}
+		select * from lunch_box_info where lbox_name = #{lbox_name}
 	</select>
 
 	<select id="SelectOneLboxIngre" parameterType="String"

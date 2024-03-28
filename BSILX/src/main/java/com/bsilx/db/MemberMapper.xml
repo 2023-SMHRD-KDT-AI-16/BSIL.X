@@ -3,14 +3,18 @@
 <mapper namespace="com.bsilx.db.MembeMapper">
 
 	<insert id="Join" parameterType="Member">
-		insert into user_info 
+		insert into user_info
 		values (#{user_id}, #{user_name}, #{user_email}, #{user_nick}, sysdate)
 	</insert>
-	
-	<select id="SelectMember" parameterType="String" resultType="Member">
+
+	<select id="SelectMember" parameterType="String"
+		resultType="Member">
 		select * from user_info where user_id = #{user_id}
 	</select>
 
+	<insert id="Bookmark" parameterType = "Bookmark"> 
+		insert into my_recipe_info values (my_recipe_info_SEQ.nextVal, #{lbox_seq}, sysdate, #{user_id})
+	</insert>
 
 
 

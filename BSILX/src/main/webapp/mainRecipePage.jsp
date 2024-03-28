@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="com.bsilx.model.IngrePriceDTO"%>
 <%@page import="com.bsilx.model.LunchBoxDAO"%>
 <%@page import="com.bsilx.model.LunchBoxDTO"%>
 <%@page import="java.util.List"%>
@@ -107,17 +110,32 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				<img src="https://2bob.co.kr/data/recipe/20220804142632-D1Q5R.jpg"
 					alt="레시피 사진">
 			</div>
-
+			
 			<div id="food_right">
 					<div id=bookmark>
-						<a href="#" >즐겨찾기 추가
+						<a href = "#" id="bookmarkbtn">즐겨찾기 추가
 						 <!-- 이 부분 즐겨찾기 부분이라 script 써서 for 문 으로 리스트 형태로 저장 해야하는거 아냐? -->
 						</a>
 					</div>
+					<%
+						//String lbox_name = (String)session.getAttribute("lbox_name"); 
+						//String user_id = (String)session.getAttribute("user_id"); 
+					%>
 					
-					<div class="food_right_div"><span>test 메뉴명 (DB)</span></div>
-					<div class="food_right_div"><span>test 메뉴 가격 (DB)</span></div>
-					<div class="food_right_div"><span>test 재료</span></div>
+					<% 
+						String lbox_name = "깻잎쌈밥";
+						String user_id = "Pab4FgvWCHg5h2ch7F0z0mhpbiIal7s1odVolZiUQ7Q";
+					%>
+					<% LunchBoxDTO lbox_info = new LunchBoxDAO().selectOneLbox(lbox_name); %>
+					<div class="food_right_div"><span><%=lbox_info.getLbox_name() %></span></div>
+					<div class="food_right_div"><span><%=lbox_info.getLbox_price() %></span></div>
+					<div class="food_right_div"><span>
+						<%
+						List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name); 
+						for(IngrePriceDTO ingre : lbox_ingre){%>
+							<%=ingre.getIngre_name()%>
+						<%}%>
+					</span></div>
 				
 			</div>
 		</div>
@@ -127,12 +145,15 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					<th>조리 순서</th>
 				</tr>
 				<tr>
-					<td>test 레시피 메뉴 출력 대파는 세로로 반 갈라 송송 썰고,<br>
-						명란젓은 5~6등분하고,<br>
-						그릇에 밥을 담고 가운데 부분을숟가락으로 가볍게 누르고, <br> 
-						누른 부분에 달걀을 깨 넣고꼬치로 노른자를 2~3번 찌르고, <br> 
-						대파와 명란젓을 둘러 담은 뒤랩을 씌워 전자레인지에 30초씩 2번 돌리고, <br> 
-						버터(0.5)를 올리고간장(0.5)을 뿌려 마무리.
+					<td>
+					<%
+						String lbox_recipe = lbox_info.getLbox_recipe();
+						List<String> recipeList = Arrays.asList(lbox_recipe.split("\\."));					
+						for(String recipe : recipeList){%>
+							<%=recipe %><br>
+					<%}%>
+					
+					
 					</td>
 				</tr>
 			</table>
@@ -159,6 +180,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			<!-- 식재료 가격 동향 그래프 점선 그래프 추가 -->
 		</div>
 	</div>
+	
+	<script src="scriptTest.js"></script>
 </body>
 </html>
 

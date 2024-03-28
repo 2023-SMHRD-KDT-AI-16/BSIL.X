@@ -4,11 +4,22 @@ import java.util.ArrayList;
 
 public class LunchBoxDTO {
 	
+	private int lbox_seq;
 	private String lbox_name;
 	private String lbox_recipe;
 	private String lbox_img;
 	private int lbox_price;
 	
+	
+	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
+		super();
+		this.lbox_seq = lbox_seq;
+		this.lbox_name = lbox_name;
+		this.lbox_recipe = lbox_recipe;
+		this.lbox_img = lbox_img;
+		this.lbox_price = lbox_price;
+	}
+
 	public LunchBoxDTO(String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
 		this.lbox_name = lbox_name;
 		this.lbox_recipe = lbox_recipe;
@@ -45,6 +56,13 @@ public class LunchBoxDTO {
 	}
 	public void setLbox_price(int lbox_price) {
 		this.lbox_price = lbox_price;
+	}
+	public int getLbox_seq() {
+		return lbox_seq;
+	}
+	
+	public void setLbox_seq(int lbox_seq) {
+		this.lbox_seq = lbox_seq;
 	}
 	
 	

@@ -57,6 +57,12 @@
 		<description></description>
 		<servlet-class>com.bsilx.controller.LboxPrintTest</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Bookmark</servlet-name>
+		<display-name>Bookmark</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.Bookmark</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>IngreAllDayPriceChart</servlet-name>
@@ -93,6 +99,10 @@
 	<servlet-mapping>
 		<servlet-name>LboxPrintTest</servlet-name>
 		<url-pattern>/LboxPrintTest</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Bookmark</servlet-name>
+		<url-pattern>/Bookmark</url-pattern>
 	</servlet-mapping>
 
 </web-app>

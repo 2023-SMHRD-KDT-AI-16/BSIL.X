@@ -8,6 +8,7 @@
 		<typeAlias type="com.bsilx.model.IngrePriceDTO" alias="IngrePrice"/>
 		<typeAlias type="com.bsilx.model.LunchBoxDTO" alias="LunchBox"/>
 		<typeAlias type="com.bsilx.model.MemberDTO" alias="Member"/>
+		<typeAlias type="com.bsilx.model.BookmarkDTO" alias="Bookmark"/>
 	</typeAliases>
 
 	<environments default="development">

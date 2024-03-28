@@ -40,19 +40,21 @@ public class LunchBoxDAO {
 
 		List<String> LboxList = new ArrayList<>();
 
+		// 해시태그에 입력한 모든 식재료 포함한 레시피만 담는 리스트 생성하는 반복문
 		for (String ingredient : LboxNameList) {
 
 			List<String> tempList = new LunchBoxDAO().selectLboxName(ingredient);
 
-			if (LboxList.isEmpty()) {
+			if (LboxList.isEmpty()) { // 음식 이름 담을 리스트가 비어있는 경우 실행(처음 값)
 
-				LboxList.addAll(tempList);
+				LboxList.addAll(tempList); // 이 식재료 포함한 모든 음식 리스트에 담기
 
 				System.out.println("첫 번째 음식 : " + ingredient);
 				System.out.println("LboxList1 :" + LboxList);
 
 			} else {
-				LboxList.retainAll(tempList);
+				// 위의 음식이 담겨있는 레시피 리스트와 새로 만든 tempList에 겹치는 음식이름만 리스트에 넣기
+				LboxList.retainAll(tempList);// 교집합인 리스트만 남겨두고 다른 레시피는 다 제거됨
 				System.out.println("두 번째 이후의 음식: " + ingredient);
 			}
 		}
@@ -85,10 +87,10 @@ public class LunchBoxDAO {
 		LunchBoxDTO lbox = null;
 		try {
 			lbox = sqlSession.selectOne("SelectOneLbox", lbox_name);
-			System.out.println("클릭한 메뉴 db 연결 성공");
+			System.out.println("클릭한 메뉴 정보 출력 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("클릭한 메뉴 db 연결 실패");
+			System.out.println("클릭한 메뉴 정보 출력 실패");
 		} finally {
 			sqlSession.close();
 		}
@@ -105,10 +107,10 @@ public class LunchBoxDAO {
 
 		try {
 			lboxIngreList = sqlSession.selectList("SelectOneLboxIngre", lbox_name);
-			System.out.println("클릭한 메뉴 레시피 출력 성공");
+			System.out.println("클릭한 레시피 식재료 출력 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("클릭한 메뉴 레시피 출력 실패");
+			System.out.println("클릭한 레시피 식재료 출력 실패");
 		} finally {
 			sqlSession.close();
 		}
