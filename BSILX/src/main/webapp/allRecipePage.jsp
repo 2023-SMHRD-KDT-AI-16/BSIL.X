@@ -32,8 +32,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <style>
         .all-box {
-            width: 1500px;
-            height: 2100px;
+            width: 100%;
+            height: 1400px;
             display: flex;
             margin: 0 auto;
         }
@@ -90,7 +90,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
         /* 센터  */
         .center_center{
-            width: 880px;
+            width: 1240px;
             height: 1200px; 
             /* background: rgb(255, 255, 255); */
             /* border: 1px solid red; */
@@ -101,6 +101,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             width: 100%;
             height: 1200px; 
             background: #DEEBFC;
+            border-radius:15px;
             /* margin-top: 50px; */
 
             display: flex;
@@ -111,7 +112,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             position: relative;
         }
         .food_photo_box{
-            width: 880px;
+            width: 100%;
             height: 1100px; 
             /* background: rgb(76, 150, 100); */
             display: flex;
@@ -203,11 +204,11 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             /* border: 1px solid red;  */
         }
         .pagination {
-            margin: 150px;
-
-            margin-left: 330px;
+			padding-left: 510px;
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            background-color: #DEEBFC;
         }
         .prev, .next {
             width: 20px;
@@ -686,21 +687,15 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
                                 <img src="https://imagevietnam.vnanet.vn/Upload/2019/8/16/1608201921020196517-5.jpg" class="slide" alt="">
                             </div>
                         </div>
-                        
-                    </div>
-                    <div class="pagination">
-                        <button class="prev"><</button>
-                        <div class="page-num-container">
-                            <div class="page-num">1 of 6</div>
-                        </div>
-                        <button class="next">></button>
-                    </div>
-                </div>
-               
-<!--                 <div class="center_bottom">
-                   
-                </div>
- -->
+                        	<div class="pagination">
+	                        	<button class="prev"><</button>
+	                        	<div class="page-num-container">
+	                            <div class="page-num">1 of 6</div>
+	                        	</div>
+	                        	<button class="next">></button>
+	                    	</div>
+                    	</div>
+	              </div>
             </div>
     </div>
 
