@@ -86,6 +86,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<h1>도시락 레시피 가이드</h1>
 	</header>
 	<nav>
+	
 		<a href="#" class="header_menu">
 			<span class="material-symbols-outlined">widgets
 			</span>메인페이지
@@ -96,6 +97,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			<span class="material-symbols-outlined">assignment_ind
 			</span>마이페이지
 		</a>
+		
 	</nav>
 
 	<section>
