@@ -1,4 +1,5 @@
 
+<%@page import="com.bsilx.model.MemberDAO"%>
 <%@page import="com.bsilx.model.MemberDTO"%>
 <%@page import="com.google.gson.JsonObject"%>
 <%@page import="com.google.gson.Gson"%>
@@ -123,12 +124,23 @@
         dto.setUser_phone(jsonObject.getAsJsonObject("response").get("mobile").getAsString());
         
         request.getSession().setAttribute("memberDTO", dto);
-        out.print(user_id);
-        out.print(user_nick);
-        out.print(user_name);
-        out.print(user_email);
-        out.print(user_phone);
        
+        if (user_id != null) {
+            
+            System.out.println(user_id);
+            
+            MemberDTO selectResult = new MemberDAO().selectMember(user_id);
+            // db에서 id 동일한 회원있으면 출력
+            if (selectResult == null) {
+               int result = new MemberDAO().join(dto);
+            } else if (selectResult.getUser_id().equals(user_id)) {
+               System.out.println("이미 가입된 회원입니다");
+            }
+         }else {
+            System.out.println("세션 전달 실패");
+         }
+        
+        
        	response.sendRedirect("index.jsp");
         
        	
