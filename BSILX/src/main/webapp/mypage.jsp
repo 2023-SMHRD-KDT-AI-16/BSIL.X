@@ -222,11 +222,12 @@ body {
 			<div class="center_center">
 				<div class="food_photo_box_main">
 					<div class="food_photo_box ">
+		                <div class="food_photo">
+		                    <img src="https://picsum.photos/id/236/1000/500" alt="">
+		                    <input type="checkbox">
+		                </div>
 						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
-						</div>
-						<div class="food_photo">
-							<img src="https://picsum.photos/id/236/1000/500" alt="">
+<!-- 							<img src="https://picsum.photos/id/236/1000/500" alt=""> -->
 						</div>
 						<div class="food_photo">
 							<img src="https://picsum.photos/id/236/1000/500" alt="">
@@ -284,10 +285,24 @@ body {
 						</div>
 					</div>
 				</div>
+				<button id="submitBtn">Submit</button>
 			</div>
 		</div>
 	</div>
 
 </body>
+    <script>
+        // Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            var selectedPhotos = document.querySelectorAll(".food_photo input[type='checkbox']:checked");
+            var selectedPhotoUrls = [];
+            selectedPhotos.forEach(function(photo) {
+                var imgUrl = photo.previousElementSibling.getAttribute("src");
+                selectedPhotoUrls.push(imgUrl);
+            });
+            console.log("Selected photo URLs:", selectedPhotoUrls);
+            // 여기서 선택된 이미지들의 URL을 서버로 전송할 수 있습니다.
+        });
+    </script>
 
 </html>
