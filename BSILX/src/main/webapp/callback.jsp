@@ -114,11 +114,6 @@
         String user_name = jsonObject.getAsJsonObject("response").get("name").getAsString();
         String user_email=jsonObject.getAsJsonObject("response").get("email").getAsString();
         String user_phone=jsonObject.getAsJsonObject("response").get("mobile").getAsString();
-       
-        
-        
-        
-        
         
         MemberDTO dto = new MemberDTO();
         dto.setUser_id(jsonObject.getAsJsonObject("response").get("id").getAsString());
@@ -127,19 +122,16 @@
         dto.setUser_email(jsonObject.getAsJsonObject("response").get("email").getAsString());
         dto.setUser_phone(jsonObject.getAsJsonObject("response").get("mobile").getAsString());
         
-        
         request.getSession().setAttribute("memberDTO", dto);
-        
         out.print(user_id);
         out.print(user_nick);
         out.print(user_name);
         out.print(user_email);
         out.print(user_phone);
        
-       response.sendRedirect("index.jsp");
-
-
+       	response.sendRedirect("index.jsp");
         
+       	
       } else {
         // 에러 응답인 경우
         out.println("에러 응답 코드: " + responseCode);
@@ -149,10 +141,7 @@
       out.println("오류가 발생했습니다: " + e.getMessage());
       e.printStackTrace();
     }
-   
   %>
-  
-  
   
   </body>
 </html>

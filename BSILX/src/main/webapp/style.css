@@ -70,6 +70,10 @@ header>h1{
     /* 로고의 크기를 조정해주세요 */
 }
 
+#logo:hover{
+	box-shadow: 0 4px 8px rgb(87, 87, 87);
+	transition: box-shadow 0.3s ease;
+}
 
 
 /* 네비게이션 스타일 */
@@ -278,7 +282,9 @@ footer {
 
 
 #bookmark:hover { /* 즐겨찾기 호버기능 */ 
-    background-color: #aaa;
+    background-color: rgb(186, 202, 214);	
+    box-shadow: 0 4px 8px rgb(87, 87, 87);
+	transition: box-shadow 0.3s ease;
 }
 
 .chart{
@@ -288,9 +294,9 @@ footer {
 
 
 .header_menu:hover{
-	box-shadow: 0 4px 8px transparent;
+	box-shadow: 0 4px 8px rgb(87, 87, 87);
 	transition: box-shadow 0.3s ease;
-	background-color: #aaa;
+	background-color: rgb(186, 202, 214);
 }
 
 #recipe th, td{
