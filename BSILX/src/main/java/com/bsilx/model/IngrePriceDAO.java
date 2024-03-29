@@ -1,7 +1,5 @@
 package com.bsilx.model;
 
-import java.lang.System.Logger;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -10,8 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.bsilx.db.SqlSessionManager;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 
 public class IngrePriceDAO {
 
@@ -74,14 +70,14 @@ public class IngrePriceDAO {
 	}
 
 	// 식재료 식별자(번호)가져오는 메소드
-	public List<IngrePriceDTO> selectIngreSeq (String lbox_name) {
+	public  List<Integer> selectIngreSeq (String lbox_name) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		List<IngrePriceDTO> ingre_seq = null;
+		 List<Integer> ingreSeqList = null;
 		
 		try {
-			ingre_seq = sqlSession.selectList("SelectIngreSeq", lbox_name);
+			ingreSeqList = sqlSession.selectList("SelectIngreSeq", lbox_name);
 			System.out.println("레시피의 식재료 번호 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,7 +86,7 @@ public class IngrePriceDAO {
 			sqlSession.close();
 		}
 		
-		return ingre_seq;
+		return ingreSeqList;
 	}
 	
 	// 하나의 식재료의 현재 대형 마트 가격 가져오는 메소드

@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <title>네이버로그인</title>
 
-<script type="text/javascript"
+<script type="text/javascnript"
 	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
 	charset="utf-8"></script>
 
@@ -55,8 +55,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	session.setAttribute("state", state);
 	%>
 
-
-
 	<header>
 		<div id="header_div">
 			<a href="index.jsp"> <img
@@ -72,7 +70,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				%>
 				<a height="50" href="<%=apiURL%>"><img height="50"
 					src="images/btnW_완성형.png" /></a>
-
+s
 				<%
 				} else {
 				out.println("환영합니다, " + info.getUser_name() + "님!");
@@ -83,8 +81,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
 					<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
 					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
-					
-		
 				
 				<%
 				}
@@ -113,8 +109,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		</div>
 		<h1>도시락 레시피 가이드</h1>
 	</header>
+	
 	<nav>
-
 		<a href="index.jsp" class="header_menu"> <span
 			class="material-symbols-outlined">widgets </span>메인페이지
 		</a> <a href="allRecipePage.jsp" class="header_menu"> <span
@@ -122,7 +118,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		</a> <a href="mypage.jsp" class="header_menu"> <span
 			class="material-symbols-outlined">assignment_ind </span>마이페이지
 		</a>
-
 	</nav>
 
 	<section>
@@ -215,7 +210,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					}
 				}
 			}
-
 		})
 	</script>
 

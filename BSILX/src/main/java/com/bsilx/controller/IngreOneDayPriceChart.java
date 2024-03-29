@@ -1,6 +1,7 @@
 package com.bsilx.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import com.bsilx.model.IngrePriceDAO;
 import com.bsilx.model.IngrePriceDTO;
-import com.bsilx.model.LunchBoxDAO;
 
 public class IngreOneDayPriceChart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,29 +23,31 @@ public class IngreOneDayPriceChart extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=UTF-8");
 
 		HttpSession session = request.getSession();
-		
+
 		// 식재료 담는 리스트
-		String lbox_name = request.getParameter("lbox_name");
+		String lboxImg = request.getParameter("lbox_img");
+		String lboxName = request.getParameter("lbox_name");
+		String lboxPrice = request.getParameter("lbox_price");
 		
-		System.out.println("lbox_name : "+lbox_name);
-		List<IngrePriceDTO> ingreList = new IngrePriceDAO().selectIngreSeq(lbox_name);
+		PrintWriter out = response.getWriter();
 		
-		
+		List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
+
 		// 대형마트 가격 정보 담는 리스트
 		List<IngrePriceDTO> BigMartpriceList = new ArrayList<>();
-		
+
 		// 전통시장 가격 정보 담는 리스트
 		List<IngrePriceDTO> SmallMartpriceList = new ArrayList<>();
-		
+
 		// 원하는 가격 정보만 담는 리스트
 		List<IngrePriceDTO> priceList = new ArrayList<>();
-		
 
-		for (IngrePriceDTO ingre_seq : ingreList) {
-			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq.getIngre_seq());
-			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq.getIngre_seq());
+		for (int ingre_seq : ingreList) {
+			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
+			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
 			priceList.add(BigMartpriceList.get(0));
 			priceList.add(SmallMartpriceList.get(0));
 		}

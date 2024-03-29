@@ -11,8 +11,8 @@ function checkFavorites() {
 		type: "POST",
 		url: "CheckFavorites",
 		data: {
-			user_id: '<%= session.getAttribute("user_id")%>',
-			lbox_seq : '<%= session.getAttribute("lbox_seq")%>'
+			user_id: '<%=session.getAttribute("userId")%>',
+			lbox_seq : '<%=session.getAttribute("lbox_seq")%>'
 		},
 		success: function(data) {
 			if(data=="existFavorite"){
