@@ -1,5 +1,7 @@
 package com.bsilx.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -93,6 +95,22 @@ public class MemberDAO {
 
 		return result;
 
+	}
+	
+	public List<LunchBoxDTO> selectFavorite(String lbox_name){
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectFavorite", lbox_name);
+		
+		if (favorList != null) {
+			System.out.println("즐겨찾기 가져옴");
+		} else {
+			System.out.println("즐겨찾기 못 가져옴");
+		}
+		
+		return favorList;
+		
 	}
 
 }
