@@ -136,6 +136,13 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			String lbox_name = request.getParameter("lbox_name");
 			String lboxImg = request.getParameter("lbox_img");
 			String lboxPrice = request.getParameter("lbox_price");
+			
+			System.out.println("lbox_name"+lbox_name);
+			System.out.println("lbox_img"+lboxImg);
+			System.out.println("lbox_price"+lboxPrice);
+			
+			
+			
 			//메인페이시에서 받아오는 값   
 			int lbox_seq = new LunchBoxDAO().getLbox_seq(lbox_name);
 			session.setAttribute("lbox_seq", lbox_seq);
@@ -168,12 +175,15 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 
 				<div class="food_right_div">
-					<span> <%=lbox_name %> <%
+				
+					<span> 
+					<%=lbox_name%> <%
  						List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
  						for (IngrePriceDTO ingre : lbox_ingre) {
-					 %> <%= ingre.getIngre_name()%> <%} %>
-
+					 %> <%=ingre.getIngre_name()%> <%} %>
 					</span>
+				
+					
 				</div>
 			</div>
 		</div>

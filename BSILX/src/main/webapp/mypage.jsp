@@ -101,9 +101,7 @@
 </body>
 <script>
 	// Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
-	document
-			.getElementById("submitBtn")
-			.addEventListener(
+	document.getElementById("submitBtn").addEventListener(
 					"click",
 					function() {
 						var selectedPhotos = document
