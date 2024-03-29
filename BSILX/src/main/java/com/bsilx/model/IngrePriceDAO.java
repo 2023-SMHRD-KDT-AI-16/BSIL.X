@@ -73,15 +73,35 @@ public class IngrePriceDAO {
 		return jsonArray;
 	}
 
+	// 식재료 식별자(번호)가져오는 메소드
+	public List<IngrePriceDTO> selectIngreSeq (String lbox_name) {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		List<IngrePriceDTO> ingre_seq = null;
+		
+		try {
+			ingre_seq = sqlSession.selectList("SelectIngreSeq", lbox_name);
+			System.out.println("레시피의 식재료 번호 담기 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("레시피의 식재료 번호 담기 실패");
+		} finally {
+			sqlSession.close();
+		}
+		
+		return ingre_seq;
+	}
+	
 	// 하나의 식재료의 현재 대형 마트 가격 가져오는 메소드
-	public List<IngrePriceDTO> oneDayBigMartPrice(String ingre_name) {
+	public List<IngrePriceDTO> oneDayBigMartPrice(int ingre_seq) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 		List<IngrePriceDTO> priceList = null;
 
 		try {
-			priceList = sqlSession.selectList("SelectBigMartPrice", ingre_name);
+			priceList = sqlSession.selectList("SelectBigMartPrice", ingre_seq);
 			System.out.println("식재료 하나 최근 대형 마트 가격 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -93,14 +113,14 @@ public class IngrePriceDAO {
 	}
 
 	// 하나의 식재료의 현재 대형 마트 가격 가져오는 메소드
-	public List<IngrePriceDTO> oneDaySmallMartPrice(String ingre_name) {
+	public List<IngrePriceDTO> oneDaySmallMartPrice(int ingre_seq) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
 		List<IngrePriceDTO> priceList = null;
 
 		try {
-			priceList = sqlSession.selectList("SelectSmallMartPrice", ingre_name);
+			priceList = sqlSession.selectList("SelectSmallMartPrice", ingre_seq);
 			System.out.println("식재료 하나 최근 대형 마트 가격 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();

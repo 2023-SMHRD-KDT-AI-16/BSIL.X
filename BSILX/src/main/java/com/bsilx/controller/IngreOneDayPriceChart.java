@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import com.bsilx.model.IngrePriceDAO;
 import com.bsilx.model.IngrePriceDTO;
+import com.bsilx.model.LunchBoxDAO;
 
 public class IngreOneDayPriceChart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,13 +25,14 @@ public class IngreOneDayPriceChart extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-//		HttpSession session = request.getSession();
-//		
+		HttpSession session = request.getSession();
+		
 		// 식재료 담는 리스트
-//		List<String> ingreList = session.getAttribute("ingreList");
-		List<String> ingreList = new ArrayList<>();
-		ingreList.add("쌀");
-		ingreList.add("찹쌀");
+		String lbox_name = request.getParameter("lbox_name");
+		
+		System.out.println("lbox_name : "+lbox_name);
+		List<IngrePriceDTO> ingreList = new IngrePriceDAO().selectIngreSeq(lbox_name);
+		
 		
 		// 대형마트 가격 정보 담는 리스트
 		List<IngrePriceDTO> BigMartpriceList = new ArrayList<>();
@@ -42,9 +44,9 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		List<IngrePriceDTO> priceList = new ArrayList<>();
 		
 
-		for (String ingre_name : ingreList) {
-			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_name);
-			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_name);
+		for (IngrePriceDTO ingre_seq : ingreList) {
+			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq.getIngre_seq());
+			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq.getIngre_seq());
 			priceList.add(BigMartpriceList.get(0));
 			priceList.add(SmallMartpriceList.get(0));
 		}
