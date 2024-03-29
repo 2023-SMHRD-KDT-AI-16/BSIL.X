@@ -24,4 +24,12 @@
 		delete from my_recipe_info where user_id = #{user_id} and lbox_seq = #{lbox_seq}
 	</delete>
 	
+	<select id="SelectFavorite" parameterType="String" resultType="LunchBox">
+	select b.lbox_seq, b.lbox_name, b.lbox_img
+	from my_recipe_info a
+	inner join lunch_box_info b 
+	on a.lbox_seq = b.lbox_seq
+	where a.user_id = #{user_id}
+	</select>
+	
 </mapper>

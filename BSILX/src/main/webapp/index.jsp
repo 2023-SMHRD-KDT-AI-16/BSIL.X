@@ -111,11 +111,12 @@ s
 	</header>
 	
 	<nav>
-		<a href="index.jsp" class="header_menu"> <span
-			class="material-symbols-outlined">widgets </span>메인페이지
-		</a> <a href="allRecipePage.jsp" class="header_menu"> <span
+
+		<a href="index.jsp" class="header_menu"> <span 
+		class="material-symbols-outlined">widgets </span>메인페이지
+		</a> <a href="#" class="header_menu"> <span
 			class="material-symbols-outlined">stockpot </span>전체레시피
-		</a> <a href="mypage.jsp" class="header_menu"> <span
+		</a> <a href="#" class="header_menu"> <span
 			class="material-symbols-outlined">assignment_ind </span>마이페이지
 		</a>
 	</nav>
