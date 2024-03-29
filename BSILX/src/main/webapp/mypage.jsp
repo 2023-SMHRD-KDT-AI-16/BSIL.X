@@ -1,10 +1,3 @@
-<%@page import="com.bsilx.model.LunchBoxDAO"%>
-<%@page import="com.bsilx.model.LunchBoxDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="java.math.BigInteger"%>
-<%@page import="java.security.SecureRandom"%>
-<%@page import="java.net.URLEncoder"%>
-<%@page import="com.bsilx.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,7 +58,7 @@
 			<form action=""><!-- <---- form 태그 url  입력  -->
 				<ul>
 				
-						<!-- input 태그의 id / label 태그의 for / img 태그 반복문 활용 -->
+						<!-- input 태그의 id / label 태그의 for / img 태그 20번 반복문 활용 -->
 					<li>
 						<input type="checkbox" id="myCheckbox1" /> 
 						<label for="myCheckbox1">
