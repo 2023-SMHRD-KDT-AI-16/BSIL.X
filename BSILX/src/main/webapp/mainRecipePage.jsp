@@ -175,11 +175,20 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 
 				<div class="food_right_div">
-					<span> 
-					<%=lbox_name%> <%
- 						List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
- 						for (IngrePriceDTO ingre : lbox_ingre) {
-					 %> <%=ingre.getIngre_name()%> <%} %>
+					<span>
+					<%=lbox_name%> 
+					<%
+						    List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
+						    if (lbox_ingre != null) {
+						        for (IngrePriceDTO ingre : lbox_ingre) {
+						%>
+						            <%=ingre.getIngre_name()%>
+						<%
+						        }
+						    } else {
+						        out.println("재료 정보를 불러올 수 없습니다.");
+						    }
+						%>
 					</span>
 				</div>
 			</div>
