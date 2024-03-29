@@ -19,24 +19,24 @@ public class CheckFavorites extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		
-		int lbox_seq = (int)session.getAttribute("lbox_seq");
-		
-		String user_id = (String)session.getAttribute("user_id");
-		
+
+		int lbox_seq = (int) session.getAttribute("lbox_seq");
+
+		String user_id = (String) session.getAttribute("user_id");
+
 		BookmarkDTO mdto = new BookmarkDTO(lbox_seq, user_id);
-		
+
 		MemberDAO dao = new MemberDAO();
-		
-		String result = dao.selectBookmark(mdto);
-		
-		if(result != null) {
-			response.getWriter().write("existFavorite");
-			
+		if (user_id == null) {
+			String result = dao.selectBookmark(mdto);
+
+			if (result != null) {
+				response.getWriter().write("existFavorite");
+
+			}
 		}
-			response.setContentType("text/plain");
-			response.setCharacterEncoding("UTF-8");
-		}
-		
-		
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+	}
+
 }

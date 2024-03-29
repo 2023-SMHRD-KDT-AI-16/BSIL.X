@@ -28,27 +28,31 @@
 		order by a.price_seq
 	</select>
 
-	<select id="SelectBigMartPrice" parameterType = "String" resultType="IngrePrice">
-		 select b.ingre_name, a.ingre_price, a.ingre_year,
-		a.ingre_month, a.ingre_day, a.ingre_market
-		from ingredient_price_info a
-		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
-		where b.ingre_name = #{ingre_name} and a.ingre_market = '대형'
-		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
-		
-	</select>
-	
-	<select id="SelectSmallMartPrice" parameterType = "String" resultType="IngrePrice">
+	<select id="SelectBigMartPrice" parameterType = "int" resultType="IngrePrice">
 		select b.ingre_name, a.ingre_price, a.ingre_year,
 		a.ingre_month, a.ingre_day, a.ingre_market
 		from ingredient_price_info a
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
-		where b.ingre_name = #{ingre_name} and a.ingre_market = '전통'
+		where a.ingre_seq = #{ingre_seq} and a.ingre_market = '대형'
+		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
+		
+	</select>
+	
+	<select id="SelectSmallMartPrice" parameterType = "int" resultType="IngrePrice">
+		select b.ingre_name, a.ingre_price, a.ingre_year,
+		a.ingre_month, a.ingre_day, a.ingre_market
+		from ingredient_price_info a
+		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
+		where a.ingre_seq = #{ingre_seq} and a.ingre_market = '전통'
 		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
 	</select>
 	
-	
-	
+	<select id="SelectIngreSeq" parameterType="int" resultType="IngrePrice">
+		select b.ingre_seq
+		from lunch_box_info a 
+		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
+		where a.lbox_name = #{lbox_name};
+	</select>
 
 
 </mapper>

@@ -47,8 +47,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	response.setContentType("text/html; charset=UTF-8");
 
 	%>
-	
-<%
+
+	<%
     // 세션에서 사용자 정보 가져오기
     String userId = (String) session.getAttribute("userId");
     String userName = (String) session.getAttribute("userName");
@@ -124,8 +124,8 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
 
-<!-- 사용자 정보 표시 -->
-<%-- <h1>User Information</h1>
+			<!-- 사용자 정보 표시 -->
+			<%-- <h1>User Information</h1>
 <p>User ID: <%=userId%></p>
 <p>User Name: <%=userName%></p>
 <p>User Email: <%=userEmail%></p>
@@ -146,7 +146,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			%>
 
 			<div>
-
 				<img src=<%=lboxImg%> alt="레시피 사진">
 			</div>
 
@@ -163,17 +162,16 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				<div class="food_right_div">
 					<span><%=lbox_name%></span>
 				</div>
-				
+
 				<div class="food_right_div">
 					<span><%=lboxPrice%></span>
 				</div>
-				
+
 				<div class="food_right_div">
-					<span> <%
- List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
- for (IngrePriceDTO ingre : lbox_ingre) {
- %> <%=ingre.getIngre_name()%> 
- <%} %>
+					<span> <%=lbox_name %> <%
+ 						List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
+ 						for (IngrePriceDTO ingre : lbox_ingre) {
+					 %> <%= ingre.getIngre_name()%> <%} %>
 
 					</span>
 				</div>
@@ -186,30 +184,24 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</tr>
 				<tr>
 					<td>
-						  <%
+						<%
 						  if (lbox_info != null) {
-							  %>
-							  
-						  <%
+						
 						String lbox_recipe = lbox_info.getLbox_recipe();
 						List<String> recipeList = Arrays.asList(lbox_recipe.split(","));
-						for (String recipe : recipeList) {
-						%> 
-						<%=recipe%><br>
-						 <%}
+							for (String recipe : recipeList) {%> 
+						<%=recipe%><br> 
+						<%}
 						 }else {
 						        // lbox_info 또는 lbox_recipe가 null인 경우의 처리
-						        %>
-						        레시피 정보가 없습니다.
-						        <%
-						    }
-						    %>
+						        %> 레시피 정보가 없습니다. 
+						 <%}%>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</section>
-
+	<script src="chart.js"></script>
 	<div class="chart">
 		<p>도시락 vs 외식비</p>
 		<div class="chart">
@@ -221,6 +213,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<p>시장 vs 대형마트</p>
 		<div class="chart">
 			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
+			<canvas id="myChart"></canvas>
 		</div>
 	</div>
 
