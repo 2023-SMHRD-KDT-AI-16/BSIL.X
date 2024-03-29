@@ -70,7 +70,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				%>
 				<a height="50" href="<%=apiURL%>"><img height="50"
 					src="images/btnW_완성형.png" /></a>
-s
+
 				<%
 				} else {
 				out.println("환영합니다, " + info.getUser_name() + "님!");
