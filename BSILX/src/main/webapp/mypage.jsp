@@ -152,7 +152,6 @@
 		</div>
 	</div>
 
-</body>
 <script>
 	// Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
 	document
@@ -172,5 +171,6 @@
 						// 여기서 선택된 이미지들의 URL을 서버로 전송할 수 있습니다.
 					});
 </script>
+</body>
 
 </html>
