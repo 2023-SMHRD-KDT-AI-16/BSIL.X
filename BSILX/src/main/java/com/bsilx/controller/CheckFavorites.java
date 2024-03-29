@@ -27,7 +27,7 @@ public class CheckFavorites extends HttpServlet {
 		BookmarkDTO mdto = new BookmarkDTO(lbox_seq, user_id);
 
 		MemberDAO dao = new MemberDAO();
-		if (user_id == null) {
+		if (user_id != null) {
 			String result = dao.selectBookmark(mdto);
 
 			if (result != null) {

@@ -144,7 +144,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			session.setAttribute("user_id", user_id);
 			LunchBoxDTO lbox_info = new LunchBoxDAO().selectOneLbox(lbox_name);
 			%>
-
+			
 			<div>
 				<img src=<%=lboxImg%> alt="레시피 사진">
 			</div>
@@ -168,11 +168,12 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 
 				<div class="food_right_div">
-					<span> <%=lbox_name %> <%
- 						List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
- 						for (IngrePriceDTO ingre : lbox_ingre) {
-					 %> <%= ingre.getIngre_name()%> <%} %>
-
+					<span> <%=lbox_name%>
+ 						 <%
+ 						 List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
+ 						for (IngrePriceDTO ingre : lbox_ingre) {%> 
+ 						<%=ingre.getIngre_name()%> 
+ 						<%}%> 
 					</span>
 				</div>
 			</div>
@@ -190,18 +191,20 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 						String lbox_recipe = lbox_info.getLbox_recipe();
 						List<String> recipeList = Arrays.asList(lbox_recipe.split(","));
 							for (String recipe : recipeList) {%> 
-						<%=recipe%><br> 
-						<%}
-						 }else {
-						        // lbox_info 또는 lbox_recipe가 null인 경우의 처리
-						        %> 레시피 정보가 없습니다. 
-						 <%}%>
+							<%=recipe%><br> 
+							<%}%>
+						 <%}else {%> 
+						 // lbox_info 또는 lbox_recipe가 null인 경우의 처리 레시피 정보가
+						없습니다.
+						<%} %>
+
 					</td>
 				</tr>
 			</table>
 		</div>
 	</section>
-	<script src="chart.js"></script>
+	
+	
 	<div class="chart">
 		<p>도시락 vs 외식비</p>
 		<div class="chart">
@@ -225,5 +228,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	</div>
 
 
+
+<script src="chart.js"></script>
 </body>
 </html>

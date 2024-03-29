@@ -8,7 +8,6 @@ public class IngrePriceDTO {
 	private String ingre_month;
 	private String ingre_day;
 	private String ingre_market;
-	private int ingre_seq;
 	
 	// 생성자
 	public IngrePriceDTO(String ingre_name, int ingre_price, String ingre_year, String ingre_month, String ingre_day,
@@ -32,9 +31,6 @@ public class IngrePriceDTO {
 		this.ingre_name = ingre_name;
 	}
 	
-	public IngrePriceDTO(int ingre_seq) {
-		this.ingre_seq = ingre_seq;
-	}
 	
 	// getter, setter
 	public String getIngre_name() {
@@ -85,15 +81,7 @@ public class IngrePriceDTO {
 		this.ingre_market = ingre_market;
 	}
 
-	public int getIngre_seq() {
-		return ingre_seq;
-	}
-
-	public void setIngre_seq(int ingre_seq) {
-		this.ingre_seq = ingre_seq;
-	}
-		
-
+	
 	
 	
 }
