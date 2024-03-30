@@ -192,7 +192,7 @@ section>div {
 
 #Food_ingredient_trends th {
 	border-bottom: 5px solid white;
-	width: 350px;
+    width: 350px;
     height: 70px;
 }
 
@@ -200,9 +200,9 @@ section>div {
 #Food_ingredient_trends th,#Food_ingredient_trends td {
 /*    border: 1px solid #ddd;*/
     text-align: center;
+    padding: 10px;
 /*    border-radius: 10px;*/
     background-color: #F1F0F5;
-    padding: 10px;
 }
 
 #Food_ingredient_trends td{
@@ -228,6 +228,7 @@ td#Down.material-symbols-outlined{
 h4{
 	text-align: center; color:#5A88D5;
 }
+
 
 
 /* 푸터 스타일 */
@@ -306,7 +307,6 @@ footer {
 
 #recipe th, td{
 	text-align: right;
-/*	position: absolute;*/
 }
 
 #recipe table{

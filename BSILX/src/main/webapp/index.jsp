@@ -170,13 +170,13 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 						</td>
 					</tr>
 					<tr>
-						<td id="UpandDown">하락 식재료</td>
+						<td id="Upandngre">하락 식재료</td>
 							<td class="material-symbols-outlined" id="Down">
 							arrow_drop_down
 						</td>
 					</tr>
 					<tr>
-						<td id="UpandDown">하락 식재료</td>
+						<td id="Upandngre">하락 식재료</td>
 							<td class="material-symbols-outlined" id="Down">
 							arrow_drop_down
 						</td>
