@@ -12,19 +12,19 @@
 		select * from user_info where user_id = #{user_id}
 	</select>
 
-	<insert id="InsertBookmark" parameterType="Bookmark"> 
+	<insert id="InsertFavorite" parameterType="Bookmark"> 
 		insert into my_recipe_info values (my_recipe_info_SEQ.nextVal, #{lbox_seq}, sysdate, #{user_id})
 	</insert>
 
-	<select id="SelectBookmark" parameterType = "Bookmark" resultType="String">
+	<select id="SelectFavorite" parameterType = "Bookmark" resultType="String">
 		select user_id from my_recipe_info where user_id = #{user_id} and lbox_seq = #{lbox_seq}
 	</select>
 
-	<delete id="DeleteBookmark" parameterType="Bookmark">
+	<delete id="DeleteFavorite" parameterType="Bookmark">
 		delete from my_recipe_info where user_id = #{user_id} and lbox_seq = #{lbox_seq}
 	</delete>
 	
-	<select id="SelectFavorite" parameterType="String" resultType="LunchBox">
+	<select id="SelectMyFavorite" parameterType="String" resultType="LunchBox">
 	select b.lbox_seq, b.lbox_name, b.lbox_img
 	from my_recipe_info a
 	inner join lunch_box_info b 

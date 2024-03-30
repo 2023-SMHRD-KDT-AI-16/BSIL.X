@@ -28,7 +28,7 @@ public class CheckFavorites extends HttpServlet {
 
 		MemberDAO dao = new MemberDAO();
 		if (user_id != null) {
-			String result = dao.selectBookmark(mdto);
+			String result = dao.selectFavorite(mdto);
 
 			if (result != null) {
 				response.getWriter().write("existFavorite");

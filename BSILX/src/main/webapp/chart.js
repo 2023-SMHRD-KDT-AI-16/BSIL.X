@@ -87,9 +87,8 @@ $(document).ready(function() {
             });
         },
         error: function(xhr, status, error) {
-    console.error('Error status:', status);
-    console.error('Error details:', xhr.responseText);
-    console.error('Error thrown:', error);
+  			console.error("Error: " + error);
+
 }
     });
 });

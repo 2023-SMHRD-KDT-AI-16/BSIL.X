@@ -84,7 +84,7 @@
 
 
 
-						<script>
+					<script>
 					$(document).ready(function(){
 						displayFavor()
 					});
@@ -103,32 +103,32 @@
 								console.log("이미지 받기 성공")
 								console.log(response)
 							
-								
-								let data = response;
+								let data = response; // 서블릿에서 전송된 데이터 받기
 								
 								console.log(data)
-							
+								
+								// 이미지 태그 가져오기
 								const imageListElement = document.getElementById("imageList");
 							
 								data.forEach((item, index) => {
-						        	const listItem = document.createElement("li");
-						       		const checkbox = document.createElement("input");
+						        	const listItem = document.createElement("li"); // li태그 생성
+						       		const checkbox = document.createElement("input"); // input 태그 생성
 						        	checkbox.type = "checkbox";
-						        	checkbox.id = `myCheckbox${index + 1}`;
+						        	checkbox.id = `myCheckbox${index + 1}`; // id 1씩 증가하게 생성
 						        	checkbox.name = "images";
 						        
-						        	const label = document.createElement("label");
-						        	label.htmlFor = `myCheckbox${index + 1}`;
+						        	const label = document.createElement("label"); // label 생성
+						        	label.htmlFor = `myCheckbox${index + 1}`; // label 1씩 증가
 						        	
 						        	const img = document.createElement("img");
-						        	img.src = item.lbox_img;
+						        	img.src = item.lbox_img; // img src json에서 가져옴
 						        	img.alt = item.lbox_seq;
 						        
 						        	const textSpan = document.createElement("span");
 						            textSpan.textContent = item.lbox_name;
 						        	
-						        	label.appendChild(img);
-						        	label.appendChild(textSpan);
+						        	label.appendChild(img); // img 태그 label에 넣어줌
+						        	label.appendChild(textSpan); // 텍스트도 라벨에 추가
 						        
 						        
 						        	listItem.appendChild(checkbox);
@@ -146,28 +146,47 @@
 
 					</ul>
 					<!-- 버튼 value 값 delete -->
-					<button id="submitBtn" value="delete">삭제</button>
+					<button id="submitBtn" value="delete" onclick="deleteFavorite()">삭제</button>
 				</form>
 			</div>
 		</div>
 	</div>
 
 <script>
-	// Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
-	document.getElementById("submitBtn").addEventListener(
-					"click",
-					function() {
-						var selectedPhotos = document
-								.querySelectorAll(".food_photo input[type='checkbox']:checked");
-						var selectedPhotoUrls = [];
-						selectedPhotos.forEach(function(photo) {
-							var imgUrl = photo.previousElementSibling
-									.getAttribute("src");
-							selectedPhotoUrls.push(imgUrl);
-						});
-						console.log("Selected photo URLs:", selectedPhotoUrls);
-						// 여기서 선택된 이미지들의 URL을 서버로 전송할 수 있습니다.
-					});
+
+
+	function deleteFavorite(){
+		
+		const selectImages = [];
+		
+		/ 체크된 체크박스들을 찾아서 선택된 이미지의 이름을 배열에 추가
+		$('input[type="checkbox"]:checked').each(function() {
+			const imageName = $(this).next('label').find('img').attr('alt');
+			selectImages.push(imageName);
+		});
+		
+		// 선택된 이미지들 서버에 전달해 삭제 요청
+		$.ajax({
+			type : "POST",
+			url : "DeleteFavorites",
+			data : {
+				images : selectImages,
+				userId : '<%=session.getAttribute("userId")%>'
+				},
+			success : function(response){
+				console.log("선택된 이미지 삭제 완료");
+				displayFavor();
+			},
+			error : function(request, status, error) {
+				
+			}
+	            console.error("이미지 삭제 오류:", error);
+			
+			
+		})
+		
+		
+	}
 </script>
 </body>
 

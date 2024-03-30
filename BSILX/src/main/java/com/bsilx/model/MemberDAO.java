@@ -44,11 +44,11 @@ public class MemberDAO {
 		return result;
 	}
 
-	public int insertBookmark(BookmarkDTO bookmark) {
+	public int insertFavorite(BookmarkDTO favorite) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		int result = sqlSession.insert("InsertBookmark", bookmark);
+		int result = sqlSession.insert("InsertFavorite", favorite);
 
 		if (result > 0) {
 			System.out.println("즐겨찾기 성공");
@@ -61,11 +61,11 @@ public class MemberDAO {
 		return result;
 	}
 
-	public String selectBookmark(BookmarkDTO bookmark) {
+	public String selectFavorite(BookmarkDTO favorite) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		String result = sqlSession.selectOne("SelectBookmark", bookmark);
+		String result = sqlSession.selectOne("SelectFavorite", favorite);
 
 		if (result != null) {
 			System.out.println("즐겨찾기에 존재 O");
@@ -79,11 +79,11 @@ public class MemberDAO {
 
 	}
 
-	public int deleteBookmark(BookmarkDTO bookmark) {
+	public int deleteFavorite(BookmarkDTO favorite) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		int result = sqlSession.delete("DeleteBookmark", bookmark);
+		int result = sqlSession.delete("DeleteFavorite", favorite);
 
 		if (result > 0) {
 			System.out.println("즐겨찾기 삭제 성공");
@@ -97,11 +97,11 @@ public class MemberDAO {
 
 	}
 	
-	public List<LunchBoxDTO> selectFavorite(String lbox_name){
+	public List<LunchBoxDTO> selectMyFavorite(String lbox_name){
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectFavorite", lbox_name);
+		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectMyFavorite", lbox_name);
 		
 		if (favorList != null) {
 			System.out.println("즐겨찾기 가져옴");
@@ -109,7 +109,32 @@ public class MemberDAO {
 			System.out.println("즐겨찾기 못 가져옴");
 		}
 		
+		sqlSession.close();
+		
 		return favorList;
+		
+	}
+
+	public int deleteChoiceFavorite(List<BookmarkDTO> favorList) {
+
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		int result = 0;
+		
+		for(BookmarkDTO favor : favorList) {
+			
+			result =+ deleteFavorite(favor);
+		}
+		
+		if (result > 0) {
+			System.out.println("마이페이지 삭제 성공");
+		} else {
+			System.out.println("즐겨찾기 삭제 실패");
+		}
+		
+		sqlSession.close();
+		
+		return result;
 		
 	}
 
