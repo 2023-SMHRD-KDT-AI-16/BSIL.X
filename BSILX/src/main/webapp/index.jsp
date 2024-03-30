@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <title>네이버로그인</title>
 
-<script type="text/javascnript"
+<script type="text/javascript"
 	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
 	charset="utf-8"></script>
 
@@ -70,7 +70,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				%>
 				<a height="50" href="<%=apiURL%>"><img height="50"
 					src="images/btnW_완성형.png" /></a>
-s
+
 				<%
 				} else {
 				out.println("환영합니다, " + info.getUser_name() + "님!");
@@ -85,7 +85,6 @@ s
 				<%
 				}
 				%>
-				
 <%
     // info 객체가 null이 아닐 때만 세션에 사용자 정보 설정
     if (info != null) {
@@ -102,8 +101,6 @@ s
         // out.println("<p>사용자 정보를 불러오는데 실패했습니다.</p>");
     }
 %>			<!--  mainRecipePage.jsp로 데이터 보내는 법-->
-				
-				
 
 			</div>
 		</div>
