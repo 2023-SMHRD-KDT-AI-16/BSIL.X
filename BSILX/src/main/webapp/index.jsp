@@ -141,34 +141,48 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 		<div id="Food_ingredient_trends">
 			<div class="Increase">
-				<table class="">
-					<th>상승 TOP3</th>
+				<table class="UpDownIngre">
+					<th colspan="2">상승 TOP3</th>
 					<tr>
-						<td>상승 식재료
-							<span class="material-symbols-outlined">
+						<td id="UpandDown">상승 식재료</td>
+						<td class="material-symbols-outlined" id="up">
 							arrow_drop_up
-							</span>
 						</td>
 					</tr>
 					<tr>
-						<td>상승 식재료</td>
+						<td id="UpandDown">상승 식재료</td>
+						<td class="material-symbols-outlined" id="up">
+							arrow_drop_up
+						</td>
 					</tr>
 					<tr>
-						<td>상승 식재료</td>
+						<td id="UpandDown">상승 식재료</td>
+						<td class="material-symbols-outlined" id="up">
+							arrow_drop_up
+						</td>
 					</tr>
 				</table>
 			</div>
 			<div class="degradation">
-				<table>
-					<th>하락 TOP3</th>
+				<table class="UpDownIngre">
+					<th colspan="2">하락 TOP3</th>
 					<tr>
-						<td>하락 식재료</td>
+						<td id="Upandngre">하락 식재료</td>
+							<td class="material-symbols-outlined" id="Down">
+							arrow_drop_down
+						</td>
 					</tr>
 					<tr>
-						<td>하락 식재료</td>
+						<td id="UpandDown">하락 식재료</td>
+							<td class="material-symbols-outlined" id="Down">
+							arrow_drop_down
+						</td>
 					</tr>
 					<tr>
-						<td>하락 식재료</td>
+						<td id="UpandDown">하락 식재료</td>
+							<td class="material-symbols-outlined" id="Down">
+							arrow_drop_down
+						</td>
 					</tr>
 				</table>
 			</div>
