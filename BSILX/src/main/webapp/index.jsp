@@ -144,7 +144,11 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				<table class="">
 					<th>상승 TOP3</th>
 					<tr>
-						<td>상승 식재료</td>
+						<td>상승 식재료
+							<span class="material-symbols-outlined">
+							arrow_drop_up
+							</span>
+						</td>
 					</tr>
 					<tr>
 						<td>상승 식재료</td>
