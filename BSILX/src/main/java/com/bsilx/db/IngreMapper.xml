@@ -47,11 +47,11 @@
 		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
 	</select>
 	
-	<select id="SelectIngreSeq" parameterType="IngrePrice" resultType="java.lang.Integer">
+	<select id="SelectIngreSeq" parameterType="String" resultType="int">
 		select b.ingre_seq
 		from lunch_box_info a 
 		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
-		where a.lbox_name = #{lbox_name};
+		where a.lbox_name = #{lbox_name}
 	</select>
 
 

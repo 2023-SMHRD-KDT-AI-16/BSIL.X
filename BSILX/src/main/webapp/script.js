@@ -3,9 +3,6 @@ let table = document.querySelector('#search_img');
 // 화이트 리스트 : 해당 문자만 태그로 추가 가능
 
 // initialize Tagify
-
-
-
 var tagify = new Tagify(inputElm, {
 	enforceWhitelist: false, // 화이트리스트에서 허용된 태그만 사용
 })
@@ -88,17 +85,7 @@ function clearData() {
 	container.empty(); // 컨테이너의 모든 내용을 비우기
 }
 function renderRecipes(recipes) {
-	/*var container = $('#search_img');
-	container.empty(); // 컨테이너를 비우고
 
-	recipes.forEach(function(recipe) { // 각 레시피 정보를 동적으로 생성
-		var html = '<div class="recipe">' +
-			'<img src="' + recipe.lbox_img + '" alt="레시피 이미지">' +
-			'<h3>' + recipe.lbox_name + '</h3>' +
-			'<p>가격: ' + recipe.lbox_price + '</p>' +
-			'</div>';
-		container.append(html); // 생성된 HTML을 컨테이너에 추가
-	});*/
 	var container = $('#search_img');
 	container.empty(); // 컨테이너를 비우고
 
@@ -110,6 +97,12 @@ function renderRecipes(recipes) {
                             <input type="hidden" name="lbox_price" value="${recipe.lbox_price}">
                         </form>`;
 
+	/*	var formHtml2 = `<form id="priceForm${index}" action="IngreOneDayPriceChart" method="post" style="display:none;">
+                            <input type="hidden" name="lbox_img" value="${recipe.lbox_img}">
+                            <input type="hidden" name="lbox_name" value="${recipe.lbox_name}">
+                            <input type="hidden" name="lbox_price" value="${recipe.lbox_price}">
+                        </form>`;*/
+
 		// 레시피 정보를 표시하는 HTML을 생성합니다.
 		var recipeHtml = `<div class="recipe" onclick="submitRecipeForm(${index});">
                               <img src="${recipe.lbox_img}" alt="레시피 이미지">
@@ -119,16 +112,10 @@ function renderRecipes(recipes) {
 
 		container.append(formHtml + recipeHtml); // 생성된 폼과 HTML을 컨테이너에 추가합니다.
 	});
-
-
-
-
-
-
-
 }
 function submitRecipeForm(index) {
 	document.getElementById(`recipeForm${index}`).submit();
+	//document.getElementById(`priceForm${index}`).submit();
 }
 
 // 이벤트 리스너 콜백 메소드

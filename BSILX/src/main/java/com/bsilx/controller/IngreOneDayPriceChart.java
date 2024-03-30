@@ -1,6 +1,7 @@
 package com.bsilx.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,35 +23,35 @@ public class IngreOneDayPriceChart extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=UTF-8");
 
 		HttpSession session = request.getSession();
-		
+
 		// 식재료 담는 리스트
-		String lbox_name = (String)session.getAttribute("lbox_name");
+		String lboxImg = request.getParameter("lbox_img");
+		String lboxName = request.getParameter("lbox_name");
+		String lboxPrice = request.getParameter("lbox_price");
 		
-		System.out.println("lbox_name : "+lbox_name);
-		List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lbox_name);
+		PrintWriter out = response.getWriter();
 		
+		List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
+
 		// 대형마트 가격 정보 담는 리스트
 		List<IngrePriceDTO> BigMartpriceList = new ArrayList<>();
-		
+
 		// 전통시장 가격 정보 담는 리스트
 		List<IngrePriceDTO> SmallMartpriceList = new ArrayList<>();
-		
+
 		// 원하는 가격 정보만 담는 리스트
 		List<IngrePriceDTO> priceList = new ArrayList<>();
-		
 
 		for (int ingre_seq : ingreList) {
 			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
 			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
 			priceList.add(BigMartpriceList.get(0));
 			priceList.add(SmallMartpriceList.get(0));
-			System.out.println("ingre_seq"+ingre_seq);
 		}
-		
-		
-		
+
 		JSONArray jsonArray = new JSONArray();
 
 		jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);

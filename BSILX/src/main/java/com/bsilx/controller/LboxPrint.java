@@ -38,10 +38,10 @@ public class LboxPrint extends HttpServlet {
 
 //		System.out.println("ingreNameList :"+ingreNameList);  //index.jsp에서 쌀 보내면 쌀 받아짐
 		
-		List<String> ingre_name = new ArrayList<>();
+		//List<String> ingre_name = new ArrayList<>();
 
-		ingre_name.add("깻잎");
-		ingre_name.add("쌀");
+		//ingre_name.add("깻잎");
+		//ingre_name.add("쌀");
 
 		List<LunchBoxDTO> LunchBoxList = new LunchBoxDAO().selectLbox(ingreNameList);
 

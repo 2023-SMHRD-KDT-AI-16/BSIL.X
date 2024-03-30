@@ -84,7 +84,7 @@
 
 
 
-						<script>
+					<script>
 					$(document).ready(function(){
 						displayFavor()
 					});
@@ -146,34 +146,15 @@
 
 					</ul>
 					<!-- 버튼 value 값 delete -->
-					<button id="submitBtn" value="delete">삭제</button>
+					<button id="submitBtn" value="delete" onclick="deleteFavorite()">삭제</button>
 				</form>
 			</div>
 		</div>
 	</div>
 
 <script>
-	// Submit 버튼 클릭 시 선택된 체크박스 정보를 가져오는 함수
-	
-	/*
-	document
-			.getElementById("submitBtn")
-			.addEventListener(
-					"click",
-					function() {
-						var selectedPhotos = document
-								.querySelectorAll(".food_photo input[type='checkbox']:checked");
-						var selectedPhotoUrls = [];
-						selectedPhotos.forEach(function(photo) {
-							var imgUrl = photo.previousElementSibling
-									.getAttribute("src");
-							selectedPhotoUrls.push(imgUrl);
-						});
-						console.log("Selected photo URLs:", selectedPhotoUrls);
-						// 여기서 선택된 이미지들의 URL을 서버로 전송할 수 있습니다.
-					});
-	*/
-	
+
+
 	function deleteFavorite(){
 		
 		const selectImages = [];
@@ -189,11 +170,12 @@
 			type : "POST",
 			url : "DeleteFavorites",
 			data : {
-				images : selectImage,
+				images : selectImages,
 				userId : '<%=session.getAttribute("userId")%>'
 				},
-			sucess : function(response){
+			success : function(response){
 				console.log("선택된 이미지 삭제 완료");
+				displayFavor();
 			},
 			error : function(request, status, error) {
 				

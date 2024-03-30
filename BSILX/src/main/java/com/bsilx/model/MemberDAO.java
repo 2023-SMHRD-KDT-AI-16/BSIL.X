@@ -101,7 +101,7 @@ public class MemberDAO {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		List<LunchBoxDTO> favorList = sqlSession.selectList("selectMyFavorite", lbox_name);
+		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectMyFavorite", lbox_name);
 		
 		if (favorList != null) {
 			System.out.println("즐겨찾기 가져옴");
@@ -115,20 +115,21 @@ public class MemberDAO {
 		
 	}
 
-	public int deleteChoiceFavorite(BookmarkDTO bookmarkDTO) {
+	public int deleteChoiceFavorite(List<BookmarkDTO> favorList) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		int result = 0;
 		
-		for(BookmarkDTO favor : bookmarkDTO) {
-			result = result + deleteFavorite(favor);
+		for(BookmarkDTO favor : favorList) {
+			
+			result =+ deleteFavorite(favor);
 		}
 		
 		if (result > 0) {
-			System.out.println("즐겨찾기 가져옴");
+			System.out.println("마이페이지 삭제 성공");
 		} else {
-			System.out.println("즐겨찾기 못 가져옴");
+			System.out.println("즐겨찾기 삭제 실패");
 		}
 		
 		sqlSession.close();

@@ -23,8 +23,9 @@ public class JoinService extends HttpServlet {
 		// 회원 정보에 없을때만 join되도록
 		
 		String userId = (String)session.getAttribute("userId");
-		
 		MemberDTO dto = (MemberDTO)session.getAttribute("memberDTO");
+
+		
 		
 		if (userId != null) {
 			

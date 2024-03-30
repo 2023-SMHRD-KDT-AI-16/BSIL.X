@@ -1,3 +1,5 @@
+<%@page import="org.json.JSONArray"%>
+<%@page import="com.bsilx.model.IngrePriceDAO"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
@@ -34,11 +36,9 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="chart.js"></script>
 </head>
-
-
 <body>
-
 	<script src="scriptTest.js"></script>
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
@@ -55,6 +55,11 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     String userEmail = (String) session.getAttribute("userEmail");
     String userNick = (String) session.getAttribute("userNick");
     String userPhone = (String) session.getAttribute("userPhone");
+    
+    String lboxName = request.getParameter("lbox_name");
+	String lboxImg = request.getParameter("lbox_img");
+	String lboxPrice = request.getParameter("lbox_price");
+	
 %>
 
 	<%
@@ -67,6 +72,34 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	apiURL += "&redirect_uri=" + redirectURI;
 	apiURL += "&state=" + state;
 	session.setAttribute("state", state);
+	%>
+	<%
+	
+	List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
+
+	// 대형마트 가격 정보 담는 리스트
+	List<IngrePriceDTO> BigMartpriceList = new ArrayList<>();
+
+	// 전통시장 가격 정보 담는 리스트
+	List<IngrePriceDTO> SmallMartpriceList = new ArrayList<>();
+
+	// 원하는 가격 정보만 담는 리스트
+	List<IngrePriceDTO> priceList = new ArrayList<>();
+
+	for (int ingre_seq : ingreList) {
+		BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
+		SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
+		priceList.add(BigMartpriceList.get(0));
+		priceList.add(SmallMartpriceList.get(0));
+	}
+
+	JSONArray jsonArray = new JSONArray();
+
+	jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);
+
+/* 	response.setContentType("application/json");
+	response.setCharacterEncoding("UTF-8"); */
+	
 	%>
 
 
@@ -119,32 +152,17 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 		<div id="food">
 
-
-
-
-
-
-			<!-- 사용자 정보 표시 -->
-			<%-- <h1>User Information</h1>
-<p>User ID: <%=userId%></p>
-<p>User Name: <%=userName%></p>
-<p>User Email: <%=userEmail%></p>
-<p>User Nickname: <%=userNick%></p>
-<p>User Phone: <%=userPhone%></p> --%>
-
 			<%
-			String lbox_name = request.getParameter("lbox_name");
-			String lboxImg = request.getParameter("lbox_img");
-			String lboxPrice = request.getParameter("lbox_price");
+			
 			//메인페이시에서 받아오는 값   
-			int lbox_seq = new LunchBoxDAO().getLbox_seq(lbox_name);
+			int lbox_seq = new LunchBoxDAO().getLbox_seq(lboxName);
 			session.setAttribute("lbox_seq", lbox_seq);
 			
 			String user_id = userId;
 			session.setAttribute("user_id", user_id);
-			LunchBoxDTO lbox_info = new LunchBoxDAO().selectOneLbox(lbox_name);
+			LunchBoxDTO lbox_info = new LunchBoxDAO().selectOneLbox(lboxName);
 			%>
-			
+
 			<div>
 				<img src=<%=lboxImg%> alt="레시피 사진">
 			</div>
@@ -160,7 +178,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				%>
 
 				<div class="food_right_div">
-					<span><%=lbox_name%></span>
+					<span><%=lboxName%></span>
 				</div>
 
 				<div class="food_right_div">
@@ -168,12 +186,20 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 
 				<div class="food_right_div">
-					<span> <%=lbox_name%>
- 						 <%
- 						 List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lbox_name);
- 						for (IngrePriceDTO ingre : lbox_ingre) {%> 
- 						<%=ingre.getIngre_name()%> 
- 						<%}%> 
+					<span>
+					<%=lboxName%> 
+					<%
+						    List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lboxName);
+						    if (lbox_ingre != null) {
+						        for (IngrePriceDTO ingre : lbox_ingre) {
+						%>
+						            <%=ingre.getIngre_name()%>
+						<%
+						        }
+						    } else {
+						        out.println("재료 정보를 불러올 수 없습니다.");
+						    }
+						%>
 					</span>
 				</div>
 			</div>
@@ -187,24 +213,23 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					<td>
 						<%
 						  if (lbox_info != null) {
-						
 						String lbox_recipe = lbox_info.getLbox_recipe();
 						List<String> recipeList = Arrays.asList(lbox_recipe.split(","));
 							for (String recipe : recipeList) {%> 
-							<%=recipe%><br> 
-							<%}%>
-						 <%}else {%> 
-						 // lbox_info 또는 lbox_recipe가 null인 경우의 처리 레시피 정보가
-						없습니다.
-						<%} %>
-
+						<%=recipe%><br> 
+						<%}
+						 }else {
+						        // lbox_info 또는 lbox_recipe가 null인 경우의 처리
+						        %> 레시피 정보가 없습니다. 
+						 <%}%>
+						 
+						 
+						 
 					</td>
 				</tr>
 			</table>
 		</div>
 	</section>
-	
-	
 	<div class="chart">
 		<p>도시락 vs 외식비</p>
 		<div class="chart">
@@ -229,6 +254,5 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
 
-<script src="chart.js"></script>
 </body>
 </html>

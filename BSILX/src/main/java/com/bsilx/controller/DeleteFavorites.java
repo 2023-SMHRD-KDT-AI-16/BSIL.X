@@ -18,38 +18,42 @@ public class DeleteFavorites extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
 		String[] images = request.getParameterValues("images");
 		String[] userIds = request.getParameterValues("userId");
-		
-		
-		
+		System.out.println(images);
+		System.out.println(userIds);
+
+		List<BookmarkDTO> favorList = null;
+
 		PrintWriter out = response.getWriter();
-		
+
 		int result = 0;
-		
-		try {
-			for(String image : images) {
-				
-				int ingreSeq = Integer.parseInt(image);
-				System.out.println(ingreSeq);
-				result = new MemberDAO().deleteChoiceFavorite(new BookmarkDTO(ingreSeq, userIds[0])); 
-				response.setContentType("text/plain");
+
+		if (images == null || userIds == null || images.length != userIds.length) {
+			for (int i = 0; i < images.length; i++) {
+
+				int image = Integer.parseInt(images[i]);
+
+				String userId = (userIds[i]);
+
+				BookmarkDTO dto = new BookmarkDTO(image, userId);
+
+				favorList.add(dto);
+
+				result = new MemberDAO().deleteChoiceFavorite(favorList);
 			}
-			System.out.println("마이페이지 삭제 성공");
-			
-			out.flush();
-			
-		} catch (Exception e) {
-			// 오류 발생 시 클라이언트에게 오류 응답 보내기
-			response.setContentType("text/plain");
-			
-			System.out.println("마이페이지 삭제 실패");
-			
-			out.flush();
-			
-			e.printStackTrace();
+
 		}
+
+		if (result > 0) {
+			response.getWriter().write(result);
+			System.out.println("마이페이지 삭제 성공");
+		} else {
+			System.out.println("마이페이지 삭제 실패");
+		}
+
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
 
 	}
 
