@@ -75,6 +75,12 @@
 		<description></description>
 		<servlet-class>com.bsilx.controller.MyPage</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DeleteFavorites</servlet-name>
+		<display-name>DeleteFavorites</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.DeleteFavorites</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>IngreAllDayPriceChart</servlet-name>
@@ -123,6 +129,10 @@
 	<servlet-mapping>
 		<servlet-name>MyPage</servlet-name>
 		<url-pattern>/MyPage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteFavorites</servlet-name>
+		<url-pattern>/DeleteFavorites</url-pattern>
 	</servlet-mapping>
 
 </web-app>

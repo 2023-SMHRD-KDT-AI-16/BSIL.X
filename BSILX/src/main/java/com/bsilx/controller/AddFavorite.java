@@ -32,8 +32,8 @@ public class AddFavorite extends HttpServlet {
 			response.getWriter().write("loginFirst");
 
 		// 즐겨찾기 되어있을 때
-		} else if (dao.selectBookmark(mdto) != null) {
-			int result = dao.deleteBookmark(mdto);
+		} else if (dao.selectFavorite(mdto) != null) {
+			int result = dao.deleteFavorite(mdto);
 			if (result > 0) {
 				response.getWriter().write("delete");
 			} else {
@@ -42,7 +42,7 @@ public class AddFavorite extends HttpServlet {
 
 		} else {
 
-			int result = dao.insertBookmark(mdto);
+			int result = dao.insertFavorite(mdto);
 			if (result > 0) {
 				response.getWriter().write("add");
 			} else {
