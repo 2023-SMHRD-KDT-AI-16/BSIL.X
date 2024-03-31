@@ -1,3 +1,6 @@
+<%@page import="com.bsilx.model.BookmarkDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.bsilx.controller.AddFavorite"%>
 <%@page import="com.bsilx.model.LunchBoxDTO"%>
 <%@page import="com.bsilx.model.LunchBoxDAO"%>
 <%@page import="java.util.List"%>
@@ -32,6 +35,7 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 	<header>
 		<div id="header_div">
@@ -53,12 +57,18 @@
 			class="material-symbols-outlined">assignment_ind </span> 마이페이지
 		</a>
 	</nav>
+	
+
+	
 	<div class="center_center">
 		<div class="food_photo_box_main">
 			<div class="food_photo_box ">
 				<form action="">
 					<!-- <---- form 태그 url  입력  -->
 					<ul id="imageList">
+					
+			
+			
 
 						<!-- input 태그의 id / label 태그의 for / img 태그 20번 반복문 활용 -->
 						<li><input type="checkbox" id="myCheckbox7" /> <label
@@ -81,25 +91,53 @@
 							for="myCheckbox11"> <img
 								src="https://picsum.photos/id/236/1000/500" alt=""> test
 						</label></li>
+						<li><input type="checkbox" id="myCheckbox12" /> <label
+							for="myCheckbox12"> <img
+								src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label></li>
+						
+						<li><input type="checkbox" id="myCheckbox13" /> <label
+							for="myCheckbox13"> <img
+								src="https://picsum.photos/id/236/1000/500" alt=""> test
+						</label></li>
+						
+						
+						
+						
+						
+						
+						
+						
+						
 
 
+					</ul>
+					<!-- 버튼 value 값 delete -->
+					<button id="submitBtn" value="delete" onclick="deleteFavorite()">삭제</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
-					<script>
+	<script>
 					$(document).ready(function(){
 						displayFavor()
 					});
 					
 					function displayFavor(){
 						$.ajax({
-							type:"POST",
+							type:"GET",
 							url : 'MyPage',
 							dataType : "json",
 							data : {
 								userId : '<%=session.getAttribute("userId")%>'
+									 console.log("성공:", <%=session.getAttribute("userId")%>); // 응답 데이터 로깅
+								
 							},
-							
 							success : function(response){
-							
+						var imageListElement = document.getElementById("imageList");
+						imageListElement.empty();
+								
 								console.log("이미지 받기 성공")
 								console.log(response)
 							
@@ -108,12 +146,13 @@
 								console.log(data)
 								
 								// 이미지 태그 가져오기
-								const imageListElement = document.getElementById("imageList");
 							
 								data.forEach((item, index) => {
 						        	const listItem = document.createElement("li"); // li태그 생성
 						       		const checkbox = document.createElement("input"); // input 태그 생성
-						        	checkbox.type = "checkbox";
+						        	
+						       		
+						       		checkbox.type = "checkbox";
 						        	checkbox.id = `myCheckbox${index + 1}`; // id 1씩 증가하게 생성
 						        	checkbox.name = "images";
 						        
@@ -138,56 +177,41 @@
 						},
 						
 						error : function(request, status, error){
-							 console.log(error)
+							 console.error("Error: " + error); // 오류 메시지를 콘솔에 출력
 						}
 					});
 				}
+					
+					function deleteFavorite(){
+						
+						const selectImages = [];
+						
+						// 체크된 체크박스들을 찾아서 선택된 이미지의 이름을 배열에 추가
+						$('input[type="checkbox"]:checked').each(function() {
+							const imageName = $(this).next('label').find('img').attr('alt');
+							selectImages.push(imageName);
+						});
+						
+						// 선택된 이미지들 서버에 전달해 삭제 요청
+						$.ajax({
+							type : "POST",
+							url : "DeleteFavorites",
+							data : {
+								images : selectImages,
+								userId : '<%=session.getAttribute("userId")%>'
+								},
+							success : function(response){
+								console.log("선택된 이미지 삭제 완료");
+								displayFavor();
+							},
+							error : function(request, status, error) {
+								
+					            console.error("이미지 삭제 오류:", error);
+							}
+						})
+					}
 					</script>
 
-					</ul>
-					<!-- 버튼 value 값 delete -->
-					<button id="submitBtn" value="delete" onclick="deleteFavorite()">삭제</button>
-				</form>
-			</div>
-		</div>
-	</div>
-
-<script>
-
-
-	function deleteFavorite(){
-		
-		const selectImages = [];
-		
-		/ 체크된 체크박스들을 찾아서 선택된 이미지의 이름을 배열에 추가
-		$('input[type="checkbox"]:checked').each(function() {
-			const imageName = $(this).next('label').find('img').attr('alt');
-			selectImages.push(imageName);
-		});
-		
-		// 선택된 이미지들 서버에 전달해 삭제 요청
-		$.ajax({
-			type : "POST",
-			url : "DeleteFavorites",
-			data : {
-				images : selectImages,
-				userId : '<%=session.getAttribute("userId")%>'
-				},
-			success : function(response){
-				console.log("선택된 이미지 삭제 완료");
-				displayFavor();
-			},
-			error : function(request, status, error) {
-				
-			}
-	            console.error("이미지 삭제 오류:", error);
-			
-			
-		})
-		
-		
-	}
-</script>
 </body>
 
 </html>

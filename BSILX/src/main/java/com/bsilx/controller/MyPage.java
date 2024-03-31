@@ -27,9 +27,9 @@ public class MyPage extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 
-		//String userId = (String) session.getAttribute("userId");
+		String userId = (String) session.getAttribute("userId");
 		
-		String userId = "XDx3r2CJK2jp5JlOTJWVg6HWWwuw88tAdfr7IECKOdo";
+		//String userId = "XDx3r2CJK2jp5JlOTJWVg6HWWwuw88tAdfr7IECKOdo";
 
 		List<LunchBoxDTO> favorList = new MemberDAO().selectMyFavorite(userId);
 

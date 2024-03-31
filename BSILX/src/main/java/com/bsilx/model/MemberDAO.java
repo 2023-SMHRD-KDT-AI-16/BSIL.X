@@ -97,11 +97,11 @@ public class MemberDAO {
 
 	}
 	
-	public List<LunchBoxDTO> selectMyFavorite(String lbox_name){
+	public List<LunchBoxDTO> selectMyFavorite(String user_id){
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectMyFavorite", lbox_name);
+		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectMyFavorite", user_id);
 		
 		if (favorList != null) {
 			System.out.println("즐겨찾기 가져옴");
