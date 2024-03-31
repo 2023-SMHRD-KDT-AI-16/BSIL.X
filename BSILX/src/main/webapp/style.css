@@ -18,6 +18,7 @@ a {
 
 
 
+
 a:active {
 	text-decoration: none;
 }
@@ -191,38 +192,44 @@ section>div {
 }
 
 #Food_ingredient_trends th {
+	border-bottom: 5px solid white;
+    width: 350px;
     height: 70px;
 }
 
 /* 테이블 스타일 */
 #Food_ingredient_trends th,#Food_ingredient_trends td {
-    width: 350px;
-    border: 1px solid #ddd;
+/*    border: 1px solid #ddd;*/
     text-align: center;
     padding: 10px;
-    border-radius: 10px;
+/*    border-radius: 10px;*/
     background-color: #F1F0F5;
 }
 
-/* 소비자 물가 동향 및 화제의 뉴스 스타일 */
-.price_new {
-    display: flex;
-    justify-content: space-around;
+#Food_ingredient_trends td{
+	width: 100%;
+	height: 60px;
+	text-align: center ;
+	border-bottom: 2px solid white;
 }
 
-
-
-.Consumer_price_trends {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    text-align: center;
-    margin-top: 25px;
+td#up.material-symbols-outlined{
+	text-align: center;color: red;
 }
 
-.Consumer_price_trends img {
-    width: 400px;
+td#Down.material-symbols-outlined{
+	text-align: center;color: blue;
 }
+
+.UpDownIngre{
+	border-collapse: collapse;
+	border-radius: 15px;
+}
+
+h4{
+	text-align: center; color:#5A88D5;
+}
+
 
 
 /* 푸터 스타일 */
@@ -300,7 +307,7 @@ footer {
 }
 
 #recipe th, td{
-	text-align: center;
+	text-align: right;
 }
 
 #recipe table{
@@ -313,7 +320,12 @@ footer {
 	border-bottom: 1.5px solid rgb(104, 202, 255);
 	height: 50px;
 }
-
+#recipe h3,p{
+	text-align: center;	
+}
+h3{
+	text-align: center;
+}
 /* =====================차트부분 시작==================== */
 
 .chart{
@@ -337,7 +349,7 @@ footer {
 .material-symbols-outlined {
 	font-size: 50px !important;
 	border: 1px solid transparent;
-	border-radius: 10px;
+/*	border-radius: 10px;*/
 }
 
 .header_menu{
