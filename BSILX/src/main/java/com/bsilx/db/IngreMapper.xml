@@ -47,12 +47,18 @@
 		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
 	</select>
 	
-	<select id="SelectIngreSeq" parameterType="String" resultType="int">
+	<select id="SelectIngreSeq" parameterType="String" resultType="java.lang.Integer">
 		select b.ingre_seq
 		from lunch_box_info a 
 		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
 		where a.lbox_name = #{lbox_name}
 	</select>
 
+	<select id="SelectAll" resultType="IngrePrice">
+		select b.ingre_name, a.ingre_price
+		from ingredient_price_info a
+		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
+		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
+	</select>
 
 </mapper>
