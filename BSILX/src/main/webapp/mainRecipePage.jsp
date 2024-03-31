@@ -78,21 +78,22 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
 
 	// 대형마트 가격 정보 담는 리스트
-	List<IngrePriceDTO> BigMartpriceList = new ArrayList<>();
+	List<IngrePriceDTO> BigMartpriceList = null;
 
 	// 전통시장 가격 정보 담는 리스트
-	List<IngrePriceDTO> SmallMartpriceList = new ArrayList<>();
+	List<IngrePriceDTO> SmallMartpriceList = null;
 
 	// 원하는 가격 정보만 담는 리스트
 	List<IngrePriceDTO> priceList = new ArrayList<>();
 
-	
-	/* for (int ingre_seq : ingreList) {
+	for (int ingre_seq : ingreList) {
 		BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
 		SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
+		if(BigMartpriceList.size()!= 0 && SmallMartpriceList.size()!= 0){
 		priceList.add(BigMartpriceList.get(0));
 		priceList.add(SmallMartpriceList.get(0));
-	} */
+	}
+		}
 
 	JSONArray jsonArray = new JSONArray();
 
@@ -215,7 +216,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 						<%
 						  if (lbox_info != null) {
 						String lbox_recipe = lbox_info.getLbox_recipe();
-						List<String> recipeList = Arrays.asList(lbox_recipe.split(","));
+						List<String> recipeList = Arrays.asList(lbox_recipe.split("-"));
 							for (String recipe : recipeList) {%> 
 						<%=recipe%><br> 
 						<%}

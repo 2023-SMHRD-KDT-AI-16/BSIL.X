@@ -81,6 +81,12 @@
 		<description></description>
 		<servlet-class>com.bsilx.controller.DeleteFavorites</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>RankTop3</servlet-name>
+		<display-name>RankTop3</display-name>
+		<description></description>
+		<servlet-class>com.bsilx.controller.RankTop3</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>IngreAllDayPriceChart</servlet-name>
@@ -133,6 +139,10 @@
 	<servlet-mapping>
 		<servlet-name>DeleteFavorites</servlet-name>
 		<url-pattern>/DeleteFavorites</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RankTop3</servlet-name>
+		<url-pattern>/RankTop3</url-pattern>
 	</servlet-mapping>
 
 </web-app>
