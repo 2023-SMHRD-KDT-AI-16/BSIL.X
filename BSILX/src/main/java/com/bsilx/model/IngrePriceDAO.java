@@ -99,6 +99,7 @@ public class IngrePriceDAO {
 		try {
 			priceList = sqlSession.selectList("SelectBigMartPrice", ingre_seq);
 			System.out.println("식재료 하나 최근 대형 마트 가격 담기 성공");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("식재료 하나 최근 전통 시장 가격 담기 실패");
