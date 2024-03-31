@@ -1,7 +1,5 @@
 package com.bsilx.model;
 
-import java.util.ArrayList;
-
 public class LunchBoxDTO {
 
 	private int lbox_seq;
