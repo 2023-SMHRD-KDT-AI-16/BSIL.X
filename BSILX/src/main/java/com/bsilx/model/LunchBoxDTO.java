@@ -11,6 +11,7 @@ public class LunchBoxDTO {
 	private int lbox_price;
 
 	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
+		
 		this.lbox_seq = lbox_seq;
 		this.lbox_name = lbox_name;
 		this.lbox_recipe = lbox_recipe;
@@ -31,11 +32,7 @@ public class LunchBoxDTO {
 		this.lbox_price = lbox_price;
 	}
 
-	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_img) {
-		this.lbox_seq = lbox_seq;
-		this.lbox_name = lbox_name;
-		this.lbox_img = lbox_img;
-	}
+
 
 	public String getLbox_name() {
 		return lbox_name;
