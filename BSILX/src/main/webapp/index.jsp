@@ -198,7 +198,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<footer> </footer>
 
 
-	<link rel="stylesheet" href="style.css">
+	
 	<script src="script.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -228,6 +228,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			}
 		})
 	</script>
-
+<link rel="stylesheet" href="style.css">
 </body>
 </html>
