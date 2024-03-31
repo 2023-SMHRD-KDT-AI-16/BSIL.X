@@ -1,7 +1,6 @@
 package com.bsilx.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,23 +20,22 @@ public class MyPage extends HttpServlet {
 			throws ServletException, IOException {
 
 		Gson gson = new Gson();
-
+		
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
 
-		String userId = (String) session.getAttribute("userId");
+		//String userId = (String) session.getAttribute("userId");
 		
-		//String userId = "XDx3r2CJK2jp5JlOTJWVg6HWWwuw88tAdfr7IECKOdo";
+		String userId = "XDx3r2CJK2jp5JlOTJWVg6HWWwuw88tAdfr7IECKOdo";
 
 		List<LunchBoxDTO> favorList = new MemberDAO().selectMyFavorite(userId);
 
+		System.out.println("favorList"+favorList);
+		
 		String json = gson.toJson(favorList);
-		
-		PrintWriter out = response.getWriter();
-		
-		System.out.println(json);
+		System.out.println("json"+json);
 
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

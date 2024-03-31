@@ -1,3 +1,7 @@
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.security.SecureRandom"%>
+<%@page import="com.bsilx.model.MemberDTO"%>
 <%@page import="com.bsilx.model.BookmarkDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.bsilx.controller.AddFavorite"%>
@@ -37,6 +41,26 @@
 </head>
 
 <body>
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("memberDTO");
+	response.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
+	%>
+
+	<%
+	String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
+	String redirectURI = URLEncoder.encode("http://localhost:8081/BSILX/callback.jsp", "UTF-8");
+	SecureRandom random = new SecureRandom();
+	String state = new BigInteger(130, random).toString();
+	String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+	apiURL += "&client_id=" + clientId;
+	apiURL += "&redirect_uri=" + redirectURI;
+	apiURL += "&state=" + state;
+	session.setAttribute("state", state);
+	%>
+
+
 	<header>
 		<div id="header_div">
 			<a href="index.jsp"> <img
@@ -45,6 +69,26 @@
 			isometric-colorful-vector-illustration_198278-6911.jpg"
 				id="logo" alt="logo">
 			</a>
+			<div id="login_mypage">
+
+				<%
+				if (info == null) {
+				%>
+				<a height="50" href="<%=apiURL%>"><img height="50"
+					src="images/btnW_완성형.png" /></a>
+
+				<%
+				} else {
+				out.println("환영합니다, " + info.getUser_name() + "님!");
+				%><br> <a height="50" href="LogoutService.do"><img
+					height="50" src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
+				<span> <!--  로그인 회원 정보 출력 --> <%-- <%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
+					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span> --%>
+
+					<%
+					}
+					%>
+			</div>
 		</div>
 		<h1>나만의 레시피</h1>
 	</header>
@@ -57,18 +101,18 @@
 			class="material-symbols-outlined">assignment_ind </span> 마이페이지
 		</a>
 	</nav>
-	
 
-	
+
+
 	<div class="center_center">
 		<div class="food_photo_box_main">
 			<div class="food_photo_box ">
 				<form action="">
 					<!-- <---- form 태그 url  입력  -->
 					<ul id="imageList">
-					
-			
-			
+
+
+
 
 						<!-- input 태그의 id / label 태그의 for / img 태그 20번 반복문 활용 -->
 						<li><input type="checkbox" id="myCheckbox7" /> <label
@@ -95,21 +139,11 @@
 							for="myCheckbox12"> <img
 								src="https://picsum.photos/id/236/1000/500" alt=""> test
 						</label></li>
-						
+
 						<li><input type="checkbox" id="myCheckbox13" /> <label
 							for="myCheckbox13"> <img
 								src="https://picsum.photos/id/236/1000/500" alt=""> test
 						</label></li>
-						
-						
-						
-						
-						
-						
-						
-						
-						
-
 
 					</ul>
 					<!-- 버튼 value 값 delete -->
@@ -131,15 +165,14 @@
 							dataType : "json",
 							data : {
 								userId : '<%=session.getAttribute("userId")%>'
-									 console.log("성공:", <%=session.getAttribute("userId")%>); // 응답 데이터 로깅
 								
 							},
 							success : function(response){
-						var imageListElement = document.getElementById("imageList");
-						imageListElement.empty();
+								var imageListElement = document.getElementById("imageList");
+								imageListElement.innerHTML = ''; // 내용을 비웁니다.
 								
 								console.log("이미지 받기 성공")
-								console.log(response)
+								console.log("response"+response)
 							
 								let data = response; // 서블릿에서 전송된 데이터 받기
 								
@@ -147,33 +180,51 @@
 								
 								// 이미지 태그 가져오기
 							
-								data.forEach((item, index) => {
-						        	const listItem = document.createElement("li"); // li태그 생성
-						       		const checkbox = document.createElement("input"); // input 태그 생성
+							/* 	data.forEach(function(item, index) {
+									
+						        	var listItem = document.createElement("li"); // li태그 생성
+						       		var checkbox = document.createElement("input"); // input 태그 생성
 						        	
 						       		
 						       		checkbox.type = "checkbox";
 						        	checkbox.id = `myCheckbox${index + 1}`; // id 1씩 증가하게 생성
 						        	checkbox.name = "images";
 						        
-						        	const label = document.createElement("label"); // label 생성
+						        	var label = document.createElement("label"); // label 생성
 						        	label.htmlFor = `myCheckbox${index + 1}`; // label 1씩 증가
 						        	
-						        	const img = document.createElement("img");
+						        	var img = document.createElement("img");
 						        	img.src = item.lbox_img; // img src json에서 가져옴
 						        	img.alt = item.lbox_seq;
 						        
-						        	const textSpan = document.createElement("span");
+						        	var textSpan = document.createElement("span");
 						            textSpan.textContent = item.lbox_name;
 						        	
 						        	label.appendChild(img); // img 태그 label에 넣어줌
-						        	label.appendChild(textSpan); // 텍스트도 라벨에 추가
-						        
-						        
-						        	listItem.appendChild(checkbox);
+																																																																																																																																        	label.appendChild(textSpan); // 텍스트도 라벨에 추가
+																																																																																																																																        
+																																																																																																																																        
+																																																																																																																																        	listItem.appendChild(checkbox);
 						        	listItem.appendChild(label);
 						        	imageListElement.appendChild(listItem);
-								});
+								} */
+								
+						
+									
+									// 동적 HTML 생성을 위한 함수
+									data.forEach(function(recipe, index){
+									  
+										var formHtml = `<li>
+		                                    <input type="checkbox" id="myCheckbox${index}" />
+		                                    <label for="myCheckbox${index}">
+		                                        <img src="${recipe.lbox_img}" alt="${recipe.lbox_seq}"> ${recipe.lbox_name}
+		                                    </label>
+		                                </li>`;
+
+						                // HTML을 페이지에 삽입
+						                imageListElement.innerHTML += formHtml;
+																	
+									});
 						},
 						
 						error : function(request, status, error){

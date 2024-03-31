@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bsilx.db.MembeMapper">
+	<resultMap id="LunchBoxMap" type="LunchBox">
+        <result property="lbox_img" column="LBOX_IMG" jdbcType="VARCHAR"/>
+        <!-- 추가적으로 다른 컬럼 매핑 정의 -->
+    </resultMap>
 
-	<insert id="Join" parameterType="Member">
+
+	<insert id="Join" parametㄴerType="Member">
 		insert into user_info
 		values (#{user_id}, #{user_name}, #{user_email}, #{user_nick}, sysdate)
 	</insert>
@@ -29,7 +34,7 @@
 	from my_recipe_info a
 	inner join lunch_box_info b 
 	on a.lbox_seq = b.lbox_seq
-	where a.user_id = #{user_id}
+	where a.user_id = #{userId}
 	</select>
 	
 </mapper>
