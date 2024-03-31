@@ -336,8 +336,8 @@ h3{
 	text-align: center;
 }
 
-canvas #cpiChart{
-	width: 840px;
+#cpiChart{
+	width: 840px !important;
 }
 
 /*===================== 아이콘 시작 ====================*/
