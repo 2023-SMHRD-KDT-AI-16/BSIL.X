@@ -7,7 +7,7 @@
     </resultMap>
 
 
-	<insert id="Join" parametㄴerType="Member">
+	<insert id="Join" parameterType="Member">
 		insert into user_info
 		values (#{user_id}, #{user_name}, #{user_email}, #{user_nick}, sysdate)
 	</insert>
