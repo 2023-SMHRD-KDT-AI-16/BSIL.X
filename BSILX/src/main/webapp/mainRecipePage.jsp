@@ -86,12 +86,13 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	// 원하는 가격 정보만 담는 리스트
 	List<IngrePriceDTO> priceList = new ArrayList<>();
 
-	for (int ingre_seq : ingreList) {
+	
+	/* for (int ingre_seq : ingreList) {
 		BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
 		SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
 		priceList.add(BigMartpriceList.get(0));
 		priceList.add(SmallMartpriceList.get(0));
-	}
+	} */
 
 	JSONArray jsonArray = new JSONArray();
 

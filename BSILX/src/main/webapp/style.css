@@ -158,6 +158,10 @@ section>div {
 	background-color: #F1F0F5;
 	border-radius: 15px;
 	margin-bottom: 25px;
+
+}
+.hidden{
+	display: none !important;
 }
 #search_img img{
 	margin-top: 10px;

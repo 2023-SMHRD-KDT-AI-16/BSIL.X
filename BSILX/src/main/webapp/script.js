@@ -13,7 +13,9 @@ tagify.on('add', function() {
 	console.log("tagifyValue" + tagify.value); // 입력된 태그 정보 객체
 	var tags = tagify.value.map(tag => tag.value);
 	console.log("tags" + tags); // 입력된 태그 정보 객체
-
+	table.removeAttribute('class');
+	
+	
 	$.ajax({
 		type: "POST",
 		url: "LboxPrint", // 'LboxPrint'는 서블릿의 URL 매핑을 가리킵니다.
