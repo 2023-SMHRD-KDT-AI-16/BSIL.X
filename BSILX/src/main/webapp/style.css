@@ -28,13 +28,14 @@ html {
 	height: 1140px;
     display: flex;
     justify-content: center;
-    background-image: url('./images//rm344-audi-12.jpg');
-    background-size: contain; /* 이미지를 화면에 맞게 조정 */
-    background-repeat: no-repeat; /* 이미지 반복 배경 방지 */
-    background-position: center; /* 이미지를 가운데 정렬 */
-    height: 100%; /* 전체 화면 높이에 맞춤 */
-	filter: blur(5px);
+/*    background-image: url('./images//rm344-audi-12.jpg');*/
+/*    background-size: contain;  이미지를 화면에 맞게 조정 */
+/*    background-repeat: no-repeat;  이미지 반복 배경 방지 */
+/*    background-position: center;  이미지를 가운데 정렬 */
+/*    height: 100%;  전체 화면 높이에 맞춤 */
+
 }
+
 
 body {
     display: block;
