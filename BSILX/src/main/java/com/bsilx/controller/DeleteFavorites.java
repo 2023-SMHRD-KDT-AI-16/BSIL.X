@@ -40,9 +40,9 @@ public class DeleteFavorites extends HttpServlet {
 
 				favorList.add(dto);
 
+				
 				result = new MemberDAO().deleteChoiceFavorite(favorList);
 			}
-
 		}
 
 		if (result > 0) {

@@ -187,7 +187,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 
 				<div class="food_right_div">
-					<span><%=lboxPrice%></span>
+					<span><%=lboxPrice%> 원</span>
 				</div>
 
 				<div class="food_right_div">
