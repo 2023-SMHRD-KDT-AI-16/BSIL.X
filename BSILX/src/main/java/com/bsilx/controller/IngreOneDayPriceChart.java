@@ -58,7 +58,7 @@ public class IngreOneDayPriceChart extends HttpServlet {
 				priceList.add(SmallMartpriceList.get(0));
 			}
 		}
-
+		
 		JSONArray jsonArray = new JSONArray();
 
 		jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);
