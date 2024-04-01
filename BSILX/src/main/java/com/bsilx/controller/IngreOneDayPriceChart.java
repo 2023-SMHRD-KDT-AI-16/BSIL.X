@@ -34,7 +34,7 @@ public class IngreOneDayPriceChart extends HttpServlet {
 
 		String lboxName = (String) session.getAttribute("lboxName");
 		PrintWriter out = response.getWriter();
-		System.out.println(lboxName);
+		  System.out.println("lboxName: " + lboxName);
 		List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
 
 		// 대형마트 가격 정보 담는 리스트
@@ -46,7 +46,7 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		// 원하는 가격 정보만 담는 리스트
 		List<IngrePriceDTO> priceList = new ArrayList<>();
 
-		System.out.println("ingreList : " + ingreList.size());
+		 	System.out.println("ingreList Size: " + ingreList.size());
 
 		for (int ingre_seq : ingreList) {
 			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
