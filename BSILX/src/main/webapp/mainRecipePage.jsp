@@ -164,6 +164,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			
 			String user_id = userId;
 			session.setAttribute("user_id", user_id);
+			session.setAttribute("lboxName", lboxName);
 			LunchBoxDTO lbox_info = new LunchBoxDAO().selectOneLbox(lboxName);
 			%>
 

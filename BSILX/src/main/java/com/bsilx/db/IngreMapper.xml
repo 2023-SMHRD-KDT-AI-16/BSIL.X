@@ -38,6 +38,7 @@
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
 		where
 		a.ingre_seq = #{ingre_seq} and a.ingre_market = '대형'
+		and b.ingre_weight is not null
 		order by
 		to_number(a.ingre_year) desc, to_number(a.ingre_month) desc,
 		to_number(a.ingre_day) desc
@@ -52,6 +53,7 @@
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
 		where
 		a.ingre_seq = #{ingre_seq} and a.ingre_market = '전통'
+		and b.ingre_weight is not null
 		order by
 		to_number(a.ingre_year) desc, to_number(a.ingre_month) desc,
 		to_number(a.ingre_day) desc
