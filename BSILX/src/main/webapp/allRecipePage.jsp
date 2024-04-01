@@ -68,13 +68,13 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					} else {
 					out.println("환영합니다, " + info.getUser_name() + "님!");
 					%></span><br>
-				</div>
 					<a height="50"
 						href="LogoutService.do"><img height="50"
 						src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> 
 					<%
 					}
 					%>
+				</div>
 		</div>
 	</div>
 	<h1>전체 레시피</h1>
@@ -97,7 +97,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
                    
                     <div class="food_photo_box_main">
                         
-                        <div class="food_photo_box " onclick="toggleVisibility(this)">
+                        <div class="food_photo_box">
                             <div class="food_photo">
                                 <img src="https://media.timeout.com/images/102976477/image.jpg" class="slide" alt="">
                                 <div class="text_box" style="text-align: center">
