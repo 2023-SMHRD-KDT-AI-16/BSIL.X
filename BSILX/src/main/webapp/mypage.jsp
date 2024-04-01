@@ -87,6 +87,7 @@
 
 					<%
 					}
+				
 					%>
 			</div>
 		</div>
@@ -111,11 +112,8 @@
 					<!-- <---- form 태그 url  입력  -->
 					<ul id="imageList">
 
-
-
-
 						<!-- input 태그의 id / label 태그의 for / img 태그 20번 반복문 활용 -->
-						<li><input type="checkbox" id="myCheckbox7" /> <label
+						<!-- <li><input type="checkbox" id="myCheckbox7" /> <label
 							for="myCheckbox7"> <img
 								src="https://picsum.photos/id/236/1000/500" alt=""> test
 						</label></li>
@@ -143,7 +141,7 @@
 						<li><input type="checkbox" id="myCheckbox13" /> <label
 							for="myCheckbox13"> <img
 								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
+						</label></li> -->
 
 					</ul>
 					<!-- 버튼 value 값 delete -->
@@ -161,11 +159,11 @@
 					
 					function displayFavor(){
 						$.ajax({
-							type:"GET",
+							type:"post",
 							url : 'MyPage',
 							dataType : "json",
 							data : {
-								userId : '<%=session.getAttribute("userId")%>'
+								userId : '<%=info.getUser_id()%>'
 								
 							},
 							success : function(response){
@@ -177,38 +175,13 @@
 							
 								let data = response; // 서블릿에서 전송된 데이터 받기
 								
-								console.log(data)
+								console.log("data"+data)
+								console.log("recipe.lbox_img"+${recipe.lbox_img})
+								console.log("recipe.lbox_seq"+${recipe.lbox_seq})
+								console.log("recipe.lbox_name"+${recipe.lbox_name})
 								
 								// 이미지 태그 가져오기
-							
-							/* 	data.forEach(function(item, index) {
-									
-						        	var listItem = document.createElement("li"); // li태그 생성
-						       		var checkbox = document.createElement("input"); // input 태그 생성
-						        	
-						       		
-						       		checkbox.type = "checkbox";
-						        	checkbox.id = `myCheckbox${index + 1}`; // id 1씩 증가하게 생성
-						        	checkbox.name = "images";
-						        
-						        	var label = document.createElement("label"); // label 생성
-						        	label.htmlFor = `myCheckbox${index + 1}`; // label 1씩 증가
-						        	
-						        	var img = document.createElement("img");
-						        	img.src = item.lbox_img; // img src json에서 가져옴
-						        	img.alt = item.lbox_seq;
-						        
-						        	var textSpan = document.createElement("span");
-						            textSpan.textContent = item.lbox_name;
-						        	
-						        	label.appendChild(img); // img 태그 label에 넣어줌
-																																																																																																																																        	label.appendChild(textSpan); // 텍스트도 라벨에 추가
-																																																																																																																																        
-																																																																																																																																        
-																																																																																																																																        	listItem.appendChild(checkbox);
-						        	listItem.appendChild(label);
-						        	imageListElement.appendChild(listItem);
-								} */
+						
 								
 						
 									
@@ -216,11 +189,11 @@
 									data.forEach(function(recipe, index){
 									  
 										var formHtml = `<li>
-		                                    <input type="checkbox" id="myCheckbox${index}" />
-		                                    <label for="myCheckbox${index}">
-		                                        <img src="${recipe.lbox_img}" alt="${recipe.lbox_seq}"> ${recipe.lbox_name}
-		                                    </label>
-		                                </li>`;
+		                                   				<input type="checkbox" id="myCheckbox${index}" />
+		                                    			<label for="myCheckbox${index}">
+		                                       			<img src="${recipe.lbox_img}" alt="${recipe.lbox_seq}"> ${recipe.lbox_name}
+		                                    			</label>
+		                                				</li>`;
 
 						                // HTML을 페이지에 삽입
 						                imageListElement.innerHTML += formHtml;
@@ -230,7 +203,9 @@
 						
 						error : function(request, status, error){
 							 console.error("Error: " + error); // 오류 메시지를 콘솔에 출력
-							 console.log("error안나온다!!!"+error)
+							 console.log("error안나온ㄷ"+request)
+							 console.log("error안나온ㄷ"+status)
+							 console.log("error안나온ㄷ"+error)
 						}
 					});
 				}

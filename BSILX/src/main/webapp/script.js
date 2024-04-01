@@ -64,7 +64,7 @@ tagify.on('remove', function(e) {
 
 
 // 만일 모든 태그 지우기 기능 버튼을 구현한다면
-document.querySelector('버튼').addEventListener('click', tagify.removeAllTags.bind(tagify));
+//document.querySelector('버튼').addEventListener('click', tagify.removeAllTags.bind(tagify));
 // tagify 전용 이벤트 리스터. 참조 : https://github.com/yairEO/tagify#events
 tagify.on('add', onAddTag) // 태그가 추가되면
 	.on('remove', onRemoveTag) // 태그가 제거되면
@@ -107,7 +107,7 @@ function renderRecipes(recipes) {
                         </form>`;*/
 
 		// 레시피 정보를 표시하는 HTML을 생성합니다.
-		var recipeHtml = `<div class="recipe onclick="submitRecipeForm(${index});">
+		var recipeHtml = `<div class="recipe" onclick="submitRecipeForm(${index})";>
                               <img src="${recipe.lbox_img}" alt="레시피 이미지">
                               <h3>${recipe.lbox_name}</h3>
                               <p>가격: ${recipe.lbox_price}</p>
