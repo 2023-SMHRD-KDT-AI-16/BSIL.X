@@ -13,8 +13,8 @@ public class LogoutService implements command{
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
-		//session.removeAttribute("memberDTO");
-		session.invalidate();//모든 세션 지우기
+		session.removeAttribute("memberDTO");
+		session.invalidate();//모든 세션 지우기	
 		
 		return "index.jsp";
 		
