@@ -28,11 +28,11 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		// 식재료 담는 리스트
-		//String lboxImg = request.getParameter("lbox_img");
-		//String lboxName = (String)session.getAttribute("lboxName");
-		//String lboxPrice = request.getParameter("lbox_price");
-		
-		String lboxName = (String)session.getAttribute("lboxName");
+		// String lboxImg = request.getParameter("lbox_img");
+		// String lboxName = (String)session.getAttribute("lboxName");
+		// String lboxPrice = request.getParameter("lbox_price");
+
+		String lboxName = (String) session.getAttribute("lboxName");
 		PrintWriter out = response.getWriter();
 		System.out.println(lboxName);
 		List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
@@ -45,16 +45,18 @@ public class IngreOneDayPriceChart extends HttpServlet {
 
 		// 원하는 가격 정보만 담는 리스트
 		List<IngrePriceDTO> priceList = new ArrayList<>();
-		
+
 		System.out.println("ingreList : " + ingreList.size());
 
 		for (int ingre_seq : ingreList) {
 			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
-			System.out.println("BigMartpriceList : "+BigMartpriceList.size());
+			System.out.println("BigMartpriceList : " + BigMartpriceList.size());
 			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
-			System.out.println("SmallMartpriceList : "+SmallMartpriceList.size());
-			priceList.add(BigMartpriceList.get(0));
-			priceList.add(SmallMartpriceList.get(0));
+			System.out.println("SmallMartpriceList : " + SmallMartpriceList.size());
+			if (BigMartpriceList.size() != 0 && SmallMartpriceList.size() != 0) {
+				priceList.add(BigMartpriceList.get(0));
+				priceList.add(SmallMartpriceList.get(0));
+			}
 		}
 
 		JSONArray jsonArray = new JSONArray();

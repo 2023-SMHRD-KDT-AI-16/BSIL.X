@@ -97,24 +97,21 @@ public class MemberDAO {
 
 	}
 	
-	public List<LunchBoxDTO> selectMyFavorite(String user_id){
+	
+	public List<LunchBoxDTO> selectMyFavorite (String user_id){
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-
-		List<LunchBoxDTO> favorList = sqlSession.selectList("SelectMyFavorite", user_id);
 		
-		if (favorList != null) {
-			System.out.println("즐겨찾기 가져옴");
-		} else {
-			System.out.println("즐겨찾기 못 가져옴");
-		}
+		System.out.println("Test"+user_id);
 		
-		sqlSession.close();
+		List<LunchBoxDTO> priceList = null;
 		
-		return favorList;
+		priceList = sqlSession.selectList("SelectMyFavorite", user_id);
 		
+		return priceList;
 	}
 
+	
 	public int deleteChoiceFavorite(List<BookmarkDTO> favorList) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);

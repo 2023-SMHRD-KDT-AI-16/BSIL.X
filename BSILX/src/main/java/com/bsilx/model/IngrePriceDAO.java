@@ -102,14 +102,13 @@ public class IngrePriceDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("식재료 하나 최근 전통 시장 가격 담기 실패");
+			System.out.println("식재료 하나 최근 대형 가격 담기 실패");
 		} finally {
 			sqlSession.close();
 		}
 		return priceList;
 	}
 
-	// 하나의 식재료의 현재 전통 시장 가격 가져오는 메소드
 	public List<IngrePriceDTO> oneDaySmallMartPrice(int ingre_seq) {
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -118,7 +117,8 @@ public class IngrePriceDAO {
 
 		try {
 			priceList = sqlSession.selectList("SelectSmallMartPrice", ingre_seq);
-			System.out.println("식재료 하나 최근 전통 시장 가격 담기 성공");
+			System.out.println("식재료 하나 최근 전통 마트 가격 담기 성공");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("식재료 하나 최근 전통 시장 가격 담기 실패");
@@ -127,6 +127,27 @@ public class IngrePriceDAO {
 		}
 		return priceList;
 	}
+	
+	
+	
+	// 하나의 식재료의 현재 전통 시장 가격 가져오는 메소드
+//	public List<IngrePriceDTO> oneDaySmallMartPrice(int ingre_seq) {
+//
+//		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+//
+//		List<IngrePriceDTO> priceList = null;
+//
+//		try {
+//			priceList = sqlSession.selectList("SelectSmallMartPrice", ingre_seq);
+//			System.out.println("식재료 하나 최근 전통 시장 가격 담기 성공");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println("식재료 하나 최근 전통 시장 가격 담기 실패");
+//		} finally {
+//			sqlSession.close();
+//		}
+//		return priceList;
+//	}
 
 	// 현재 가격 정보 json 타입으로 변환
 	public JSONArray oneDayPriceToJson(List<IngrePriceDTO> priceList) {

@@ -17,16 +17,17 @@
 		#{item}
 	</select>
 
-	<select id="SelectLbox" parameterType="java.lang.String" resultType="LunchBox">
-		select distinct a.lbox_name, a.lbox_img, a.lbox_price
+	<select id="SelectLbox" parameterType="java.lang.String" resultType="com.bsilx.model.LunchBoxDTO">
+		select distinct a.lbox_name lbox_name, a.lbox_img lbox_img, a.lbox_price lbox_price
 		from lunch_box_info a
 		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
-		inner join ingredient_info c on b.ingre_seq = c.ingre_seq
+		inner join ingredient_info c on b.ingre_seq = c.ingre_seq	
 		where a.lbox_name in
 		<foreach collection="list" item="item" open="(" separator=","
 			close=")">
 			#{item}
-		</foreach>
+		</foreach>	
+		
 	</select>
 
 

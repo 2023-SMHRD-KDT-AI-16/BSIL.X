@@ -13,7 +13,7 @@ tagify.on('add', function() {
 	//var tags = tagify.value.map(tag => tag.value).join(','); // 태그 배열을 문자열로 변환
 	console.log("tagifyValue" + tagify.value); // 입력된 태그 정보 객체
 	var tags = tagify.value.map(tag => tag.value);
-	console.log("tags" + tags); // 입력된 태그 정보 객체
+	console.log("tags" + tags.join(',')); // 입력된 태그 정보 객체
 	table.removeAttribute('class');
 	
 	
@@ -25,6 +25,7 @@ tagify.on('add', function() {
 		success: function(data) {
 			// 성공적으로 데이터를 받으면 페이지에 렌더링
 			console.log("data : " + data);
+			console.log('asfsgshnlseewlkN')
 			renderRecipes(data);
 		},
 		error: function(xhr, status, error) {
@@ -110,7 +111,7 @@ function renderRecipes(recipes) {
 		var recipeHtml = `<div class="recipe" onclick="submitRecipeForm(${index})";>
                               <img src="${recipe.lbox_img}" alt="레시피 이미지">
                               <h3>${recipe.lbox_name}</h3>
-                              <p>가격: ${recipe.lbox_price}</p>
+                              <p>가격 : ${recipe.lbox_price}원</p>
                            </div>`;
 
 		container.append(formHtml + recipeHtml); // 생성된 폼과 HTML을 컨테이너에 추가합니다.

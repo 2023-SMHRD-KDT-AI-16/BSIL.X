@@ -47,7 +47,6 @@ public class RankTop3 extends HttpServlet {
 					if (price < 10000) {
 						priceList.add(pdto);
 					}
-					System.out.println(pdto.getIngre_name() + " : " + price);
 				}
 			}
 		}

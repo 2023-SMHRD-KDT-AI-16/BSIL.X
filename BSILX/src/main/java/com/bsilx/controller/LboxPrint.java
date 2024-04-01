@@ -22,6 +22,7 @@ public class LboxPrint extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("dagsdgasha");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
 		
@@ -30,7 +31,7 @@ public class LboxPrint extends HttpServlet {
 
 		String ingreNameString = request.getParameter("ingre_name");
 		
-//		System.out.println("ingreNameString : " +ingreNameString);  //index.jsp에서 쌀 보내면 쌀 받아짐
+		System.out.println("ingreNameString : " +ingreNameString);  //index.jsp에서 쌀 보내면 쌀 받아짐
 
 		List<String> ingreNameList = Arrays.asList(ingreNameString.split(","));
 		// 데이터베이스에서 태그 리스트에 해당하는 레시피 검색 

@@ -1,5 +1,12 @@
 package com.bsilx.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LunchBoxDTO {
 
 	private int lbox_seq;
@@ -8,20 +15,16 @@ public class LunchBoxDTO {
 	private String lbox_img;
 	private int lbox_price;
 
-	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_img) {
-		this.lbox_seq = lbox_seq;
-		this.lbox_name = lbox_name;
-		this.lbox_img = lbox_img;
-	}
+	
 
-	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
-		
-		this.lbox_seq = lbox_seq;
-		this.lbox_name = lbox_name;
-		this.lbox_recipe = lbox_recipe;
-		this.lbox_img = lbox_img;
-		this.lbox_price = lbox_price;
-	}
+//	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
+//		
+//		this.lbox_seq = lbox_seq;
+//		this.lbox_name = lbox_name;
+//		this.lbox_recipe = lbox_recipe;
+//		this.lbox_img = lbox_img;
+//		this.lbox_price = lbox_price;
+//	}
 
 	public LunchBoxDTO(String lbox_name, String lbox_recipe, String lbox_img, int lbox_price) {
 		this.lbox_name = lbox_name;
@@ -36,8 +39,16 @@ public class LunchBoxDTO {
 		this.lbox_price = lbox_price;
 	}
 	
+	public LunchBoxDTO(int lbox_seq, String lbox_name, String lbox_img) {
+		this.lbox_seq = lbox_seq;
+		this.lbox_name = lbox_name;
+		this.lbox_img = lbox_img;
+	}
 	
-
+	public LunchBoxDTO(int lbox_seq, String lbox_name) {
+		this.lbox_seq = lbox_seq;
+		this.lbox_name = lbox_name;
+	}
 
 
 	public String getLbox_name() {

@@ -29,12 +29,13 @@
 		delete from my_recipe_info where user_id = #{user_id} and lbox_seq = #{lbox_seq}
 	</delete>
 	
-	<select id="SelectMyFavorite" parameterType="String" resultType="LunchBox">
-	select b.lbox_seq, b.lbox_name, b.lbox_img
+	<select id="SelectMyFavorite" parameterType="String" resultType="com.bsilx.model.LunchBoxDTO">
+	select b.lbox_seq lbox_seq, b.lbox_name lbox_name, b.lbox_img lbox_img
 	from my_recipe_info a
 	inner join lunch_box_info b 
 	on a.lbox_seq = b.lbox_seq
-	where a.user_id = #{userId}
+	where a.user_id = #{user_id}
 	</select>
+	
 	
 </mapper>
