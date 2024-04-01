@@ -192,7 +192,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 				<div class="food_right_div">
 					<span>
-					<%=lboxName%> 
+
 					<%
 						    List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lboxName);
 						    if (lbox_ingre != null) {

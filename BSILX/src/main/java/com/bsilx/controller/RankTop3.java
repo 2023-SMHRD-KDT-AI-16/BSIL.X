@@ -1,6 +1,7 @@
 package com.bsilx.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bsilx.model.IngrePriceDAO;
 import com.bsilx.model.PriceDTO;
+import com.google.gson.Gson;
 
 public class RankTop3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -63,12 +65,17 @@ public class RankTop3 extends HttpServlet {
 		// 하위 3개 선택
 		List<PriceDTO> bottom3Prices = priceList.subList(priceList.size() - Math.min(priceList.size(), 3),
 				priceList.size());
-		
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("top3Prices", top3Prices);
-		session.setAttribute("bottom3Prices", bottom3Prices);
-		
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		Gson gson = new Gson();
+
+		String top3Json = gson.toJson(top3Prices);
+		String bottom3Json = gson.toJson(bottom3Prices);
+
+		out.write("{\"top3Prices\":" + top3Json + ",\"bottom3Prices\":" + bottom3Json + "}");
+
 		// 결과 출력
 		System.out.println("Top 3 Prices:");
 		for (PriceDTO item : top3Prices) {

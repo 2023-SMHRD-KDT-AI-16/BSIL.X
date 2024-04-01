@@ -145,55 +145,20 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			<div class="Increase">
 				<table class="UpDownIngre">
 				
-				<% List<PriceDTO> top3Prices = (List<PriceDTO>)session.getAttribute("top3Prices"); %>
-				<% List<PriceDTO> bottom3Prices = (List<PriceDTO>)session.getAttribute("bottom3Prices"); 
-				if (top3Prices != null && bottom3Prices != null) {%>
 					<th colspan="2">상승 TOP3</th>
-					<tr>
+					<tr id="UpIngre">
 						
-						<td id="UpandDown"><%= top3Prices.get(0).getIngre_name()%></td>
-						<td class="material-symbols-outlined" id="up">
-							arrow_drop_up
-						</td>
-					</tr>
-					<tr>
-						<td id="UpandDown"><%= top3Prices.get(1).getIngre_name()%></td>
-						<td class="material-symbols-outlined" id="up">
-							arrow_drop_up
-						</td>
-					</tr>
-					<tr>
-						<td id="UpandDown"><%= top3Prices.get(2).getIngre_name()%></td>
-						<td class="material-symbols-outlined" id="up">
-							arrow_drop_up
-						</td>
+						
 					</tr>
 				</table>
 			</div>
 			<div class="degradation">
 				<table class="UpDownIngre">
 					<th colspan="2">하락 TOP3</th>
-					<tr>
+					<tr id="DownIngre">
 						
-						<td id="Upandngre"><%= bottom3Prices.get(0).getIngre_name()%></td>
-							<td class="material-symbols-outlined" id="Down">
-							arrow_drop_down
-							
-						</td>
+						
 					</tr>
-					<tr>
-						<td id="Upandngre"><%= bottom3Prices.get(1).getIngre_name()%></td>
-							<td class="material-symbols-outlined" id="Down">
-							arrow_drop_down
-						</td>
-					</tr>
-					<tr>
-						<td id="Upandngre"><%= bottom3Prices.get(2).getIngre_name()%></td>
-							<td class="material-symbols-outlined" id="Down">
-							arrow_drop_down
-						</td>
-					</tr>
-					<%} %>
 				</table>
 			</div>
 		</div>
@@ -242,6 +207,40 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			}
 		})
 	</script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: 'RankTop3',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                // JSON 결과를 사용하여 테이블에 데이터를 동적으로 채웁니다.
+                var top3Prices = data.top3Prices;
+                var bottom3Prices = data.bottom3Prices;
+
+                if (top3Prices.length > 0 && bottom3Prices.length > 0) {
+                    // 상승 TOP3 데이터 채우기
+                    for (var i = 0; i < top3Prices.length; i++) {
+                        var row = '<tr><td id="UpIngre">' + top3Prices[i].ingre_name + '</td><td class="material-symbols-outlined" id="up">arrow_drop_up</td></tr>';
+                        $('#UpIngre').append(row);
+                    }
+
+                    // 하강 TOP3 데이터 채우기
+                    for (var i = 0; i < bottom3Prices.length; i++) {
+                        var row = '<tr><td id="DownIngre">' + bottom3Prices[i].ingre_name + '</td><td class="material-symbols-outlined" id="down">arrow_drop_down</td></tr>';
+                        $('#DownIngre').append(row);
+                    }
+                }
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+</script>
+
+
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
 </body>
