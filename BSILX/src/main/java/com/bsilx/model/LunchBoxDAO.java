@@ -138,4 +138,24 @@ public class LunchBoxDAO {
 		return lbox_seq;
 	}
 	
+	public List<LunchBoxDTO> selectAllLbox(){
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		List<LunchBoxDTO> LboxList = null;
+		
+		try {
+			LboxList = sqlSession.selectList("SelectAllLbox");
+			System.out.println("모든 레시피 출력 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("모든 레시피 출력 실패");
+		} finally {
+			sqlSession.close();
+		}
+		
+		return LboxList;
+	}
+	
+	
 }

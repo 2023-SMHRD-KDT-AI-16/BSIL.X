@@ -27,7 +27,8 @@
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
@@ -47,104 +48,125 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	apiURL += "&state=" + state;
 	session.setAttribute("state", state);
 	%>
-<header>	
-	<div id="header_div">
-		<a href="index.jsp"> <img src="https://img.freepik.com/premium-vector/
+	<header>
+		<div id="header_div">
+			<a href="index.jsp"> <img
+				src="https://img.freepik.com/premium-vector/
 		set-of-different-bento-japanese-lunch-boxes-collection-funny-cartoon-food-
-		isometric-colorful-vector-illustration_198278-6911.jpg" id="logo" alt="logo">
-		</a>
-		<div id="login_mypage">
-	
-					<%
-					if (info == null) {
-					%>
-					
+		isometric-colorful-vector-illustration_198278-6911.jpg"
+				id="logo" alt="logo">
+			</a>
+			<div id="login_mypage">
+
+				<%
+				if (info == null) {
+				%>
+
 				<div class="login_success">
-					<a height="50" href="<%= apiURL %>"><img height="50"
-						src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a>
-				
-				<span>
-					<%
-					} else {
-					out.println("환영합니다, " + info.getUser_name() + "님!");
-					%></span><br>
-					<a height="50"
-						href="LogoutService.do"><img height="50"
-						src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> 
+					<a height="50" href="<%=apiURL%>"><img height="50"
+						src="http://static.nid.naver.com/oauth/small_g_in.PNG" /></a> <span>
+						<%
+						} else {
+						out.println("환영합니다, " + info.getUser_name() + "님!");
+						%>
+					</span><br> <a height="50" href="LogoutService.do"><img
+						height="50"
+						src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
 					<%
 					}
 					%>
 				</div>
+			</div>
+		</div>
+		<h1>전체 레시피</h1>
+	</header>
+	<div class="all-box">
+		<div class="centerbar">
+			<nav>
+				<a href="index.jsp" class="header_menu"> <span
+					class="material-symbols-outlined">widgets </span>메인페이지
+				</a> <a href="allRecipePage.jsp" class="header_menu"> <span
+					class="material-symbols-outlined">stockpot </span>전체레시피
+				</a> <a href="mypage.jsp" class="header_menu"> <span
+					class="material-symbols-outlined">assignment_ind </span>마이페이지
+				</a>
+			</nav>
+			<div class="center_center">
+
+				<%
+				List<LunchBoxDTO> allLboxList = new LunchBoxDAO().selectAllLbox();
+				%>
+				<div class="food_photo_box_main">
+				</div>
+				<script>
+				var allLboxes = [
+					<% for (LunchBoxDTO lunchBox : allLboxList) {%>
+						{
+							img : "<%=lunchBox.getLbox_img()%>",
+							name :"<%=lunchBox.getLbox_name()%>",
+							price : "<%=lunchBox.getLbox_price()%>"
+						},
+						<%}%>
+				];
+				
+						var htmlString ="";
+					for(var i=0; i < allLboxes.length; i++){
+						htmlString += '<div class="food_photo_box">';
+						htmlString += '<div class="food_photo">';
+						htmlString += '<img src="'+ allLboxes[i].img+'" class="slide" alt="">';
+						htmlString += '<b class="title">' + allLboxes[i].name+'</b>';
+						htmlString += '<br>';
+						htmlString += '<b class="price">'+allLboxes[i].price+'</b>';
+						htmlString += "</div>";
+						htmlString += "</div>";
+						console.log(allLboxes[i].name);
+						}
+					console.log(htmlString);
+						$(".food_photo_box_main").html(htmlString);
+				</script>
+			
+
+				<!-- <div class="food_photo_box_main" id="foodPhotoBoxMain"> -->
+				
+				<!--     이미지가 동적으로 추가될 영역 -->
+				
+				<!-- </div> -->
+
+				
+				<!-- <script> -->
+				<!-- //     // PHP 스크립트로부터 이미지 URL을 가져와서 HTML에 표시 -->
+				<!-- //     fetch('get_images.php') -->
+				<!-- //         .then(response => response.json()) -->
+				<!-- //         .then(imageUrls => { -->
+				<!-- //             const foodPhotoBoxMain = document.getElementById('foodPhotoBoxMain'); -->
+
+				<!-- //             // 이미지 URL을 반복하여 HTML에 이미지를 추가 -->
+				<!-- //             imageUrls.forEach(imageUrl => { -->
+				<!-- //                 const foodPhotoBox = document.createElement('div'); -->
+				<!-- //                 foodPhotoBox.classList.add('food_photo_box'); -->
+
+				<!-- //                 const foodPhoto = document.createElement('div'); -->
+				<!-- //                 foodPhoto.classList.add('food_photo'); -->
+
+				<!-- //                 const image = document.createElement('img'); -->
+				<!-- //                 image.src = imageUrl; -->
+				<!-- //                 image.alt = ''; -->
+
+				<!-- //                 foodPhoto.appendChild(image); -->
+				<!-- //                 foodPhotoBox.appendChild(foodPhoto); -->
+				<!-- //                 foodPhotoBoxMain.appendChild(foodPhotoBox); -->
+				<!-- //             }); -->
+				<!-- //         }) -->
+				<!-- //         .catch(error => console.error('Error:', error)); -->
+				<!-- <!-- </script> -->
+				-->
+
+
+			
+
+			</div>
 		</div>
 	</div>
-	<h1>전체 레시피</h1>
-</header>
-    <div class="all-box">
-            <div class="centerbar">
-                	<nav>
-						<a href="index.jsp" class="header_menu">
-						<span class="material-symbols-outlined">widgets
-						</span>메인페이지</a> 
-						<a href="allRecipePage.jsp" class="header_menu">
-						<span class="material-symbols-outlined">stockpot
-						</span>전체레시피</a> 
-						<a href="mypage.jsp" class="header_menu">
-						<span class="material-symbols-outlined">assignment_ind
-						</span>마이페이지
-						</a>
-					</nav>
-                <div class="center_center">
-                   
-                    <div class="food_photo_box_main">
-                        
-                        <div class="food_photo_box">
-                            <div class="food_photo">
-                                <img src="https://media.timeout.com/images/102976477/image.jpg" class="slide" alt="">
-                                <div class="text_box" style="text-align: center">
-                                	<b class="title">test</b><br>
-                                	<b class="price">test</b>
-                                </div>
-                            </div>
-                        </div>
-
-                    	</div>
-
-<!-- <!-- <div class="food_photo_box_main" id="foodPhotoBoxMain"> --> -->
-<!-- <!--     이미지가 동적으로 추가될 영역 --> -->
-<!-- <!-- </div> --> -->
-
-<!-- <!-- <script> --> -->
-<!-- //     // PHP 스크립트로부터 이미지 URL을 가져와서 HTML에 표시 -->
-<!-- //     fetch('get_images.php') -->
-<!-- //         .then(response => response.json()) -->
-<!-- //         .then(imageUrls => { -->
-<!-- //             const foodPhotoBoxMain = document.getElementById('foodPhotoBoxMain'); -->
-
-<!-- //             // 이미지 URL을 반복하여 HTML에 이미지를 추가 -->
-<!-- //             imageUrls.forEach(imageUrl => { -->
-<!-- //                 const foodPhotoBox = document.createElement('div'); -->
-<!-- //                 foodPhotoBox.classList.add('food_photo_box'); -->
-
-<!-- //                 const foodPhoto = document.createElement('div'); -->
-<!-- //                 foodPhoto.classList.add('food_photo'); -->
-
-<!-- //                 const image = document.createElement('img'); -->
-<!-- //                 image.src = imageUrl; -->
-<!-- //                 image.alt = ''; -->
-
-<!-- //                 foodPhoto.appendChild(image); -->
-<!-- //                 foodPhotoBox.appendChild(foodPhoto); -->
-<!-- //                 foodPhotoBoxMain.appendChild(foodPhotoBox); -->
-<!-- //             }); -->
-<!-- //         }) -->
-<!-- //         .catch(error => console.error('Error:', error)); -->
-<!-- <!-- </script> --> -->
-
-
-
-	              </div>
-            </div>
-    </div>
 
 </body>
 </html>

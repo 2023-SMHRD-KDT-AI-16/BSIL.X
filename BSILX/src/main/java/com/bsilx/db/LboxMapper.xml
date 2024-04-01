@@ -54,5 +54,8 @@
 		select lbox_seq from lunch_box_info where lbox_name = #{lbox_name}
 	</select>
 
+	<select id="SelectAllLbox" resultType="LunchBox">
+		select * from lunch_box_info
+	</select>
 
 </mapper>
