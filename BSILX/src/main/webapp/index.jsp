@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.bsilx.model.PriceDTO"%>
 <%@page import="com.bsilx.model.LunchBoxDAO"%>
 <%@page import="com.bsilx.model.LunchBoxDTO"%>
 <%@page import="java.util.List"%>
@@ -140,21 +142,26 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<div id="Food_ingredient_trends">
 			<div class="Increase">
 				<table class="UpDownIngre">
+				
+				<% List<PriceDTO> top3Prices = (List<PriceDTO>)session.getAttribute("top3Prices"); %>
+				<% List<PriceDTO> bottom3Prices = (List<PriceDTO>)session.getAttribute("bottom3Prices"); 
+				if (top3Prices != null && bottom3Prices != null) {%>
 					<th colspan="2">상승 TOP3</th>
 					<tr>
-						<td id="UpandDown">상승 식재료</td>
+						
+						<td id="UpandDown"><%= top3Prices.get(0).getIngre_name()%></td>
 						<td class="material-symbols-outlined" id="up">
 							arrow_drop_up
 						</td>
 					</tr>
 					<tr>
-						<td id="UpandDown">상승 식재료</td>
+						<td id="UpandDown"><%= top3Prices.get(1).getIngre_name()%></td>
 						<td class="material-symbols-outlined" id="up">
 							arrow_drop_up
 						</td>
 					</tr>
 					<tr>
-						<td id="UpandDown">상승 식재료</td>
+						<td id="UpandDown"><%= top3Prices.get(2).getIngre_name()%></td>
 						<td class="material-symbols-outlined" id="up">
 							arrow_drop_up
 						</td>
@@ -165,23 +172,26 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				<table class="UpDownIngre">
 					<th colspan="2">하락 TOP3</th>
 					<tr>
-						<td id="Upandngre">하락 식재료</td>
+						
+						<td id="Upandngre"><%= bottom3Prices.get(0).getIngre_name()%></td>
+							<td class="material-symbols-outlined" id="Down">
+							arrow_drop_down
+							
+						</td>
+					</tr>
+					<tr>
+						<td id="Upandngre"><%= bottom3Prices.get(1).getIngre_name()%></td>
 							<td class="material-symbols-outlined" id="Down">
 							arrow_drop_down
 						</td>
 					</tr>
 					<tr>
-						<td id="Upandngre">하락 식재료</td>
+						<td id="Upandngre"><%= bottom3Prices.get(2).getIngre_name()%></td>
 							<td class="material-symbols-outlined" id="Down">
 							arrow_drop_down
 						</td>
 					</tr>
-					<tr>
-						<td id="Upandngre">하락 식재료</td>
-							<td class="material-symbols-outlined" id="Down">
-							arrow_drop_down
-						</td>
-					</tr>
+					<%} %>
 				</table>
 			</div>
 		</div>

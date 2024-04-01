@@ -10,7 +10,8 @@
 		from ingredient_price_info a
 		inner join
 		ingredient_info b on a.ingre_seq = b.ingre_seq
-		where b.ingre_name = #{ingre_name}
+		where
+		b.ingre_name = #{ingre_name}
 		order by a.price_seq
 	</select>
 
@@ -25,40 +26,89 @@
 		a.ingre_year = #{ingre_year} and
 		a.ingre_month = #{ingre_month} and
 		a.ingre_day = #{ingre_day}
-		order by a.price_seq
+		order by
+		a.price_seq
 	</select>
 
-	<select id="SelectBigMartPrice" parameterType = "int" resultType="IngrePrice">
+	<select id="SelectBigMartPrice" parameterType="int"
+		resultType="IngrePrice">
 		select b.ingre_name, a.ingre_price, a.ingre_year,
 		a.ingre_month, a.ingre_day, a.ingre_market
 		from ingredient_price_info a
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
-		where a.ingre_seq = #{ingre_seq} and a.ingre_market = '대형'
-		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
-		
+		where
+		a.ingre_seq = #{ingre_seq} and a.ingre_market = '대형'
+		order by
+		to_number(a.ingre_year) desc, to_number(a.ingre_month) desc,
+		to_number(a.ingre_day) desc
+
 	</select>
-	
-	<select id="SelectSmallMartPrice" parameterType = "int" resultType="IngrePrice">
+
+	<select id="SelectSmallMartPrice" parameterType="int"
+		resultType="IngrePrice">
 		select b.ingre_name, a.ingre_price, a.ingre_year,
 		a.ingre_month, a.ingre_day, a.ingre_market
 		from ingredient_price_info a
 		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
-		where a.ingre_seq = #{ingre_seq} and a.ingre_market = '전통'
-		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
+		where
+		a.ingre_seq = #{ingre_seq} and a.ingre_market = '전통'
+		order by
+		to_number(a.ingre_year) desc, to_number(a.ingre_month) desc,
+		to_number(a.ingre_day) desc
 	</select>
-	
-	<select id="SelectIngreSeq" parameterType="String" resultType="java.lang.Integer">
+
+	<select id="SelectIngreSeq" parameterType="String"
+		resultType="java.lang.Integer">
 		select b.ingre_seq
-		from lunch_box_info a 
-		inner join lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
-		where a.lbox_name = #{lbox_name}
+		from lunch_box_info a
+		inner join
+		lunch_box_ingredient_info b on a.lbox_seq = b.lbox_seq
+		where
+		a.lbox_name = #{lbox_name}
 	</select>
 
 	<select id="SelectAll" resultType="IngrePrice">
-		select b.ingre_name, a.ingre_price
+		select b.ingre_name,
+		a.ingre_price
 		from ingredient_price_info a
-		inner join ingredient_info b on a.ingre_seq = b.ingre_seq
-		order by to_number(a.ingre_year) desc, to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
+		inner join ingredient_info b
+		on a.ingre_seq = b.ingre_seq
+		order by to_number(a.ingre_year) desc,
+		to_number(a.ingre_month) desc, to_number(a.ingre_day) desc
+	</select>
+
+	<select id="SelectNowPrice" resultType="Price">
+		select b.ingre_name,
+		a.ingre_seq, MAX(a.ingre_price) AS now_price
+		from ingredient_price_info
+		a
+		inner join ingredient_info b
+		on a.ingre_seq = b.ingre_seq
+		group by
+		a.ingre_seq, b.ingre_name
+	</select>
+
+	<select id="SelectSecondPrice" resultType="Price">
+
+		WITH recent_prices AS
+		(
+		SELECT
+		ingre_seq,
+		ingre_year * 10000 + ingre_month * 100 + ingre_day AS 날짜,
+		ingre_price,
+		ROW_NUMBER() OVER(PARTITION BY ingre_seq ORDER BY ingre_year DESC, ingre_month
+		DESC, ingre_day DESC) AS rn
+		FROM
+		ingredient_price_info
+		)
+		SELECT
+		ingre_seq,
+		ingre_price AS 최근_가격
+		FROM
+		recent_prices
+		WHERE
+		rn = 2
+
 	</select>
 
 </mapper>

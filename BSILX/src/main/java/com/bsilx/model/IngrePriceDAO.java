@@ -155,27 +155,48 @@ public class IngrePriceDAO {
 		return jsonArray;
 	}
 
-	public List<IngrePriceDTO> AllPrice() {
-
+	// 모든 식재료의 최신 가격 가져오는 메소드
+	public List<PriceDTO> selectNowPrice () {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-
-		List<IngrePriceDTO> allPriceList = null;
-
+		
+		List<PriceDTO> nowPriceList = null;
+		
 		try {
-			allPriceList = sqlSession.selectList("SelectAll");
-			
-			System.out.println("모든 식재료 가격 담기 성공");
-
+			nowPriceList = sqlSession.selectList("SelectNowPrice");
+			System.out.println("모든 식재료의 최신 가격 담기 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
-			
-			System.out.println("모든 식재료 가격 담기 실패");
-
+			System.out.println("모든 식재료의 최신 가격 담기 실패");
 		} finally {
 			sqlSession.close();
 		}
-		return allPriceList;
-
+		
+		return nowPriceList;
 	}
+
+
+	// 모든 식재료의 전날 가격 가져오는 메소드
+		public List<PriceDTO> selectSecondPrice () {
+			
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			
+			List<PriceDTO> secondPriceList = null;
+			
+			try {
+				secondPriceList = sqlSession.selectList("SelectSecondPrice");
+				System.out.println("모든 식재료의 전날 가격 담기 성공");
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("모든 식재료의 전날 가격 담기 실패");
+			} finally {
+				sqlSession.close();
+			}
+			
+			return secondPriceList;
+		}
+	
+	
+	
 
 }
