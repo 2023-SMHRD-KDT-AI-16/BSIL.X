@@ -87,7 +87,6 @@
 
 					<%
 					}
-				
 					%>
 			</div>
 		</div>
@@ -111,37 +110,10 @@
 				<form action="">
 					<!-- <---- form 태그 url  입력  -->
 					<ul id="imageList">
+					
+			
 
-						<!-- input 태그의 id / label 태그의 for / img 태그 20번 반복문 활용 -->
-						<!-- <li><input type="checkbox" id="myCheckbox7" /> <label
-							for="myCheckbox7"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
-						<li><input type="checkbox" id="myCheckbox8" /> <label
-							for="myCheckbox8"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
-						<li><input type="checkbox" id="myCheckbox9" /> <label
-							for="myCheckbox9"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
-						<li><input type="checkbox" id="myCheckbox10" /> <label
-							for="myCheckbox10"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
-						<li><input type="checkbox" id="myCheckbox11" /> <label
-							for="myCheckbox11"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
-						<li><input type="checkbox" id="myCheckbox12" /> <label
-							for="myCheckbox12"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li>
 
-						<li><input type="checkbox" id="myCheckbox13" /> <label
-							for="myCheckbox13"> <img
-								src="https://picsum.photos/id/236/1000/500" alt=""> test
-						</label></li> -->
 
 					</ul>
 					<!-- 버튼 value 값 delete -->
@@ -159,36 +131,29 @@
 					
 					function displayFavor(){
 						$.ajax({
-							type:"post",
+							type:"GET",
 							url : 'MyPage',
 							dataType : "json",
 							data : {
-								userId : '<%=info.getUser_id()%>'
+								userId : '<%=session.getAttribute("userId")%>'
 								
 							},
 							success : function(response){
-								console.log("response"+response)
 								var imageListElement = document.getElementById("imageList");
 								imageListElement.innerHTML = ''; // 내용을 비웁니다.
-								
 								console.log("이미지 받기 성공")
-							
 								let data = response; // 서블릿에서 전송된 데이터 받기
 								
-								console.log("data"+data)
-								console.log("recipe.lbox_img"+${recipe.lbox_img})
-								console.log("recipe.lbox_seq"+${recipe.lbox_seq})
-								console.log("recipe.lbox_name"+${recipe.lbox_name})
 								
 								// 이미지 태그 가져오기
 						
 								
-						
+									let formHtml = ''; // 반복문 외부에서 선언
 									
 									// 동적 HTML 생성을 위한 함수
 									data.forEach(function(recipe, index){
 									  
-										var formHtml = `<li>
+										formHtml += `<li>
 		                                   				<input type="checkbox" id="myCheckbox${index}" />
 		                                    			<label for="myCheckbox${index}">
 		                                       			<img src="${recipe.lbox_img}" alt="${recipe.lbox_seq}"> ${recipe.lbox_name}
@@ -196,9 +161,9 @@
 		                                				</li>`;
 
 						                // HTML을 페이지에 삽입
-						                imageListElement.innerHTML += formHtml;
 																	
 									});
+										imageListElement.innerHTML = formHtml;
 						},
 						
 						error : function(request, status, error){
@@ -206,6 +171,23 @@
 							 console.log("error안나온ㄷ"+request)
 							 console.log("error안나온ㄷ"+status)
 							 console.log("error안나온ㄷ"+error)
+							 
+							 console.error("Status: ", status); 
+							    console.error("Error: ", error);
+
+							    // 오류가 발생한 요청의 전체 객체를 출력
+							    console.log("Request: ", request);
+
+							    // 서버가 응답으로 반환한 텍스트 메시지가 있다면 출력
+							    if(request.responseText) {
+							        console.log("Response Text: ", request.responseText);
+							    }
+							    
+							    // 서버가 반환한 상태 코드가 있다면 출력
+							    console.log("Response Status Code: ", request.status);
+							    
+							    // 서버가 반환한 상태 텍스트가 있다면 출력
+							    console.log("Response Status Text: ", request.statusText);
 						}
 					});
 				}
@@ -218,6 +200,7 @@
 						$('input[type="checkbox"]:checked').each(function() {
 							const imageName = $(this).next('label').find('img').attr('alt');
 							selectImages.push(imageName);
+							
 						});
 						
 						// 선택된 이미지들 서버에 전달해 삭제 요청
