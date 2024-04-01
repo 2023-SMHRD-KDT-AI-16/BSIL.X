@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bsilx.db.MembeMapper">
-	<resultMap id="LunchBoxMap" type="LunchBox">
+	<!-- <resultMap id="LunchBoxMap" type="LunchBox">
         <result property="lbox_img" column="LBOX_IMG" jdbcType="VARCHAR"/>
-        <!-- 추가적으로 다른 컬럼 매핑 정의 -->
-    </resultMap>
+        추가적으로 다른 컬럼 매핑 정의
+    </resultMap> -->
 
 
 	<insert id="Join" parameterType="Member">

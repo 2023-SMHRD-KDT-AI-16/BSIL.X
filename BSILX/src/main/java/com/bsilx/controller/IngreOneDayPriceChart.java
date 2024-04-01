@@ -51,6 +51,8 @@ public class IngreOneDayPriceChart extends HttpServlet {
 		for (int ingre_seq : ingreList) {
 			BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
 			System.out.println("BigMartpriceList : " + BigMartpriceList.size());
+			
+			
 			SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
 			System.out.println("SmallMartpriceList : " + SmallMartpriceList.size());
 			if (BigMartpriceList.size() != 0 && SmallMartpriceList.size() != 0) {
@@ -58,7 +60,7 @@ public class IngreOneDayPriceChart extends HttpServlet {
 				priceList.add(SmallMartpriceList.get(0));
 			}
 		}
-
+		
 		JSONArray jsonArray = new JSONArray();
 
 		jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);

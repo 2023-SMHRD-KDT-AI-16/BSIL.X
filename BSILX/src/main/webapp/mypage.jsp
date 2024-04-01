@@ -161,7 +161,6 @@
 		                                				</li>`;
 
 						                // HTML을 페이지에 삽입
-																	
 									});
 										imageListElement.innerHTML = formHtml;
 						},

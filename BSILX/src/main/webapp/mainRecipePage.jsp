@@ -25,9 +25,11 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
-<!-- 소스 다운 -->
+	
 <script src="https://unpkg.com/@yaireo/tagify"></script>
-<!-- 폴리필 (구버젼 브라우저 지원) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <script
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
@@ -36,6 +38,9 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+
 <script src="chart.js"></script>
 </head>
 <body>
@@ -246,7 +251,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<p>시장 vs 대형마트</p>
 		<div class="chart">
 			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
-			<canvas id="myChart"></canvas>
+			<canvas id="myChart" width="400" height="400"></canvas>
 		</div>
 	</div>
 
