@@ -155,7 +155,8 @@
 
 	<script>
 					$(document).ready(function(){
-						displayFavor()
+						displayFavor();
+						console.log("실행??");
 					});
 					
 					function displayFavor(){
@@ -168,11 +169,11 @@
 								
 							},
 							success : function(response){
+								console.log("response"+response)
 								var imageListElement = document.getElementById("imageList");
 								imageListElement.innerHTML = ''; // 내용을 비웁니다.
 								
 								console.log("이미지 받기 성공")
-								console.log("response"+response)
 							
 								let data = response; // 서블릿에서 전송된 데이터 받기
 								
@@ -229,6 +230,7 @@
 						
 						error : function(request, status, error){
 							 console.error("Error: " + error); // 오류 메시지를 콘솔에 출력
+							 console.log("error안나온다!!!"+error)
 						}
 					});
 				}

@@ -133,9 +133,11 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 		</div>
 
-		<div id="search_img" class="hidden">
+		<div id="search_img" class="hidden slider" >
 			<!--  감섹힌 레시피 나오는 부분 -->
+			
 		</div>
+		
 
 		<div id="Food_ingredient_trends">
 			<div class="Increase">
