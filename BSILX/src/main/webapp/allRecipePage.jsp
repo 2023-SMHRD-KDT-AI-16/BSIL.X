@@ -96,10 +96,12 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
                 <div class="center_center">
                    
                     <div class="food_photo_box_main">
-                        <!-- 1 -->
+                        
                         <div class="food_photo_box " onclick="toggleVisibility(this)">
                             <div class="food_photo">
                                 <img src="https://korean.visitseoul.net/comm/getImage?srvcId=MEDIA&parentSn=16716&fileTy=MEDIA&fileNo=1" class="slide" alt="">
+                                <span>이름</span>
+                                <span>가격</span>
                             </div>
                             <div class="food_photo">
                                 <img src="https://media.timeout.com/images/102976477/image.jpg" class="slide" alt="">
@@ -152,9 +154,67 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
                             <div class="food_photo">
                                 <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
                             </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
+                            <div class="food_photo">
+                                <img src="https://th.bing.com/th/id/OIP.nqa4OOXpwzdTKH1AQWqIoQHaE8?rs=1&pid=ImgDetMain" class="slide" alt="">
+                            </div>
                         </div>
 
                     	</div>
+
+<!-- <!-- <div class="food_photo_box_main" id="foodPhotoBoxMain"> --> -->
+<!-- <!--     이미지가 동적으로 추가될 영역 --> -->
+<!-- <!-- </div> --> -->
+
+<!-- <!-- <script> --> -->
+<!-- //     // PHP 스크립트로부터 이미지 URL을 가져와서 HTML에 표시 -->
+<!-- //     fetch('get_images.php') -->
+<!-- //         .then(response => response.json()) -->
+<!-- //         .then(imageUrls => { -->
+<!-- //             const foodPhotoBoxMain = document.getElementById('foodPhotoBoxMain'); -->
+
+<!-- //             // 이미지 URL을 반복하여 HTML에 이미지를 추가 -->
+<!-- //             imageUrls.forEach(imageUrl => { -->
+<!-- //                 const foodPhotoBox = document.createElement('div'); -->
+<!-- //                 foodPhotoBox.classList.add('food_photo_box'); -->
+
+<!-- //                 const foodPhoto = document.createElement('div'); -->
+<!-- //                 foodPhoto.classList.add('food_photo'); -->
+
+<!-- //                 const image = document.createElement('img'); -->
+<!-- //                 image.src = imageUrl; -->
+<!-- //                 image.alt = ''; -->
+
+<!-- //                 foodPhoto.appendChild(image); -->
+<!-- //                 foodPhotoBox.appendChild(foodPhoto); -->
+<!-- //                 foodPhotoBoxMain.appendChild(foodPhotoBox); -->
+<!-- //             }); -->
+<!-- //         }) -->
+<!-- //         .catch(error => console.error('Error:', error)); -->
+<!-- <!-- </script> --> -->
+
+
+
 	              </div>
             </div>
     </div>
