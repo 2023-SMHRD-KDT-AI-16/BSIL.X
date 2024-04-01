@@ -2,11 +2,6 @@ let inputElm = document.querySelector('input[name=input]');
 let table = document.querySelector('#search_img');
 
 // 화이트 리스트 : 해당 문자만 태그로 추가 가능
-let slideIndex = 1;
-showSlides(slideIndex);
-
-
-
 
 // initialize Tagify
 var tagify = new Tagify(inputElm, {
