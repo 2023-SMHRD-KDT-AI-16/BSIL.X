@@ -289,12 +289,20 @@ footer {
 }
 #food_right>div{
     text-align: center;
-    line-height: 110px;
+/*    line-height: 110px;*/
 	height: 110px;
     background-color: #ECF2FE;
     border-radius: 30px;
     width: 500px;
 }
+
+#food_right>div>span{
+	line-height: 30px;
+	padding: 32.5px;
+	display: block;
+	white-space: normal;
+}
+
 #food_right>div>a{
     display: block;
     width: 100%;
@@ -334,6 +342,7 @@ footer {
 
 #recipe th, td{
 	text-align: center;
+	line-height: 2;
 }
 
 #recipe table{
@@ -352,6 +361,11 @@ footer {
 h3{
 	text-align: center;
 }
+
+
+
+
+
 /* =====================차트부분 시작==================== */
 
 .chart{

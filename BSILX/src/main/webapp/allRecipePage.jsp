@@ -64,13 +64,14 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 					<%
 					} else {
 					out.println("환영합니다, " + info.getUser_name() + "님!");
-					%>
+					%><br>
 	
-					<a href="UpdateMember.jsp">마이페이지</a> <a height="50"
+					<a height="50"
 						href="LogoutService.do"><img height="50"
-						src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> <span>
-						<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span>
-						<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span>
+						src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a> 
+<!-- 						<span> -->
+<%-- 						<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span> --%>
+<%-- 						<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span> --%>
 					<%
 					}
 					%>
