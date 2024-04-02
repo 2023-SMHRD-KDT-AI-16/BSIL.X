@@ -324,7 +324,7 @@ footer {
 	padding: 20px;
 }
 
-/*----------------상세 레시피 페이지 시작---------------------*/
+/*----------------mainRecipePage페이지 시작---------------------*/
 /*음식 이미지*/
 #food {
 	border-radius: 40px;
@@ -422,15 +422,17 @@ td {
 	height: 50px;
 }
 
-#recipe h3,
-p {
+#recipe h3, p {
 	text-align: center;
 }
 
-h3 {
+#recipe h3 {
 	text-align: center;
 }
 
+#chart{
+	width: 400px !important; 
+}
 
 
 
@@ -610,6 +612,8 @@ h3 {
 	border-radius: 1rem;
 	align-items: center;
 	justify-content: center;
+	/*align-items: center;*/
+	text-align: center;
 
 }
 

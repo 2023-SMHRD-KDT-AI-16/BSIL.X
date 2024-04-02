@@ -26,11 +26,11 @@
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="style.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<%
@@ -115,9 +115,9 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 						htmlString += '<div class="food_photo">';
 						htmlString += '<img src="'+ allLboxes[i].img+'" class="slide" alt="">';
 						htmlString += '<br>';
-						htmlString += '<span class="title">' + allLboxes[i].name+'</span>';
+						htmlString += '<b class="title">' + allLboxes[i].name+'</span>';
 						htmlString += '<br>';
-						htmlString += '<span class="price">'+allLboxes[i].price+'</span>';
+						htmlString += '<b class="price">'+allLboxes[i].price+" 원"+ '</span>';
 						htmlString += "</div>";
 						console.log(allLboxes[i].name);
 						}
