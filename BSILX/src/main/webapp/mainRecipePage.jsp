@@ -42,7 +42,7 @@
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="style.css">
+
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+
 Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -522,6 +522,6 @@ $(function(){
 		}
 
 </script>
-
+<link rel="stylesheet" href="style.css">
 </body>
 </html>
