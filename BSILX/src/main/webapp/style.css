@@ -419,14 +419,21 @@ td {
 #recipe th {
 	border-bottom: 1.5px solid rgb(104, 202, 255);
 	height: 50px;
+	font-size: 35px;
+	font-weight: normal;
 }
 
 
-#recipe h3, #recipe p {
+h3 ,p{
 	text-align: center;
 }
 
-
+.chart_div > h3{
+	text-align: center;
+	margin-top: 50px;
+	font-size: 35px !important;
+	
+}
 
 
 

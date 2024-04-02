@@ -249,7 +249,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		</div>
 	</section>
 	<div class="chart_div" >
-		<p>시장 vs 대형마트</p>
+		<h3>시장 vs 대형마트</h3>
 		<div class="chart">
 			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
 			<canvas id="myChart"></canvas>
@@ -257,7 +257,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	</div>
 
 	<div class="chart_div">
-		<p>식재료 가격 동향</p>
+		<h3>식재료 가격 동향</h3>
 		<div class="chart">
 			<!-- 식재료 가격 동향 그래프 점선 그래프 추가 -->
 			<canvas id="myChart2"></canvas>
