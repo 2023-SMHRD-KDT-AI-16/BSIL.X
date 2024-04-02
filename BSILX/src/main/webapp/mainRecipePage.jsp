@@ -248,13 +248,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			</table>
 		</div>
 	</section>
-	<div class="chart_div">
-		<p>도시락 vs 외식비</p>
-		<div class="chart">
-			<!-- 도시락과 외식비 비용 막대 그래프 추가 -->
-		</div>
-	</div>
-
 	<div class="chart_div" >
 		<p>시장 vs 대형마트</p>
 		<div class="chart">
