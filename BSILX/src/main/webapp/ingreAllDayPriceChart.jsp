@@ -19,73 +19,104 @@
 		<div class="row">
 			<div class="col-md-6">
 
-				<canvas id="myChart-깻잎"></canvas>
-				<canvas id="myChart-참깨"></canvas>
-				<canvas id="myChart-쌀"></canvas>
+				<canvas id="myChart2"></canvas>
 			</div>
 		</div>
 	</div>
 	<script src="./jquery-3.7.1.min.js"></script>
 	<script>
-	fetch('Test') // 서블릿의 URL로 변경
-    .then(response => response.json()) // JSON 형식으로 파싱
-    .then(data => {
-        createCharts(data);
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
-
-function createCharts(data) {
-    // 과일 종류 추출
-    const fruitNames = [...new Set(data.map(item => item.name))];
-
-    // 과일 종류별로 그래프 생성
-    fruitNames.forEach(fruitName => {
-        const fruitData = data.filter(item => item.name === fruitName);
-        createChart(fruitName, fruitData);
-    });
-}
-
-function createChart(fruitName, fruitData) {
-    // 그래프 생성 코드
-    var ctx = document.getElementById('myChart-' + fruitName).getContext('2d');
-    
-    var c = JSON.parse(원하는 json) -> 배열로 바꿈
-    var a=[{label: "", data:""},{label:"" data:""},{},{}]
-    c.forEach((item, i) => {
-    	item['lv'] = 넣고싶은값
-    })
-    for(){
-    a.push({
-        label: fruitName,
-        data: fruitData.map(item => item.price), // 과일 데이터의 가격
-        borderColor: getRandomColor(), // 랜덤 색상 사용
-        borderWidth: 2,
-        fill: false
-    })}
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: fruitData.map(item => item.week), // 과일 데이터의 날짜를 라벨로 사용
-            datasets: a
-    
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false
-                }
-            }
-        }
-    });
-}
-
-function getRandomColor() {
-    return '#' + Math.floor(Math.random()*16777215).toString(16);
-}
-
-
+	
+	
+	$(function(){
+		var ctx2 = document.getElementById('myChart2').getContext('2d');
+	$.ajax({
+		url : 'Test',
+		type : 'GET',
+		dataType : 'json',
+		success : function(data){
+			console.log("ajax 호출 성공!")
+			
+			
+			var uniqueWeek = [];
+			var labels = [];
+			for (var i = 0; i < data.length; i++) {
+			    var week = data[i].week;
+			    if (!uniqueWeek.includes(week)) { // 중복되지 않는 값인 경우에만 추가
+			        labels.push(week);
+			        uniqueWeek.push(week); // 중복 여부를 확인하기 위해 사용될 배열에도 추가
+			    }
+			}
+			console.log(uniqueWeek);
+			
+			var uniqueNames = {};
+			var labels = [];
+			for (var i = 0; i < data.length; i++) {
+			    var name = data[i].name;
+			    // 이름이 '참깨'나 '소금'이 아닌 경우에만 배열에 추가합니다.
+			    if (name !== '참깨' && name !== '소금' && !(name in uniqueNames)) {
+			        labels.push(name);
+			        uniqueNames[name] = true;
+			    }
+			}
+			console.log(uniqueNames);
+			
+			
+			var dataset = [];
+			 for(var i = 0; i < labels.length; i++){
+				 var filterData = data.filter(item => item.name === labels[i]);
+				 var color = getRandomColor();
+				 if(filterData.length >= 5){
+				 	dataset.push({
+					label : labels[i],
+				 	data : filterData.map(item => item.price),
+				 	backgroundColor : color,
+				 	borderColor : color,
+					borderWidth : 2
+				 });
+				 }
+			 }
+			
+			 console.log(dataset)
+			 
+			var lineChartData = {
+					labels : uniqueWeek,
+					datasets : dataset
+			};
+			console.log(lineChartData)
+			
+			var lineChartOptions = {
+					scale : {
+						y :{
+							beginAtZero : false
+						}
+					},
+					elements : {
+						point : {
+							radius : 0
+						}
+					},
+					legend : {
+						display : true,
+						position : 'right'
+					}
+			};
+			
+			new Chart(ctx2, {
+				type : 'line',
+				data : lineChartData,
+				options : lineChartOptions
+			});
+			
+		},
+		error : function(xhr, status, error) {
+			console.error('Error fetching JSON data:', error);
+		}
+	})
+	});
+	
+	function getRandomColor() {
+			return '#' + Math.floor(Math.random() * 16777215).toString(16);
+		}
 	</script>
 
 

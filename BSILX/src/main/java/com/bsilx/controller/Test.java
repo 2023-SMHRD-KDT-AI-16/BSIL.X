@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,8 +26,11 @@ public class Test extends HttpServlet {
 	    request.setCharacterEncoding("UTF-8");
 	    response.setContentType("application/json; charset=UTF-8");
 		
-		String lbox_name = "깻잎쌈밥";
+//	    HttpSession session = request.getSession();
+//		String lbox_name = (String)session.getAttribute("lbox_name");
 		
+	    String lbox_name = "깻잎쌈밥";
+	    
 		List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
 		
 		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson(lbox_name);
