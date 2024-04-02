@@ -422,11 +422,11 @@ td {
 	height: 50px;
 }
 
-#recipe h3, p {
+h3 {
 	text-align: center;
 }
 
-#recipe h3 {
+p{
 	text-align: center;
 }
 
