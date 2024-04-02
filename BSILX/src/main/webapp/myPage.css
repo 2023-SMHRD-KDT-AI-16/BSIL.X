@@ -203,6 +203,10 @@ label {
 
 }
 
+label > span{
+	text-align: center;
+}
+
 label:hover {
 	background-color: rgb(186, 202, 214);
 	box-shadow: 0 4px 8px rgb(87, 87, 87);
