@@ -430,14 +430,17 @@ td {
 	text-align: center;
 }
 
-#chart{
-	width: 400px !important; 
-}
 
 
 
 
 /* =====================차트부분 시작==================== */
+#myChart{
+	width:"30vw !important";
+	height:"30vh !important";
+	
+}
+
 
 .chart {
 	text-align: center;

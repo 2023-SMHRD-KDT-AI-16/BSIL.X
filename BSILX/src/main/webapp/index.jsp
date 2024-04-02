@@ -212,7 +212,9 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             type: 'GET',
             dataType: 'json',
             success: function (data) {
+            	
                 console.log(data);
+                
                 // JSON 결과를 사용하여 테이블에 데이터를 동적으로 채웁니다.
                 var top3Prices = data.top3Prices;
                 var bottom3Prices = data.bottom3Prices;

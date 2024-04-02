@@ -11,12 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import com.bsilx.model.IngrePriceDAO;
 import com.bsilx.model.IngrePriceDTO;
 import com.bsilx.model.LunchBoxDAO;
-import com.bsilx.model.LunchBoxDTO;
 
 public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,19 +24,22 @@ public class Test extends HttpServlet {
 	    request.setCharacterEncoding("UTF-8");
 	    response.setContentType("application/json; charset=UTF-8");
 		
-//	    HttpSession session = request.getSession();
-//		String lbox_name = (String)session.getAttribute("lbox_name");
+	    HttpSession session = request.getSession();
+		String lbox_name = (String)session.getAttribute("lbox_name");
 		
-	    String lbox_name = "깻잎쌈밥";
+		System.out.println("lbox_name"+lbox_name);
+		System.out.println("데이터 들어 왔는데 왜 출력이 안돼?!?!?!?!?!?!");
+		
+	    //String lbox_name = "깻잎쌈밥";
 	    
-		List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
+		//List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
 		
 		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson(lbox_name);
 		
 		PrintWriter out = response.getWriter();
 		
 		out.print(jsonArray);
-		
+		System.out.println("jsonArray"+jsonArray);
 		out.flush();
 		
 //		request.setAttribute("jsonData", jsonArray.toString());

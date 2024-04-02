@@ -66,6 +66,7 @@
 
 $(function(){
     let ctx = document.getElementById('myChart').getContext('2d');
+    
     console.log("들어왔냐??????");
     
     // AJAX 호출을 이곳에 넣어서 페이지 로딩 시 바로 실행되게 합니다.
@@ -121,3 +122,95 @@ $(function(){
         }
     });
 });
+
+
+$(function(){
+		var ctx2 = document.getElementById('myChart2').getContext('2d');
+	$.ajax({
+		url : 'Test',
+		type : 'GET',
+		dataType : 'json',
+		success : function(data){
+			console.log("ajax 호출 성공!")
+			
+			
+			var uniqueWeek = [];
+			var labels = [];
+			for (var i = 0; i < data.length; i++) {
+			    var week = data[i].week;
+			    if (!uniqueWeek.includes(week)) { // 중복되지 않는 값인 경우에만 추가
+			        labels.push(week);
+			        uniqueWeek.push(week); // 중복 여부를 확인하기 위해 사용될 배열에도 추가
+			    }
+			}
+			console.log(uniqueWeek);
+			
+			var uniqueNames = {};
+			var labels = [];
+			for (var i = 0; i < data.length; i++) {
+			    var name = data[i].name;
+			    // 이름이 '참깨'나 '소금'이 아닌 경우에만 배열에 추가합니다.
+			    if (name !== '참깨' && name !== '소금' && !(name in uniqueNames)) {
+			        labels.push(name);
+			        uniqueNames[name] = true;
+			    }
+			}
+			console.log(uniqueNames);
+			
+			
+			var dataset = [];
+			 for(var i = 0; i < labels.length; i++){
+				 var filterData = data.filter(item => item.name === labels[i]);
+				 var color = getRandomColor();
+				 if(filterData.length >= 5){
+				 	dataset.push({
+					label : labels[i],
+				 	data : filterData.map(item => item.price),
+				 	backgroundColor : color,
+				 	borderColor : color,
+					borderWidth : 2
+				 });
+				 }
+			 }
+			
+			 console.log(dataset)
+			 
+			var lineChartData = {
+					labels : uniqueWeek,
+					datasets : dataset
+			};
+			console.log(lineChartData)
+			
+			var lineChartOptions = {
+					scale : {
+						y :{
+							beginAtZero : false
+						}
+					},
+					elements : {
+						point : {
+							radius : 0
+						}
+					},
+					legend : {
+						display : true,
+						position : 'right'
+					}
+			};
+			
+			new Chart(ctx2, {
+				type : 'line',
+				data : lineChartData,
+				options : lineChartOptions
+			});
+			
+		},
+		error : function(xhr, status, error) {
+			console.error('Error fetching JSON data:', error);
+		}
+	})
+	});
+	
+	function getRandomColor() {
+			return '#' + Math.floor(Math.random() * 16777215).toString(16);
+		}

@@ -26,6 +26,14 @@
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
 	
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+	
+	
+	
 <script src="https://unpkg.com/@yaireo/tagify"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -41,7 +49,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
 
-<script src="chart.js"></script>
+
 </head>
 <body>
 	<script src="scriptTest.js"></script>
@@ -240,28 +248,29 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			</table>
 		</div>
 	</section>
-	<div class="chart">
+	<div class="chart_div">
 		<p>도시락 vs 외식비</p>
 		<div class="chart">
 			<!-- 도시락과 외식비 비용 막대 그래프 추가 -->
 		</div>
 	</div>
 
-	<div class="chart" >
+	<div class="chart_div" >
 		<p>시장 vs 대형마트</p>
 		<div class="chart">
 			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
-			<canvas id="myChart" width="400" height="400"></canvas>
+			<canvas id="myChart"></canvas>
 		</div>
 	</div>
 
-	<div class="chart">
+	<div class="chart_div">
 		<p>식재료 가격 동향</p>
 		<div class="chart">
 			<!-- 식재료 가격 동향 그래프 점선 그래프 추가 -->
+			<canvas id="myChart2"></canvas>
 		</div>
 	</div>
-
+<script src="chart.js"></script>
 
 
 </body>
