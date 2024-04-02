@@ -156,7 +156,9 @@
 										formHtml += `<li>
 		                                   				<input type="checkbox" id="myCheckbox${index}" />
 		                                    			<label for="myCheckbox${index}">
-		                                       			<img src="${recipe.lbox_img}" alt="${recipe.lbox_seq}"> ${recipe.lbox_name}
+		                                       			<img src="${recipe.lbox_img}" alt="${recipe.lbox_seq}">
+		                                       			<br>
+		                                       			${recipe.lbox_name}
 		                                    			</label>
 		                                				</li>`;
 

@@ -102,6 +102,7 @@ $(function(){
 
             let chartOptions = {
                 scales: {
+					responsive: false,
                     y: {
                         beginAtZero: true
                     }

@@ -247,7 +247,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		</div>
 	</div>
 
-	<div class="chart">
+	<div class="chart" >
 		<p>시장 vs 대형마트</p>
 		<div class="chart">
 			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
