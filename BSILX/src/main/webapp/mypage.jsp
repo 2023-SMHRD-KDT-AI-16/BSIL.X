@@ -196,7 +196,7 @@
 					function deleteFavorite(){
 						
 						const selectImages = [];
-						
+						alert("마이페이지에서 삭제는 기능 구현중입니다. 해당 레시피에 가서 삭제해주세요.");
 						// 체크된 체크박스들을 찾아서 선택된 이미지의 이름을 배열에 추가
 						$('input[type="checkbox"]:checked').each(function() {
 							const imageName = $(this).next('label').find('img').attr('alt');
