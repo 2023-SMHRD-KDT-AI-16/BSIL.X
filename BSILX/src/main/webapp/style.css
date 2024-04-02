@@ -324,7 +324,7 @@ footer {
 	padding: 20px;
 }
 
-/*----------------상세 레시피 페이지 시작---------------------*/
+/*----------------mainRecipePage페이지 시작---------------------*/
 /*음식 이미지*/
 #food {
 	border-radius: 40px;
@@ -422,12 +422,11 @@ td {
 	height: 50px;
 }
 
-#recipe h3,
-p {
+#recipe h3, p {
 	text-align: center;
 }
 
-h3 {
+#recipe h3 {
 	text-align: center;
 }
 
@@ -436,6 +435,12 @@ h3 {
 
 
 /* =====================차트부분 시작==================== */
+#myChart{
+	width:"30vw !important";
+	height:"30vh !important";
+	
+}
+
 
 .chart {
 	text-align: center;
@@ -610,6 +615,8 @@ h3 {
 	border-radius: 1rem;
 	align-items: center;
 	justify-content: center;
+	/*align-items: center;*/
+	text-align: center;
 
 }
 
