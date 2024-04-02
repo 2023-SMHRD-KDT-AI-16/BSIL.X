@@ -404,7 +404,6 @@ footer {
 	transition: box-shadow 0.3s ease;
 	background-color: rgb(186, 202, 214);
 }
-
 #recipe th,
 td {
 	text-align: center;
@@ -422,14 +421,9 @@ td {
 	height: 50px;
 }
 
-#recipe h3, p {
+#recipe h3, #recipe p {
 	text-align: center;
 }
-
-#recipe h3 {
-	text-align: center;
-}
-
 
 
 

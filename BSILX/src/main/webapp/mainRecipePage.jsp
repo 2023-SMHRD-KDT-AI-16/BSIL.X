@@ -264,8 +264,9 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		</div>
 	</div>
 
-<script>
 
+
+<script>
 $(function(){
     let ctx = document.getElementById('myChart').getContext('2d');
     var ctx2 = document.getElementById('myChart2').getContext('2d');
