@@ -119,7 +119,7 @@ public class LunchBoxDAO {
 	}
 
 	
-	public int getLbox_seq (String lbox_name) {
+	public int getLboxSeq (String lbox_name) {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		

@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.bsilx.model.LunchBoxDAO"%>
 <%@page import="com.bsilx.model.LunchBoxDTO"%>
 <%@page import="java.util.List"%>
@@ -115,52 +116,36 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 						htmlString += '<div class="food_photo">';
 						htmlString += '<img src="'+ allLboxes[i].img+'" class="slide" alt="">';
 						htmlString += '<br>';
-						htmlString += '<b class="title">' + allLboxes[i].name+'</span>';
+						htmlString += '<b class="title">' + allLboxes[i].name+'</b>';
 						htmlString += '<br>';
-						htmlString += '<b class="price">'+allLboxes[i].price+" 원"+ '</span>';
+						htmlString += '<b class="price">'+allLboxes[i].price + '</b>';
+						htmlString += '<b class="price"> 원</b>';
 						htmlString += "</div>";
 						console.log(allLboxes[i].name);
 						}
-					console.log(htmlString);
 						htmlString += "</div>";
 						$(".food_photo_box_main").html(htmlString);
 				</script>
 			
 
-				<!-- <div class="food_photo_box_main" id="foodPhotoBoxMain"> -->
-				
-				<!--     이미지가 동적으로 추가될 영역 -->
-				
-				<!-- </div> -->
-
-				
-				<!-- <script> -->
-				<!-- //     // PHP 스크립트로부터 이미지 URL을 가져와서 HTML에 표시 -->
-				<!-- //     fetch('get_images.php') -->
-				<!-- //         .then(response => response.json()) -->
-				<!-- //         .then(imageUrls => { -->
-				<!-- //             const foodPhotoBoxMain = document.getElementById('foodPhotoBoxMain'); -->
-
-				<!-- //             // 이미지 URL을 반복하여 HTML에 이미지를 추가 -->
-				<!-- //             imageUrls.forEach(imageUrl => { -->
-				<!-- //                 const foodPhotoBox = document.createElement('div'); -->
-				<!-- //                 foodPhotoBox.classList.add('food_photo_box'); -->
-
-				<!-- //                 const foodPhoto = document.createElement('div'); -->
-				<!-- //                 foodPhoto.classList.add('food_photo'); -->
-
-				<!-- //                 const image = document.createElement('img'); -->
-				<!-- //                 image.src = imageUrl; -->
-				<!-- //                 image.alt = ''; -->
-
-				<!-- //                 foodPhoto.appendChild(image); -->
-				<!-- //                 foodPhotoBox.appendChild(foodPhoto); -->
-				<!-- //                 foodPhotoBoxMain.appendChild(foodPhotoBox); -->
-				<!-- //             }); -->
-				<!-- //         }) -->
-				<!-- //         .catch(error => console.error('Error:', error)); -->
-				<!-- <!-- </script> -->
-				-->
+			<script>
+    $(document).ready(function() {
+        $(".food_photo img").click(function() {
+        	
+            var lboxName = $(this).siblings('.title').text(); // 클릭된 이미지의 lunch box 이름 가져오기
+            var lboxImg = $(this).attr('src'); // 이미지 경로 가져오기
+            var lboxPrice = $(this).siblings('.price').first().text(); // 가격 가져오기
+            
+            var form = $('<form action="mainRecipePage.jsp" method="post"></form>');
+            form.append('<input type="hidden" name="lbox_name" value= "' + lboxName +'">');
+            form.append('<input type="hidden" name="lbox_img" value= "' + lboxImg +'">');
+            form.append('<input type="hidden" name="lbox_price" value= "' + lboxPrice +'">');
+            $(document.body).append(form);
+            form.submit();
+        });
+    });
+</script>
+			
 
 
 			

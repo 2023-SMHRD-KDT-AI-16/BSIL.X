@@ -1,6 +1,7 @@
 package com.bsilx.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,15 +25,22 @@ public class IngreAllDayPriceChart extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+	    response.setContentType("application/json; charset=UTF-8");
+
+		
 		
 		String ingre_name = "감자";
 
-		List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
+		//List<IngrePriceDTO> priceList = new IngrePriceDAO().allDayPrice(ingre_name);
 		
-		JSONArray jsonArray = new JSONArray();
+		//JSONArray jsonArray = new JSONArray();
 
 //		 jsonArray = new IngrePriceDAO().allDayPriceToJson(priceList);
 			
+		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson("어묵전");
+		
+		PrintWriter out = response.getWriter();
+		out.print(jsonArray);
 		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");

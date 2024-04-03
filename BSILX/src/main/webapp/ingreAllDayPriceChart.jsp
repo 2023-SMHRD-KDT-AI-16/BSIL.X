@@ -53,7 +53,7 @@
 			for (var i = 0; i < data.length; i++) {
 			    var name = data[i].name;
 			    // 이름이 '참깨'나 '소금'이 아닌 경우에만 배열에 추가합니다.
-			    if (name !== '참깨' && name !== '소금' && !(name in uniqueNames)) {
+			    if (!(name in uniqueNames)) {
 			        labels.push(name);
 			        uniqueNames[name] = true;
 			    }

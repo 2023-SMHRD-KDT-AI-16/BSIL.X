@@ -32,22 +32,16 @@ public class Test extends HttpServlet {
 		String lbox_name = request.getParameter("lbox_name");
 		
 		System.out.println("식재료가격동향!!lbox_name==="+lbox_name);
-		System.out.println("식재료가격동향!!데이터 들어 왔는데 왜 출력이 안돼?!?!?!?!?!?!");
-		
-	    //String lbox_name = "깻잎쌈밥";
-	    
 		
 		
-		
-		
-		List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
+		// List<IngrePriceDTO> lboxIngreList = new LunchBoxDAO().selectLboxIngre(lbox_name);
 		
 		JSONArray jsonArray = new IngrePriceDAO().allDayPriceToJson(lbox_name);
 		
 		PrintWriter out = response.getWriter();
 		
 		out.print(jsonArray);
-		System.out.println("식재료가격동향!!jsonArray"+jsonArray);
+		//System.out.println("식재료가격동향!!jsonArray"+jsonArray);
 		out.flush();
 		
 //		request.setAttribute("jsonData", jsonArray.toString());

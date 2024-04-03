@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="org.json.JSONArray"%>
 <%@page import="com.bsilx.model.IngrePriceDAO"%>
 <%@page import="java.io.PrintWriter"%>
@@ -69,11 +70,11 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     String userNick = (String) session.getAttribute("userNick");
     String userPhone = (String) session.getAttribute("userPhone");
     
-    String lboxName = request.getParameter("lbox_name");
 	String lboxImg = request.getParameter("lbox_img");
 	String lboxPrice = request.getParameter("lbox_price");
+	String lboxName = request.getParameter("lbox_name");
 	
-%>
+%> 
 
 	<%
 	String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
@@ -172,7 +173,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 			<%
 			
 			//메인페이시에서 받아오는 값   
-			int lbox_seq = new LunchBoxDAO().getLbox_seq(lboxName);
+			int lbox_seq = new LunchBoxDAO().getLboxSeq(lboxName);
 			session.setAttribute("lbox_seq", lbox_seq);
 			
 			String user_id = userId;
@@ -456,7 +457,7 @@ $(function(){
 			for (var i = 0; i < data.length; i++) {
 			    var name = data[i].name;
 			    // 이름이 '참깨'나 '소금'이 아닌 경우에만 배열에 추가합니다.
-			    if (name !== '참깨' && name !== '소금' && !(name in uniqueNames)) {
+			    if (!(name in uniqueNames)) {
 			        labels.push(name);
 			        uniqueNames[name] = true;
 			    }
@@ -468,7 +469,7 @@ $(function(){
 			 for(var i = 0; i < labels.length; i++){
 				 var filterData = data.filter(item => item.name === labels[i]);
 				 var color = getRandomColor();
-				 if(filterData.length >= 5){
+				 if(filterData.length >= 3){
 				 	dataset.push({
 					label : labels[i],
 				 	data : filterData.map(item => item.price),

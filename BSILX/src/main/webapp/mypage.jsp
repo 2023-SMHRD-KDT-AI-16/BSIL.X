@@ -112,10 +112,8 @@
 					<ul id="imageList">
 					
 			
-
-
-
 					</ul>
+					
 					<!-- 버튼 value 값 delete -->
 					<button id="submitBtn" value="delete" onclick="deleteFavorite()">삭제</button>
 				</form>
@@ -201,7 +199,7 @@
 						$('input[type="checkbox"]:checked').each(function() {
 							const imageName = $(this).next('label').find('img').attr('alt');
 							selectImages.push(imageName);
-							
+							console.log(imageName);
 						});
 						
 						// 선택된 이미지들 서버에 전달해 삭제 요청
