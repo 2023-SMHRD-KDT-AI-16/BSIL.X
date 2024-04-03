@@ -26,18 +26,20 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
-	
+
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-	
-	
-	
+
+
+
 <script src="https://unpkg.com/@yaireo/tagify"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script
 	src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
@@ -59,22 +61,20 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	response.setCharacterEncoding("UTF-8");
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
-
 	%>
 
 	<%
-    // 세션에서 사용자 정보 가져오기
-    String userId = (String) session.getAttribute("userId");
-    String userName = (String) session.getAttribute("userName");
-    String userEmail = (String) session.getAttribute("userEmail");
-    String userNick = (String) session.getAttribute("userNick");
-    String userPhone = (String) session.getAttribute("userPhone");
-    
+	// 세션에서 사용자 정보 가져오기
+	String userId = (String) session.getAttribute("userId");
+	String userName = (String) session.getAttribute("userName");
+	String userEmail = (String) session.getAttribute("userEmail");
+	String userNick = (String) session.getAttribute("userNick");
+	String userPhone = (String) session.getAttribute("userPhone");
+
 	String lboxImg = request.getParameter("lbox_img");
 	String lboxPrice = request.getParameter("lbox_price");
 	String lboxName = request.getParameter("lbox_name");
-	
-%> 
+	%>
 
 	<%
 	String clientId = "lsvNpYiLc0tipIWEDxDV";//애플리케이션 클라이언트 아이디값";
@@ -88,7 +88,6 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	session.setAttribute("state", state);
 	%>
 	<%
-	
 	List<Integer> ingreList = new IngrePriceDAO().selectIngreSeq(lboxName);
 
 	// 대형마트 가격 정보 담는 리스트
@@ -103,19 +102,18 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	for (int ingre_seq : ingreList) {
 		BigMartpriceList = new IngrePriceDAO().oneDayBigMartPrice(ingre_seq);
 		SmallMartpriceList = new IngrePriceDAO().oneDaySmallMartPrice(ingre_seq);
-		if(BigMartpriceList.size()!= 0 && SmallMartpriceList.size()!= 0){
-		priceList.add(BigMartpriceList.get(0));
-		priceList.add(SmallMartpriceList.get(0));
-	}
+		if (BigMartpriceList.size() != 0 && SmallMartpriceList.size() != 0) {
+			priceList.add(BigMartpriceList.get(0));
+			priceList.add(SmallMartpriceList.get(0));
 		}
+	}
 
 	JSONArray jsonArray = new JSONArray();
 
 	jsonArray = new IngrePriceDAO().oneDayPriceToJson(priceList);
 
-/* 	response.setContentType("application/json");
-	response.setCharacterEncoding("UTF-8"); */
-	
+	/* 	response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8"); */
 	%>
 
 
@@ -141,13 +139,12 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				out.println("환영합니다, " + info.getUser_name() + "님!");
 				%><br>
 
-<!-- 				<a href="UpdateMember.jsp">마이페이지</a>  -->
-				<a height="50"
-					href="LogoutService.do"><img height="50"
+				<!-- 				<a href="UpdateMember.jsp">마이페이지</a>  -->
+				<a height="50" href="LogoutService.do"><img height="50"
 					src="http://static.nid.naver.com/oauth/small_g_out.PNG" /></a>
-<!-- 					<span> -->
-<%-- 					<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span> --%>
-<%-- 					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span> --%>
+				<!-- 					<span> -->
+				<%-- 					<%=info.getUser_id()%></span> <span> <%=info.getUser_name()%></span> <span> --%>
+				<%-- 					<%=info.getUser_email()%></span> <span> <%=info.getUser_nick()%></span> <span><%=info.getUser_phone()%></span> --%>
 				<%
 				}
 				%>
@@ -171,11 +168,10 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<div id="food">
 
 			<%
-			
 			//메인페이시에서 받아오는 값   
 			int lbox_seq = new LunchBoxDAO().getLboxSeq(lboxName);
 			session.setAttribute("lbox_seq", lbox_seq);
-			
+
 			String user_id = userId;
 			session.setAttribute("user_id", user_id);
 			session.setAttribute("lboxName", lboxName);
@@ -193,7 +189,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 				<%
 				String session_user_id = (String) session.getAttribute("user_id");
-				String session_lbox_name = (String)session.getAttribute("lbox_name");
+				String session_lbox_name = (String) session.getAttribute("lbox_name");
 				%>
 
 				<div class="food_right_div">
@@ -205,20 +201,16 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				</div>
 
 				<div class="food_right_div">
-					<span>
-
-					<%
-						    List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lboxName);
-						    if (lbox_ingre != null) {
-						        for (IngrePriceDTO ingre : lbox_ingre) {
-						%>
-						            <%=ingre.getIngre_name()%>
-						<%
-						        }
-						    } else {
-						        out.println("재료 정보를 불러올 수 없습니다.");
-						    }
-						%>
+					<span> <%
+ List<IngrePriceDTO> lbox_ingre = new LunchBoxDAO().selectLboxIngre(lboxName);
+ if (lbox_ingre != null) {
+ 	for (IngrePriceDTO ingre : lbox_ingre) {
+ %> <%=ingre.getIngre_name()%> <%
+ }
+ } else {
+ out.println("재료 정보를 불러올 수 없습니다.");
+ }
+ %>
 					</span>
 				</div>
 			</div>
@@ -231,25 +223,24 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 				<tr>
 					<td>
 						<%
-						  if (lbox_info != null) {
-						String lbox_recipe = lbox_info.getLbox_recipe();
-						List<String> recipeList = Arrays.asList(lbox_recipe.split("-"));
-							for (String recipe : recipeList) {%> 
-						<%=recipe%><br> 
-						<%}
-						 }else {
-						        // lbox_info 또는 lbox_recipe가 null인 경우의 처리
-						        %> 레시피 정보가 없습니다. 
-						 <%}%>
-						 
-						 
-						 
+						if (lbox_info != null) {
+							String lbox_recipe = lbox_info.getLbox_recipe();
+							List<String> recipeList = Arrays.asList(lbox_recipe.split("-"));
+							for (String recipe : recipeList) {
+						%> <%=recipe%><br> <%
+ }
+ } else {
+ // lbox_info 또는 lbox_recipe가 null인 경우의 처리
+ %> 레시피 정보가 없습니다. <%}%>
+
+
+
 					</td>
 				</tr>
 			</table>
 		</div>
 	</section>
-	<div class="chart_div" >
+	<div class="chart_div">
 		<h3>시장 vs 대형마트</h3>
 		<div class="chart">
 			<!-- 시장과 대형마트의 재료 가격 비교 막대 그래프 추가 -->
@@ -267,7 +258,7 @@ Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 
 
-<script>
+	<script>
 $(function(){
     let ctx = document.getElementById('myChart').getContext('2d');
     var ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -333,14 +324,25 @@ $(function(){
 		success : function(data){
 			console.log("ajax 호출 성공!")
 			
+			data.sort(function(a,b){
+				var dateA = new Date("20" + a.date.split('/').join('/'));
+			    var dateB = new Date("20" + b.date.split('/').join('/'));
+			    return dateA - dateB;
+			})
+			
+		 	var data = data.filter(function(item) {
+          	  return item.category === '전통';
+       		 });
+	
+			
 			
 			var uniqueWeek = [];
 			var labels = [];
 			for (var i = 0; i < data.length; i++) {
-			    var week = data[i].week;
-			    if (!uniqueWeek.includes(week)) { // 중복되지 않는 값인 경우에만 추가
-			        labels.push(week);
-			        uniqueWeek.push(week); // 중복 여부를 확인하기 위해 사용될 배열에도 추가
+			    var date = data[i].date;
+			    if (!uniqueWeek.includes(date)) { // 중복되지 않는 값인 경우에만 추가
+			        labels.push(date);
+			        uniqueWeek.push(date); // 중복 여부를 확인하기 위해 사용될 배열에도 추가
 			    }
 			}
 			console.log(uniqueWeek);
@@ -350,7 +352,7 @@ $(function(){
 			for (var i = 0; i < data.length; i++) {
 			    var name = data[i].name;
 			    // 이름이 '참깨'나 '소금'이 아닌 경우에만 배열에 추가합니다.
-			    if (name !== '참깨' && name !== '소금' && !(name in uniqueNames)) {
+			    if (!(name in uniqueNames)) {
 			        labels.push(name);
 			        uniqueNames[name] = true;
 			    }
@@ -430,7 +432,7 @@ $(function(){
     });
 });
 
-
+/*
 $(function(){
 		var ctx2 = document.getElementById('myChart2').getContext('2d');
 	$.ajax({
@@ -516,13 +518,13 @@ $(function(){
 			console.error('Error fetching JSON data:', error);
 		}
 	})
-	});
+	});*/
 	
 	function getRandomColor() {
 			return '#' + Math.floor(Math.random() * 16777215).toString(16);
 		}
 
 </script>
-<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
 </body>
 </html>
