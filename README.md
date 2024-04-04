@@ -22,11 +22,15 @@ BSIL.X 핵심 프로젝트입니다.
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/c3822c74-0e5e-470f-8791-c7d9ead9ebbf)
 
-
-
 6.유스케이스
+
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/4eed5cb2-bb10-4c67-a6b2-90964b27d6d6)
+
 7.서비스 흐름도
 8.ER 다이어그램
+
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/73857cd5-b01d-4d69-a1da-7ec5f33f6328)
+
 9.화면구성
 10.팀원역할
 11.트러블슈팅
