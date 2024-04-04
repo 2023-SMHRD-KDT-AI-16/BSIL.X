@@ -47,6 +47,14 @@ BSIL.X 핵심 프로젝트입니다.
 ## 9.화면구성
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/ef498345-b7bc-4533-ba13-3ad979c7243b)
 
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/84c2979d-79a7-47c4-adfd-4166603e2255)
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/6b75f5ee-2c0e-4d32-99b2-4264992601be)
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/24c5c297-f376-4b2a-bdbb-ec546202da07)
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/4d3aaaf6-3678-475f-b3ce-5bc75e93b369)
+![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/8f68dbfc-368f-46e6-b725-9063e0b25c83)
+
+
+
 ## 10.팀원역할
 
 <table class="team-contacts">
