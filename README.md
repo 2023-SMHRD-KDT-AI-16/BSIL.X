@@ -96,3 +96,38 @@ BSIL.X 핵심 프로젝트입니다.
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/4521cc8e-cdd7-485a-b797-9c1dc0c4281e)
 
+
+## 12.참고문헌
+
+★★★ 참고 사이트 ★★★
+https://www.thepublic.kr/news/articleView.html?idxno=15621
+
+벼룩시장구인구직
+
+http://www.hallyunews.net/bbs/board.php?bo_table=han_news_economy&wr_id=208&page=167&me_code=10
+
+https://www.kamis.or.kr/customer/price/agricultureRetail/bizcondition/catalogue.do?action=daily&regday=2024-03-01&countycode=&itemcategorycode=200&convert_kg_yn=N
+
+https://kosis.kr/index/index.do
+       국가통계포털
+
+
+★★★데이터 수집 참고 사이트 ★★★
+1. https://kadx.co.kr/
+    농식품 빅데이터거래소 카덱스(KADX, Korea Agrofood Data eXchange)
+
+2. https://www.kamis.or.kr/customer/main/main.do
+    KAMIS 농산물
+
+3. https://www.price.go.kr/tprice/portal/main/main.do
+     한국소비자원-참가원
+
+4. https://www.10000recipe.com/
+    만개의레시피
+
+5. https://2bob.co.kr/
+    이밥차
+
+
+
+
