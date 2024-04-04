@@ -39,11 +39,34 @@ BSIL.X 핵심 프로젝트입니다.
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/ef498345-b7bc-4533-ba13-3ad979c7243b)
 
 10.팀원역할
-장재훈 : <a href="https://github.com/jxehxn">github</a>   
-송민혁 : <a href="https://github.com/Song-Min-Hyeok">github</a>
-김시은 :  <a href="https://github.com/sinni16">github</a> 
-최영재 :     <a href="https://github.com/choi-youngjae">github</a>
 
+<table class="team-contacts">
+    <thead>
+      <tr>
+        <th>장재훈</th>
+        <th>PM, Back-End, Front-End, Design</th>
+        <th><a href="https://github.com/jxehxn">github</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>송민혁</td>
+        <td>Front-End, Crawling, Design</td>
+        <td><a href="https://github.com/Song-Min-Hyeok">github</a></td>
+      </tr>
+      <tr>
+        <td>김시은</td>
+        <td>DB, Crawling, Back-End</td>
+        <td><a href="https://github.com/sinni16">github</a> </td>
+      </tr>
+      <tr>
+        <td>최영재</td>
+        <td>자료수집,디자인</td>
+        <td><a href="https://github.com/choi-youngjae">github</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/9ad83e9f-afef-4eee-a671-eb5fbe28965d)
                                                                    
