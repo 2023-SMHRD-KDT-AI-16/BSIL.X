@@ -1,6 +1,9 @@
 # BSIL.X
 BSIL.X 핵심 프로젝트입니다.
 
+나를 죽이지 못하는 것은 나를 더 강하게 만든다 - 프리드히리 니체 -
+
+
 <a href="https://docs.google.com/presentation/d/1IkLo5t8j0CoUJVFI37YDdQu6TBStEkqb/edit?usp=drive_link&ouid=112484926879229683816&rtpof=true&sd=true">프로젝트 PPT 보러가기</a>
 ## 1.프로젝트명(팀명:BSIL.X)
 
@@ -8,6 +11,12 @@ BSIL.X 핵심 프로젝트입니다.
 
   바쁜 직장인들 및 현대인들을 위해 고안한 서비스로 간단하게 재료의 가격과 도시락 레시피를
   한눈에 쉽게 볼 수 있습니다. 
+  
+  ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/da397db1-3988-427f-84a6-463b9e06f9ae)
+
+  ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/223960e6-95b4-476d-a19d-fc3d1c2493fe)
+
+
   
 ## 3.프로젝트기간
 
