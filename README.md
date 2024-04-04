@@ -41,6 +41,9 @@ BSIL.X 핵심 프로젝트입니다.
 10.팀원역할
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/9ad83e9f-afef-4eee-a671-eb5fbe28965d)
+장재훈 : <a href="https://github.com/jxehxn">github</a>       송민혁 : github
+
+
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/c51f5530-688e-42a8-843f-3c3d9536ff21)
 
 
