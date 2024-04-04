@@ -1,7 +1,7 @@
-### BSIL.X
+# BSIL.X
 BSIL.X 핵심 프로젝트입니다.
 
-# 나를 죽이지 못하는 것은 나를 더 강하게 만든다 - 프리드히리 니체 -
+### 나를 죽이지 못하는 것은 나를 더 강하게 만든다 - 프리드히리 니체 -
 
 
 <a href="https://docs.google.com/presentation/d/1IkLo5t8j0CoUJVFI37YDdQu6TBStEkqb/edit?usp=drive_link&ouid=112484926879229683816&rtpof=true&sd=true">프로젝트 PPT 보러가기</a>
