@@ -39,13 +39,17 @@ BSIL.X 핵심 프로젝트입니다.
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/ef498345-b7bc-4533-ba13-3ad979c7243b)
 
 10.팀원역할
+장재훈 : <a href="https://github.com/jxehxn">github</a>   
+송민혁 : <a href="https://github.com/Song-Min-Hyeok">github</a>
+김시은 :  <a href="https://github.com/sinni16">github</a> 
+최영재 :     <a href="https://github.com/choi-youngjae">github</a>
+
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/9ad83e9f-afef-4eee-a671-eb5fbe28965d)
-장재훈 : <a href="https://github.com/jxehxn">github</a>                                       |                                송민혁 : <a href="https://[github.com/jxehxn](https://github.com/Song-Min-Hyeok)">github</a>
-
+                                                                   
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/c51f5530-688e-42a8-843f-3c3d9536ff21)
-김시은 :  <a href="https://github.com/sinni16">github</a>                                     |                                최영재 :     <a href="https://github.com/choi-youngjae">github</a>
+                                                                  
 
 
 11.트러블슈팅
