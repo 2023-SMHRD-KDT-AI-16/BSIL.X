@@ -17,12 +17,6 @@ X Exploration (탐구) 를 뜻하며  코드를 탐구하는 사람들을 표현
 </div>
 
   
-  ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/da397db1-3988-427f-84a6-463b9e06f9ae)
-
-  ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/223960e6-95b4-476d-a19d-fc3d1c2493fe)
-
-
-  
 ## 3.프로젝트기간
 
   2024.02.23~ 2024.4.5
