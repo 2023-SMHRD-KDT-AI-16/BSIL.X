@@ -11,7 +11,9 @@ X Exploration (탐구) 를 뜻하며  코드를 탐구하는 사람들을 표현
 ## 2.서비스소개
 
 <div align="center">
+   
    ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/fd2d0fa3-c4b4-4815-bc84-b94589ccf1d8)
+   
 </div>
  
 
