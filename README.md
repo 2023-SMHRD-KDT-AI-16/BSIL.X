@@ -6,11 +6,11 @@ BSIL.X 핵심 프로젝트입니다.
 
 <a href="https://docs.google.com/presentation/d/1IkLo5t8j0CoUJVFI37YDdQu6TBStEkqb/edit?usp=drive_link&ouid=112484926879229683816&rtpof=true&sd=true">프로젝트 PPT 보러가기</a>
 ## 1.프로젝트명(팀명:BSIL.X)
-
+byte, short, int, long 의 첫글자인 BSIL 은  코드를!
+X Exploration (탐구) 를 뜻하며  코드를 탐구하는 사람들을 표현 하였습니다.
 ## 2.서비스소개
 
-![image[최종]장재훈_핵심프로젝트_폼보드.pdf](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/files/14880784/7._._.pdf)
-
+  ![image](https://github.com/2023-SMHRD-KDT-AI-16/BSIL.X/assets/26495915/fd2d0fa3-c4b4-4815-bc84-b94589ccf1d8)
 
   바쁜 직장인들 및 현대인들을 위해 고안한 서비스로 간단하게 재료의 가격과 도시락 레시피를
   한눈에 쉽게 볼 수 있습니다. 
